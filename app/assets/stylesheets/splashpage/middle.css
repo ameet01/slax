@@ -1,6 +1,6 @@
 .splash-mid {
   width: 100%;
-  height: 640px;
+  height: 670px;
   border-bottom: 1px solid #ebebeb;
 }
 
@@ -88,14 +88,14 @@
   .register .heading-rotation-container .rotator {
     opacity: 0;
     position: absolute;
-    top: 100px
+    top: 90px;
   }
     .register .heading-rotation-container .rotator.h1-like {
       color: #2B374B;
       font-family: Garamond;
       font-weight: 900;
       font-size: 90px;
-      line-height: 70px; }
+      line-height: 85px; }
       @media only screen and (max-width: 960px) {
         .register .heading-rotation-container .rotator.h1-like {
           font-size: 50px;
