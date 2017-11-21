@@ -31,8 +31,8 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div>
-        <h3>{header}</h3>
+      <div className='session'>
+        <h3 className='session-header'>{header}</h3>
         {link}
         <ul>{this.props.errors.map(error => <li>{error}</li>)}</ul>
 

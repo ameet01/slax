@@ -1,12 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const SplashPage = ({logout, currentUser}) => {
+const SplashPage = () => {
 
   return <div>
 
     <section className='splash-header'>
       <img src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
       <h3 className='splash-header-logo'>slack</h3>
+      <Link className='splash-header-login' to="/login">Log In</Link>
+      <Link className='splash-header-signup' to="/signup">Sign Up</Link>
     </section>
 
     <section className='splash-mid'>
