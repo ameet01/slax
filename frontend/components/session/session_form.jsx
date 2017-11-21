@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state));
+    this.props.processForm(Object.assign({}, this.state)).then(() => this.props.history.push('/channels/1'));
   }
 
   update(property) {
@@ -24,10 +24,10 @@ class SessionForm extends React.Component {
     var header, link;
     if(this.props.formType === 'login') {
       header = 'Log In To Slack';
-      link = <Link to='/signup'>Sign Up</Link>;
+      link = <div className='form-redirect'>Need to register? Then <Link className='form-link' to='/signup'>Sign Up</Link></div>;
       } else {
         header = 'Create an Account';
-        link = <Link to='/login'>Log In</Link>;
+        link = <div className='form-redirect'>Already have an account? Then <Link className='form-link' to='/login'>Log In</Link></div>;
         }
 
         return (
@@ -44,35 +44,40 @@ class SessionForm extends React.Component {
 
             <section className='session-mid'>
               <section className='session-mid-form-box'>
+                <ul className='session-errors'>{this.props.errors.map(error => <li>{error}</li>)}</ul>
                 <section className='session-mid-form'>
                   <h2 className='session-mid-form-header'>{header}</h2>
-                  <h6>Enter your username and password</h6>
-                  {link}
-                  <ul>{this.props.errors.map(error => <li>{error}</li>)}</ul>
+                  <h6 className='session-mid-form-enter-details-para'>Enter your <span>username</span> and <span>password</span></h6>
 
                   <form onSubmit={this.handleSubmit}>
-                    <label>Username:
+                    <label>
                       <input
+                        className='form-username-input'
                         type='text'
                         value={this.state.username}
                         onChange={this.update('username')}
+                        autoComplete="new-username"
+                        placeholder="Username"
                         />
                     </label>
 
                     <br />
 
-                    <label>Password:
+                    <label>
                       <input
+                        className='form-password-input'
                         type='password'
                         value={this.state.password}
                         onChange={this.update('password')}
+                        autoComplete="new-password"
+                        placeholder="Password"
                         />
                     </label>
 
                     <br />
 
-                    <button type='submit'>Submit</button>
-
+                    <button className='form-submit-button' type='submit'>Submit</button>
+                    {link}
                   </form>
                 </section>
               </section>
@@ -81,9 +86,9 @@ class SessionForm extends React.Component {
 
             <section className='session-footer'>
               <ul>
-                <li><a href='https://github.com/ameet01'><i class="fa fa-github"></i>GitHub</a></li>
-                <li><a href='https://www.linkedin.com/in/ameetvadhia'><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-                <li><a href='https://www.ameet.io'><i class="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
+                <li><a href='https://github.com/ameet01'><i className="fa fa-github"></i>GitHub</a></li>
+                <li><a href='https://www.linkedin.com/in/ameetvadhia'><i className="fa fa-linkedin"></i>LinkedIn</a></li>
+                <li><a href='https://www.ameet.io'><i className="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
               </ul>
             </section>
 
@@ -92,4 +97,4 @@ class SessionForm extends React.Component {
       }
     }
 
-    export default SessionForm;
+export default SessionForm;

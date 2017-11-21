@@ -1,6 +1,6 @@
 .splash-mid {
   width: 100%;
-  height: 672px;
+  height: 640px;
   border-bottom: 1px solid #ebebeb;
 }
 
@@ -25,6 +25,7 @@
   font-size: 18px;
   font-weight: 200;
   line-height: 1.2;
+  margin-top: 200px;
 }
 
 .splash-mid-picture {
@@ -80,20 +81,20 @@
   100% {
     opacity: 0; } }
 
-.heading-rotation-container {
-  font-weight: 800;
-}
 
 .register .heading-rotation-container {
-  position: relative; }
+  position: relative;
+  width: 800px;}
   .register .heading-rotation-container .rotator {
     opacity: 0;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0; }
+    top: 100px
+  }
     .register .heading-rotation-container .rotator.h1-like {
-      font-size: 60px;
+      color: #2B374B;
+      font-family: Garamond;
+      font-weight: 900;
+      font-size: 90px;
       line-height: 70px; }
       @media only screen and (max-width: 960px) {
         .register .heading-rotation-container .rotator.h1-like {
@@ -115,10 +116,20 @@
       animation: heading-rotation-last-animation 1.5s 3s; }
 
 
-    .register .heading-rotation-container h1 {
-        opacity: 0;
-      }
+@keyframes heading1-rotation-animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1; }
+ }
 
-    .dom-content-loaded .register .heading-rotation-container h1 {
-      opacity: 1;
-      transition: opacity 0.25s 4.75s;}
+.rotator.heading-4 {
+  opacity:0;
+
+  animation: heading1-rotation-animation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 4.74s;
+}
