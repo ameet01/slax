@@ -1,0 +1,40 @@
+.splash-mid {
+  width: 100%;
+  height: 650px;
+  border-bottom: 1px solid lightgray;
+}
+
+.splash-mid-box {
+  width: 30%;
+  position: absolute;
+  left: 48%;
+  top: 20%;
+}
+
+.splash-mid-title {
+  font-size: 90px;
+  font-family: Garamond;
+  font-weight: 600;
+  color: #2B374B;
+  width: 800px;
+  margin-bottom: 30px;
+}
+
+.splash-mid-paragraph {
+  color: gray;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.splash-mid-picture {
+  display: block;
+  background-image: url('https://a.slack-edge.com/52353/marketing/img/home/home_illo@2x.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 180px;
+  top: 165px;
+  width: 50%;
+  height: 550px;
+}
