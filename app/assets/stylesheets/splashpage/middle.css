@@ -1,7 +1,7 @@
 .splash-mid {
   width: 100%;
   height: 650px;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #ebebeb;
 }
 
 .splash-mid-box {
@@ -14,7 +14,7 @@
 .splash-mid-title {
   font-size: 90px;
   font-family: Garamond;
-  font-weight: 600;
+  font-weight: 900;
   color: #2B374B;
   width: 800px;
   margin-bottom: 30px;
@@ -37,4 +37,22 @@
   top: 165px;
   width: 50%;
   height: 550px;
+}
+
+.demobutton {
+  width: 172px;
+  height: 57px;
+  background-color: #3f46ad;
+  color: white;
+  font-weight: 500;
+  font-size: 13px;
+  display: block;
+  position: absolute;
+  margin-left: 805px;
+  margin-top: 420px;
+  cursor: pointer;
+}
+
+.demobutton:hover {
+  background-color: #1E2F9A;
 }
