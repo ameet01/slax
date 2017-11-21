@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+ /*
+  *= require font-awesome
+  */
 
 body {
   font-family: 'Open Sans';

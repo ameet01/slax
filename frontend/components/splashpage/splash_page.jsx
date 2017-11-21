@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 const SplashPage = () => {
 
   return <div>
-
     <section className='splash-header'>
       <img src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
       <h3 className='splash-header-logo'>slack</h3>
@@ -24,11 +23,14 @@ const SplashPage = () => {
       <button className='demobutton'>GET STARTED</button>
     </section>
 
-
-
     <section className='splash-footer'>
-
+        <ul>
+          <li><a href='https://github.com/ameet01'><i class="fa fa-github"></i>GitHub</a></li>
+          <li><a href='https://www.linkedin.com/in/ameetvadhia'><i class="fa fa-linkedin"></i>LinkedIn</a></li>
+          <li><a href='https://www.ameet.io'><i class="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
+        </ul>
     </section>
+
   </div>;
 };
 
