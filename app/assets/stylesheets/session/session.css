@@ -60,7 +60,7 @@
 
 .session-mid {
   width: 100%;
-  height: 562px;
+  height: 591px;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
 }
@@ -211,9 +211,8 @@
 }
 
 .session-footer ul {
-  position: absolute;
-  bottom: 60px;
-  right: 260px;
+  padding-left: 1000px;
+  padding-top: 62px;
 }
 
 .session-footer li:hover i {

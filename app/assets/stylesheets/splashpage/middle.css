@@ -127,7 +127,6 @@
 
 .rotator.heading-4 {
   opacity:0;
-
   animation: heading1-rotation-animation;
   animation-duration: 1s;
   animation-fill-mode: forwards;

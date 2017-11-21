@@ -22,9 +22,8 @@
 }
 
 .splash-footer ul {
-  position: absolute;
-  bottom: 60px;
-  right: 260px;
+  margin-left: 1000px;
+  margin-top: 62px;
 }
 
 
