@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :subscriptions
+
   has_many :channels,
   through: :subscriptions
 
@@ -43,7 +44,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil if !user
-    if(user.valid_password?(password))
+    if user.valid_password?(password)
       return user
     else
       return nil

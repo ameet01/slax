@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/ameet01/slack/issues"
   },
-  "homepage": "https://github.com/ameet01/slack#readme"
+  "homepage": "https://github.com/ameet01/slack#readme",
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
+  }
 }
