@@ -1,10 +1,13 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import Main from './main';
+import {logout} from '../../actions/session_actions';
 
-const MainContainer = () => (
-  <div>
-    <h1>Hi! This is Main Container</h1>
-  </div>
-);
+const mapStateToProps = (state) => ({
+  currentUser: state.session.currentUser
+});
 
-export default MainContainer;
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
