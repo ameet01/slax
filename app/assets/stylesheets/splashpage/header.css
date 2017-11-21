@@ -13,6 +13,16 @@
   top: 17px;
   font-family: Lato;
   font-weight: 700;
+  color: #2B374B;
+}
+
+.splash-header img {
+  -webkit-transform: rotate(250deg);
+  -moz-transform: rotate(250deg);
+  -ms-transform: rotate(250deg);
+  -o-transform: rotate(250deg);
+  transform: rotate(250deg);
+  margin-top: 17px;
 }
 
 .splash-header-login {
@@ -22,6 +32,7 @@
   text-decoration: none;
   font-weight: 400;
   color: gray;
+  -webkit-transition: all .4s ease;
 }
 
 .splash-header-signup {
@@ -31,4 +42,13 @@
   text-decoration: none;
   font-weight: 400;
   color: gray;
+  -webkit-transition: all .4s ease;
+}
+
+.splash-header-login:hover {
+  color: lightblue;
+}
+
+.splash-header-signup:hover {
+  color: lightblue;
 }

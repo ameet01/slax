@@ -12,15 +12,26 @@
 .splash-footer li a {
   color: gray;
   text-decoration: none;
+  -webkit-transition: all .4s ease;
 }
 
 .splash-footer li a i {
   color: black;
   margin-right: 3px;
+  -webkit-transition: all .4s ease;
 }
 
 .splash-footer ul {
   position: absolute;
   bottom: 60px;
-  right: 230px;
+  right: 260px;
+}
+
+
+.splash-footer li:hover i {
+  color: lightblue;
+}
+
+.splash-footer li:hover a {
+  color: lightblue;
 }
