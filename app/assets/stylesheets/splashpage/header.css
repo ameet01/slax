@@ -32,7 +32,7 @@
   text-decoration: none;
   font-weight: 400;
   color: gray;
-  -webkit-transition: all .4s ease;
+  -webkit-transition: all .3s ease;
 }
 
 .splash-header-signup {
@@ -42,7 +42,7 @@
   text-decoration: none;
   font-weight: 400;
   color: gray;
-  -webkit-transition: all .4s ease;
+  -webkit-transition: all .3s ease;
 }
 
 .splash-header-login:hover {

@@ -58,3 +58,67 @@
 .demobutton:hover {
   background-color: #1E2F9A;
 }
+
+@keyframes heading-rotation-animation {
+  0% {
+    transform: translate3d(0, 80px, 0);
+    opacity: 0; }
+  20%, 80% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1; }
+  100% {
+    transform: translate3d(0, -80px, 0);
+    opacity: 0; } }
+
+@keyframes heading-rotation-last-animation {
+  0% {
+    transform: translate3d(0, 80px, 0);
+    opacity: 0; }
+  20%, 80% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.heading-rotation-container {
+  font-weight: 800;
+}
+
+.register .heading-rotation-container {
+  position: relative; }
+  .register .heading-rotation-container .rotator {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+    .register .heading-rotation-container .rotator.h1-like {
+      font-size: 60px;
+      line-height: 70px; }
+      @media only screen and (max-width: 960px) {
+        .register .heading-rotation-container .rotator.h1-like {
+          font-size: 50px;
+          line-height: 60px; } }
+      @media only screen and (max-width: 600px) {
+        .register .heading-rotation-container .rotator.h1-like {
+          font-size: 30px;
+          line-height: 40px; } }
+    .dom-content-loaded .register .heading-rotation-container .rotator {
+      display: flex;
+      align-items: center;
+      bottom: 0; }
+    .dom-content-loaded .register .heading-rotation-container .rotator.heading-1 {
+      animation: heading-rotation-animation 1.5s 0.5s; }
+    .dom-content-loaded .register .heading-rotation-container .rotator.heading-2 {
+      animation: heading-rotation-animation 1.5s 1.75s; }
+    .dom-content-loaded .register .heading-rotation-container .rotator.heading-3 {
+      animation: heading-rotation-last-animation 1.5s 3s; }
+
+
+    .register .heading-rotation-container h1 {
+        opacity: 0;
+      }
+
+    .dom-content-loaded .register .heading-rotation-container h1 {
+      opacity: 1;
+      transition: opacity 0.25s 4.75s;}

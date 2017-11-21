@@ -1,0 +1,141 @@
+.session {
+  background-color: #f9f9f9;
+}
+
+.session-header {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  padding-left: 220px;
+  background-color: white;
+}
+
+.session-header-logo {
+  font-size: 30px;
+  position: absolute;
+  left: 257px;
+  top: 17px;
+  font-family: Lato;
+  font-weight: 700;
+  color: #2B374B;
+}
+
+.session-header img {
+  -webkit-transform: rotate(250deg);
+  -moz-transform: rotate(250deg);
+  -ms-transform: rotate(250deg);
+  -o-transform: rotate(250deg);
+  transform: rotate(250deg);
+  margin-top: 17px;
+}
+
+.session-header-login {
+  margin-left: 930px;
+  margin-top: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 400;
+  color: gray;
+  -webkit-transition: all .3s ease;
+}
+
+.session-header-signup {
+  margin-left: 60px;
+  margin-top: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 400;
+  color: gray;
+  -webkit-transition: all .3s ease;
+}
+
+.session-header-login:hover {
+  color: lightblue;
+}
+
+.session-header-signup:hover {
+  color: lightblue;
+}
+
+
+
+.session-mid {
+  width: 100%;
+  height: 515px;
+  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
+}
+
+.session-mid-form-box {
+  background-color: white;
+  margin: 0 auto;
+  text-align: center;
+  width: 40%;
+  height: 450px;
+  margin-top: 80px;
+  padding-top: 70px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+  border: 1px solid #e8e8e8;
+  border-radius: .25rem;
+}
+
+
+.session-mid-form {
+  text-align: left;
+  width: 50%;
+  margin: auto;
+}
+
+.session-mid-form-header {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.session-mid-box {
+  width: 30%;
+  position: absolute;
+  left: 48%;
+  top: 20%;
+}
+
+
+.session-footer {
+  height: 150px;
+  width: 100%;
+  background-color: white;
+}
+
+.session-footer li {
+  display: inline;
+  margin-right: 50px;
+}
+
+.session-footer li a {
+  color: gray;
+  text-decoration: none;
+  -webkit-transition: all .4s ease;
+}
+
+.session-footer li a i {
+  color: black;
+  margin-right: 3px;
+  -webkit-transition: all .4s ease;
+}
+
+.session-footer ul {
+  position: absolute;
+  bottom: 60px;
+  right: 260px;
+}
+
+
+.session-footer li:hover i {
+  color: lightblue;
+}
+
+.session-footer li:hover a {
+  color: lightblue;
+}

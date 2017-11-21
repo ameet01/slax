@@ -15,6 +15,24 @@ const SplashPage = () => {
     </section>
 
     <section className='splash-mid'>
+
+      <div class="dom-content-loaded">
+        <section class="register">
+          <div class="row">
+            <div class="container">
+              <div class="content">
+                <div class="heading-rotation-container">
+                  <h2 class="rotator h1-like heading-1">Remember everything.</h2>
+                  <h2 class="rotator h1-like heading-2">Get organized.</h2>
+                  <h2 class="rotator h1-like heading-3">Succeed together.</h2>
+                  <h1>Where Work Happens</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
       <section className='splash-mid-picture'></section>
       <section className='splash-mid-box'>
         <h1 className='splash-mid-title'>Where Work Happens</h1>
@@ -24,11 +42,11 @@ const SplashPage = () => {
     </section>
 
     <section className='splash-footer'>
-        <ul>
-          <li><a href='https://github.com/ameet01'><i class="fa fa-github"></i>GitHub</a></li>
-          <li><a href='https://www.linkedin.com/in/ameetvadhia'><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-          <li><a href='https://www.ameet.io'><i class="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
-        </ul>
+      <ul>
+        <li><a href='https://github.com/ameet01'><i class="fa fa-github"></i>GitHub</a></li>
+        <li><a href='https://www.linkedin.com/in/ameetvadhia'><i class="fa fa-linkedin"></i>LinkedIn</a></li>
+        <li><a href='https://www.ameet.io'><i class="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
+      </ul>
     </section>
 
   </div>;
