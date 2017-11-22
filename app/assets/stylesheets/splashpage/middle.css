@@ -10,6 +10,7 @@
   position: absolute;
   left: 48%;
   top: 20%;
+  flex: 1;
 }
 
 .splash-mid-title {
@@ -38,6 +39,7 @@
   top: 165px;
   width: 39vw;
   height: 80%;
+  flex: 1;
 }
 
 .demobutton {
