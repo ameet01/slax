@@ -1,16 +1,28 @@
 import React from 'react';
+import MainLeftContainer from './mainleft/main_left_container';
+import MainChannelAreaContainer from './mainchannelarea/main_channel_area_container';
 
-const Main = ({logout, currentUser}) => {
-  var button;
-
-  if(currentUser) {
-    button = <button onClick={() => logout()}>Log Out</button>;
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  return <div>
-      <h1>Hi {currentUser.username}!</h1>
-      {button}
-  </div>;
-};
+  render() {
+    var button;
+    if(this.props.currentUser) {
+      button = <button onClick={() => this.props.logout()}>Log Out</button>;
+    }
+
+    return (
+      <div>
+          <h1>Hi {this.props.currentUser.username}!</h1>
+          <MainLeftContainer />
+          <MainChannelAreaContainer />
+          {button}
+      </div>
+    );
+  }
+
+}
 
 export default Main;
