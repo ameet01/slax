@@ -11,6 +11,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
   componentWillUnmount(){
     this.props.clearErrors();
   }
@@ -38,8 +42,8 @@ class SessionForm extends React.Component {
           <div className='session'>
             <section className='session-header'>
               <Link className='logo-and-thumb'to="/">
-                  <img className='session-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
-                  <h3 className='session-header-logo'>slack</h3>
+                <img className='session-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
+                <h3 className='session-header-logo'>slack</h3>
               </Link>
 
               <div className='loginsignup'>
@@ -103,4 +107,4 @@ class SessionForm extends React.Component {
       }
     }
 
-export default SessionForm;
+    export default SessionForm;
