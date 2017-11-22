@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const SplashPage = () => {
+const SplashPage = (props) => {
 
   return <div>
     <section className='splash-header'>
@@ -17,16 +17,16 @@ const SplashPage = () => {
     <section className='splash-mid'>
       <section className='splash-mid-picture'></section>
       <section className='splash-mid-box'>
-        <div class="dom-content-loaded">
-          <section class="register">
-            <div class="row">
-              <div class="container">
-                <div class="content">
-                  <div class="heading-rotation-container">
-                    <h2 class="rotator h1-like heading-1">Remember everything.</h2>
-                    <h2 class="rotator h1-like heading-2">Get organized.</h2>
-                    <h2 class="rotator h1-like heading-3">Succeed together.</h2>
-                    <h1 class="rotator h1-like heading-4">Where Work Happens</h1>
+        <div className="dom-content-loaded">
+          <section className="register">
+            <div className="row">
+              <div className="container">
+                <div className="content">
+                  <div className="heading-rotation-container">
+                    <h2 className="rotator h1-like heading-1">Remember everything.</h2>
+                    <h2 className="rotator h1-like heading-2">Get organized.</h2>
+                    <h2 className="rotator h1-like heading-3">Succeed together.</h2>
+                    <h1 className="rotator h1-like heading-4">Where Work Happens</h1>
                   </div>
                 </div>
               </div>
@@ -35,7 +35,7 @@ const SplashPage = () => {
         </div>
         <p className='splash-mid-paragraph'>When your team needs to kick off a project, hire a new employee, deploy some code, review a sales contract, finalize next year's budget, measure an A/B test, plan your next office opening, and more, Slack has you covered.</p>
       </section>
-      <button className='demobutton'>GET STARTED</button>
+      <button className='demobutton' onClick={() => props.login({username: `demo${Math.floor(Math.random() * (21 - 5) + 5)}`, password: 'password'}).then(() => props.history.push('/channels/1'))}>GET STARTED</button>
     </section>
 
     <section className='splash-footer'>
