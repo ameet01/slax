@@ -1,8 +1,13 @@
 
 .splash-footer {
-  height: 120px;
+  height: 100px;
   width: 100%;
   display: flex;
+}
+
+.splash-footer ul {
+  margin-left: 57%;
+  margin-top: 45px;
 }
 
 .splash-footer li {
@@ -21,12 +26,6 @@
   margin-right: 3px;
   -webkit-transition: all .4s ease;
 }
-
-.splash-footer ul {
-  margin-left: 57%;
-  margin-top: 62px;
-}
-
 
 .splash-footer li:hover i {
   color: lightblue;

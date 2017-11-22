@@ -3,7 +3,7 @@
   border-bottom: 1px solid #ebebeb;
   display: flex;
   justify-content: center;
-  padding-top: 90px;
+  padding-top: 80px;
 }
 
 .splash-mid-box {
@@ -29,7 +29,7 @@
 }
 
 .splash-mid-picture {
-  height: 600px;
+  height: 500px;
   margin-left: -150px;
   margin-top: -10px;
 }
@@ -75,7 +75,7 @@
 
 .register .heading-rotation-container {
   position: relative;
-  width: 600px;}
+  width: 500px;}
   .register .heading-rotation-container .rotator {
     opacity: 0;
     position: absolute;

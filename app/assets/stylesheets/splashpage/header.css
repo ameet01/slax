@@ -5,16 +5,24 @@
   display: flex;
   box-sizing: border-box;
   padding-left: 16%;
+  padding-top: 15px;
+  padding-right: 16%;
+}
+
+.logo-and-thumb {
+  display: flex;
+  height: 80%;
+  text-decoration: none;
 }
 
 .splash-header-logo {
   font-size: 30px;
-  position: absolute;
-  left: 305px;
-  top: 17px;
   font-family: Lato;
   font-weight: 700;
   color: #2B374B;
+  padding-left: 3px;
+  margin-top: 5px;
+  flex: 1;
 }
 
 .splash-header img {
@@ -23,33 +31,23 @@
   -ms-transform: rotate(250deg);
   -o-transform: rotate(250deg);
   transform: rotate(250deg);
-  margin-top: 17px;
+  flex: 1;
 }
 
-.splash-header-login {
-  margin-left: 65%;
-  margin-top: 30px;
+.loginsignup {
+  margin-left: 67%;
+  margin-top: 14px;
+}
+
+.loginsignup .link {
   font-size: 16px;
   text-decoration: none;
   font-weight: 400;
   color: gray;
   -webkit-transition: all .3s ease;
+  margin-left: 40px;
 }
 
-.splash-header-signup {
-  margin-left: 60px;
-  margin-top: 30px;
-  font-size: 16px;
-  text-decoration: none;
-  font-weight: 400;
-  color: gray;
-  -webkit-transition: all .3s ease;
-}
-
-.splash-header-login:hover {
-  color: lightblue;
-}
-
-.splash-header-signup:hover {
+.loginsignup .link:hover {
   color: lightblue;
 }

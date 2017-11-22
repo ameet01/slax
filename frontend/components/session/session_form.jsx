@@ -37,13 +37,15 @@ class SessionForm extends React.Component {
         return (
           <div className='session'>
             <section className='session-header'>
-              <Link to="/">
-                <div><img className='session-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
-                <h3 className='session-header-logo'>slack</h3></div>
+              <Link className='logo-and-thumb'to="/">
+                  <img className='session-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
+                  <h3 className='session-header-logo'>slack</h3>
               </Link>
 
-              <Link className='session-header-login' to="/login">Log In</Link>
-              <Link className='session-header-signup' to="/signup">Sign Up</Link>
+              <div className='loginsignup'>
+                <Link className='link' to="/login">Log In</Link>
+                <Link className='link' to="/signup">Sign Up</Link>
+              </div>
             </section>
 
             <section className='session-mid'>

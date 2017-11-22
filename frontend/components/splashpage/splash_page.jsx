@@ -5,13 +5,15 @@ const SplashPage = (props) => {
 
   return <div>
     <section className='splash-header'>
-      <Link to="/">
-        <div><img className='splash-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
-        <h3 className='splash-header-logo'>slack</h3></div>
+      <Link className='logo-and-thumb'to="/">
+          <img className='splash-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
+          <h3 className='splash-header-logo'>slack</h3>
       </Link>
 
-      <Link className='splash-header-login' to="/login">Log In</Link>
-      <Link className='splash-header-signup' to="/signup">Sign Up</Link>
+      <div className='loginsignup'>
+        <Link className='link' to="/login">Log In</Link>
+        <Link className='link' to="/signup">Sign Up</Link>
+      </div>
     </section>
 
     <section className='splash-mid'>
