@@ -1,0 +1,14 @@
+.dropdown {
+  width: 300px;
+  height: 300px;
+  z-index: 5;
+  background-color: white;
+  color: #2c2d30;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  border: 1px solid gray;
+  box-shadow: 0 5px 10px rgba(0,0,0,.12);
+  border-radius: 6px;
+  -webkit-transition: all .3s ease;
+}

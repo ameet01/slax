@@ -1,8 +1,35 @@
 .main-left-header {
   height: 61px;
   cursor: pointer;
+  padding-bottom: 2px;
 }
 
 .main-left-header:hover {
   background: #3E323C;
+}
+
+.main-left-header-title {
+  font-weight: 800;
+  font-size: 20px;
+  padding-top: 10px;
+  margin-left: 15px;
+}
+
+.main-left-header-username-area {
+  font-weight: 300;
+  margin-left: 30px;
+  margin-top: 7px;
+}
+
+.main-left-header-username {
+  margin-left: 6px;
+}
+
+.circle:before {
+  content: ' \25CF';
+  font-size: 26px;
+  color: #38978d;
+  position: absolute;
+  top: 31px;
+  left: 18px;
 }
