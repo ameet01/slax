@@ -6,9 +6,11 @@ class Header extends React.Component {
   }
 
   render() {
+    let button = <button onClick={() => this.props.logout()}>Log Out</button>;
     return (
       <section>
           <h1>Header!</h1>
+          {button}
       </section>
     );
   }

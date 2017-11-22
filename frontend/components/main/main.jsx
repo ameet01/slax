@@ -8,17 +8,10 @@ class Main extends React.Component {
   }
 
   render() {
-    var button;
-    if(this.props.currentUser) {
-      button = <button onClick={() => this.props.logout()}>Log Out</button>;
-    }
-
     return (
       <div>
-          <h1>Hi {this.props.currentUser.username}!</h1>
           <MainLeftContainer />
           <MainChannelAreaContainer />
-          {button}
       </div>
     );
   }

@@ -1,0 +1,10 @@
+.mainleft {
+  max-width: 215px;
+  border: 1px solid black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #4C3A4A;
+  color: white;
+  font-weight: 600;
+}

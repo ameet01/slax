@@ -10,10 +10,9 @@ class MainLeft extends React.Component {
 
   render() {
     return (
-      <section>
-          <h1>MainLeft!</h1>
-          <ChannelListContainer />
+      <section className = 'mainleft'>
           <HeaderContainer />
+          <ChannelListContainer />
           <AboutMe />
       </section>
     );
