@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutMe = () => (
-  <div>
+  <div className='about-me'>
     <h3>AboutMe!</h3>
   </div>
 );

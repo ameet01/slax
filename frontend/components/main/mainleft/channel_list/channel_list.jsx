@@ -7,7 +7,7 @@ class ChannelList extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className='main-left-channel-list'>
           <h1>ChannelList!</h1>
       </section>
     );
