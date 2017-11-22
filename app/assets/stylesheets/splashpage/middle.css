@@ -3,7 +3,7 @@
   border-bottom: 1px solid #ebebeb;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 90px;
 }
 
 .splash-mid-box {
@@ -21,15 +21,16 @@
 
 .splash-mid-paragraph {
   color: gray;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 200;
   line-height: 1.2;
-  margin-top: 200px;
+  margin-top: 210px;
 }
 
 .splash-mid-picture {
   height: 600px;
   margin-left: -90px;
+  margin-top: -10px;
 }
 
 .demobutton {
@@ -81,8 +82,8 @@
   }
     .register .heading-rotation-container .rotator.h1-like {
       color: #2B374B;
-      font-family: Garamond;
-      font-weight: 900;
+      font-family: 'EB Garamond';
+      font-weight: 600;
       font-size: 90px;
       line-height: 85px; }
       @media only screen and (max-width: 960px) {
