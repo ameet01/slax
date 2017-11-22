@@ -15,7 +15,7 @@ const SplashPage = (props) => {
     </section>
 
     <section className='splash-mid'>
-      <section className='splash-mid-picture'></section>
+      <img className='splash-mid-picture' src ='https://a.slack-edge.com/52353/marketing/img/home/home_illo@2x.png' />
       <section className='splash-mid-box'>
         <div className="dom-content-loaded">
           <section className="register">
@@ -33,9 +33,20 @@ const SplashPage = (props) => {
             </div>
           </section>
         </div>
-        <p className='splash-mid-paragraph'>When your team needs to kick off a project, hire a new employee, deploy some code, review a sales contract, finalize next year's budget, measure an A/B test, plan your next office opening, and more, Slack has you covered.</p>
+        <p className='splash-mid-paragraph'>
+          When your team needs to kick off a project, hire a new employee,
+          deploy some code, review a sales contract, finalize next year's budget,
+          measure an A/B test, plan your next office opening, and more, Slack has you covered.
+          <button
+            className='demobutton'
+            onClick={() => props.login({
+              username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`,
+              password: 'password'}).then(() => props.history.push('/channels/1'))
+            }>GET STARTED
+          </button>
+          </p>
       </section>
-      <button className='demobutton' onClick={() => props.login({username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`, password: 'password'}).then(() => props.history.push('/channels/1'))}>GET STARTED</button>
+
     </section>
 
     <section className='splash-footer'>
