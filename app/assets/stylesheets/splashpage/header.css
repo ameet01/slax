@@ -3,6 +3,7 @@
   height: 70px;
   border-bottom: 1px solid #ebebeb;
   display: flex;
+  box-sizing: border-box;
   padding-left: 220px;
 }
 
@@ -26,7 +27,7 @@
 }
 
 .splash-header-login {
-  margin-left: 930px;
+  margin-left: 65%;
   margin-top: 30px;
   font-size: 16px;
   text-decoration: none;

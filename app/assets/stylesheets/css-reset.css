@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   -webkit-font-smoothing: antialiased;
+	font-family: 'Open Sans';
 }
 ol, ul {
 	list-style: none;

@@ -24,10 +24,10 @@ class SessionForm extends React.Component {
     var header, link;
     if(this.props.formType === 'login') {
       header = 'Log In To Slack';
-      link = <div className='form-redirect'>Need to register? Then <Link className='form-link' to='/signup'>Sign Up</Link></div>;
+      link = <div className='form-redirect'>Need to register? <Link className='form-link' to='/signup'>Sign Up!</Link></div>;
       } else {
         header = 'Create an Account';
-        link = <div className='form-redirect'>Already have an account? Then <Link className='form-link' to='/login'>Log In</Link></div>;
+        link = <div className='form-redirect'>Already have an account? <Link className='form-link' to='/login'>Log In!</Link></div>;
         }
 
         return (
@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
 
             <section className='session-mid'>
               <section className='session-mid-form-box'>
-                <ul className='session-errors'>{this.props.errors.map(error => <li>{error}</li>)}</ul>
+                <ul className='session-errors'>{this.props.errors.map(error => <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   {error}</li>)}</ul>
                 <section className='session-mid-form'>
                   <h2 className='session-mid-form-header'>{header}</h2>
                   <h6 className='session-mid-form-enter-details-para'>Enter your <span>username</span> and <span>password</span></h6>
