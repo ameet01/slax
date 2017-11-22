@@ -7,7 +7,7 @@ import
 from '../actions/message_actions';
 import merge from 'lodash/merge';
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   Object.freeze(state);
   var newState = merge({}, state);
   switch (action.type) {

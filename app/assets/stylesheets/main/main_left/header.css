@@ -8,6 +8,14 @@
   background: #3E323C;
 }
 
+.main-left-header:hover .main-left-header-username {
+  color: white;
+}
+
+.main-left-header:hover .main-left-header-title span {
+  color: white;
+}
+
 .main-left-header-title {
   font-weight: 800;
   font-size: 20px;
@@ -15,14 +23,25 @@
   margin-left: 15px;
 }
 
+.main-left-header-title span {
+  font-size: 11px;
+  position: absolute;
+  left: 135px;
+  top: 14px;
+  color: #ab9ba9;
+}
+
 .main-left-header-username-area {
   font-weight: 300;
   margin-left: 30px;
-  margin-top: 7px;
+  margin-top: 4px;
 }
 
 .main-left-header-username {
-  margin-left: 6px;
+  margin-left: 1px;
+  color: #ab9ba9;
+  font-size: .875rem;
+  font-weight: 500;
 }
 
 .circle:before {
@@ -30,6 +49,6 @@
   font-size: 26px;
   color: #38978d;
   position: absolute;
-  top: 31px;
-  left: 18px;
+  top: 28px;
+  left: 14px;
 }

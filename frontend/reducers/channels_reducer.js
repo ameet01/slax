@@ -7,12 +7,12 @@ import
 from '../actions/channel_actions';
 import merge from 'lodash/merge';
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   Object.freeze(state);
   var newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_CHANNELS:
-      return action.channels;
+      return merge({}, state, action.channels);
     case RECEIVE_CHANNEL:
       newState[action.channel.id] = action.channel;
       return newState;
