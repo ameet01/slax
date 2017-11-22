@@ -1,10 +1,11 @@
 class Api::ChannelsController < ApplicationController
   def show
     @channel = Channel.find(params[:id])
+    @userCount = @channel.users.count
   end
 
   def index
-    @channels = Channel.all
+    @channels = User.find_by(id: current_user.id).channels
   end
 
   def create
