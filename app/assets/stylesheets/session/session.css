@@ -66,9 +66,9 @@
 
 .session-mid {
   width: 100%;
-  height: 67.4vh;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
+  padding-bottom: 40px;
 }
 
 .session-mid-box {
@@ -93,7 +93,7 @@
 
 .session-mid-form {
   text-align: left;
-  width: 50%;
+  width: 53%;
   margin: 0 auto;
 }
 
@@ -188,7 +188,7 @@
 
 
 .session-footer {
-  height: 120px;
+  height: 100px;
   width: 100%;
   display: flex;
   background: white;

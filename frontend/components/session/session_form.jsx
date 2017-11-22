@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
       header = 'Log In To Slack';
       link = <div className='form-redirect'>Need to register? <Link className='form-link' to='/signup'>Sign Up!</Link></div>;
       } else {
-        header = 'Create an Account';
+        header = 'Create Account';
         link = <div className='form-redirect'>Already have an account? <Link className='form-link' to='/login'>Log In!</Link></div>;
         }
 
