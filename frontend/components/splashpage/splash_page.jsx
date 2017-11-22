@@ -51,9 +51,9 @@ const SplashPage = (props) => {
 
     <section className='splash-footer'>
       <ul>
-        <li><a href='https://github.com/ameet01'><i className="fa fa-github"></i>GitHub</a></li>
-        <li><a href='https://www.linkedin.com/in/ameetvadhia'><i className="fa fa-linkedin"></i>LinkedIn</a></li>
-        <li><a href='https://www.ameet.io'><i className="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
+        <li><a href='https://github.com/ameet01' target="_blank"><i className="fa fa-github"></i>GitHub</a></li>
+        <li><a href='https://www.linkedin.com/in/ameetvadhia' target="_blank"><i className="fa fa-linkedin"></i>LinkedIn</a></li>
+        <li><a href='https://www.ameet.io' target="_blank"><i className="fa fa-user-circle" aria-hidden="true"></i>Personal Website</a></li>
       </ul>
     </section>
 
