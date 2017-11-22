@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from './dropdown';
 import capitalize from 'lodash/capitalize';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 class Header extends React.Component {
   constructor(props) {
@@ -33,7 +34,9 @@ class Header extends React.Component {
             <h1 className='main-left-header-title'>Workspace <span>&or;</span></h1>
             <div className='main-left-header-username-area'><span className='circle'></span><span className='main-left-header-username'>{capitalize(this.props.currentUser.username)}</span></div>
         </div>
-        {dropdown}
+        <CSSTransitionGroup transitionName="example">
+          {dropdown}
+        </CSSTransitionGroup>
       </section>
     );
   }

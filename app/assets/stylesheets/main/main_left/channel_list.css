@@ -1,3 +1,34 @@
 .main-left-channel-list {
   height: 605px;
+  color: rgb(202,196,201);
+  font-weight: 400;
+  width: 100%;
+  margin-top: 20px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.main-left-channel-list a {
+  color: rgb(202,196,201);
+  text-decoration: none;
+}
+
+.main-left-channel-list ul {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.main-left-channel-list li {
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.selected {
+  background: #4F9589 !important;
+  color: white;
+}
+
+.main-left-channel-list li:hover {
+  color: white;
+  background: #3E323C;
 }
