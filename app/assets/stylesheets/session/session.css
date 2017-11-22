@@ -9,6 +9,7 @@
   display: flex;
   box-sizing: border-box;
   padding-left: 220px;
+  background: white;
 }
 
 .session-header-logo {
@@ -61,7 +62,7 @@
 
 .session-mid {
   width: 100%;
-  height: 591px;
+  height: 68.4vh;
   border-bottom: 1px solid #ebebeb;
   box-sizing: border-box;
 }
@@ -188,10 +189,12 @@
   text-decoration: underline;
 }
 
+
 .session-footer {
-  height: 150px;
+  height: 120px;
   width: 100%;
-  background-color: white;
+  display: flex;
+  background: white;
 }
 
 .session-footer li {
@@ -212,9 +215,10 @@
 }
 
 .session-footer ul {
-  padding-left: 1000px;
-  padding-top: 62px;
+  margin-left: 57%;
+  margin-top: 62px;
 }
+
 
 .session-footer li:hover i {
   color: lightblue;
