@@ -4,13 +4,13 @@
   border-bottom: 1px solid #ebebeb;
   display: flex;
   box-sizing: border-box;
-  padding-left: 18%;
+  padding-left: 16%;
 }
 
 .splash-header-logo {
   font-size: 30px;
   position: absolute;
-  left: 335px;
+  left: 305px;
   top: 17px;
   font-family: Lato;
   font-weight: 700;
