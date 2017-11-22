@@ -29,15 +29,14 @@
 }
 
 .splash-mid-picture {
-  display: block;
   background-image: url('https://a.slack-edge.com/52353/marketing/img/home/home_illo@2x.png');
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   left: 180px;
   top: 165px;
-  width: 50%;
-  height: 550px;
+  width: 100%;
+  height: 65vh;
 }
 
 .demobutton {
