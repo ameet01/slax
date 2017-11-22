@@ -1,7 +1,8 @@
 
 .splash-footer {
-  height: 150px;
+  height: 700px;
   width: 100%;
+  display: flex;
 }
 
 .splash-footer li {
@@ -22,7 +23,7 @@
 }
 
 .splash-footer ul {
-  margin-left: 1000px;
+  margin-left: 59.5%;
   margin-top: 62px;
 }
 
