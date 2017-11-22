@@ -7,7 +7,7 @@ class MainChannelArea extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='mainchannelarea'>
           <h1>MainChannelArea!</h1>
       </div>
     );

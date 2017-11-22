@@ -1,0 +1,8 @@
+.mainchannelarea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+  width: 80%;
+  border: 1px solid black;
+}
