@@ -1,6 +1,5 @@
 .mainleft {
   max-width: 215px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   background: #4C3A4A;

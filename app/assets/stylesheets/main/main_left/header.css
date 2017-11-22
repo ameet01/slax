@@ -1,3 +1,8 @@
 .main-left-header {
   height: 61px;
+  cursor: pointer;
+}
+
+.main-left-header:hover {
+  background: #3E323C;
 }
