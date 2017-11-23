@@ -48,18 +48,18 @@ class ChannelList extends React.Component {
       <section className='main-left-channel-list'>
 
         <div>
-          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span>+</span></div></h1>
+          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></div></h1>
           {modal}
 
           <ul>
             {this.props.channels.map((channel,idx) =>
               <Link to={`/channels/${channel.id}`} >
                 <li
-                  key={idx}
+                  key={channel.id}
                   className={ classNames({
-                    'selected' : activeSelected === `item${idx}`
+                    'selected' : activeSelected === `item${channel.id}`
                   }) }
-                  onClick={ event => this.setState({ activeSelected : activeSelected === `item${idx}` ? '' : `item${idx}` })}
+                  onClick={ event => this.setState({ activeSelected : activeSelected === `item${channel.id}` ? '' : `item${channel.id}` })}
                   ># {channel.name}
                 </li>
               </Link>)}
@@ -67,7 +67,20 @@ class ChannelList extends React.Component {
         </div>
 
           <div>
-            <h1>Direct Messages</h1>
+            <h1 className='direct-messages-title'>Direct Messages<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></div></h1>
+              <ul>
+                {this.props.directmessages.map((dm,idx) =>
+                  <Link to={`/channels/${dm.id}`} >
+                    <li
+                      key={dm.id}
+                      className={ classNames({
+                        'selected' : activeSelected === `item${dm.id}`
+                      }) }
+                      onClick={ event => this.setState({ activeSelected : activeSelected === `item${dm.id}` ? '' : `item${dm.id}` })}
+                      ># {dm.name}
+                    </li>
+                  </Link>)}
+                </ul>
           </div>
         </section>
       );

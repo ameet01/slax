@@ -12,11 +12,12 @@
 class Channel < ApplicationRecord
   validates :name, presence: true
   validates :name, length: {maximum: 25}
-  validates :description, length: {maximum: 50}
+  validates :description, length: {maximum: 50}, allow_nil: true
+  validates :is_dm, inclusion: { in: [true, false] }
 
   has_many :messages
   has_many :subscriptions
-  
+
   has_many :users,
   through: :subscriptions
 end
