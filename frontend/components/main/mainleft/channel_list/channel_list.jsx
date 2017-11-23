@@ -37,7 +37,7 @@ class ChannelList extends React.Component {
                   className={ classNames({
                     'selected' : activeSelected === `item${idx}`
                   }) }
-                  onClick={ event => this.setState({ activeSelected : activeSelected === `item${idx}` ? '' : `item${idx}` }) }
+                  onClick={ event => this.setState({ activeSelected : activeSelected === `item${idx}` ? '' : `item${idx}` })}
                   ># {channel.name}
                 </li>
               </Link>)}
