@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageListItemContainer from './message_list_item_container';
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -14,8 +15,9 @@ class MessageList extends React.Component {
       <section className='message-list'>
         Message List
         <ul>
-          {this.props.messages.map((message) => <li>{message.body}</li>)}
+          {this.props.messages.map((message) => <MessageListItemContainer message={message}/>)}
         </ul>
+
       </section>
     );
   }

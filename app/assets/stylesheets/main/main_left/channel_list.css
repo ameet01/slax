@@ -43,14 +43,14 @@
 }
 
 
+
 .plus-sign-create {
   font-size: 20px;
-  display: inline;
-  margin-left: 55%;
-  padding-top: 1px;
+  position: absolute;
   cursor: pointer;
   -webkit-transition: all .3s ease;
-  z-index: 4;
+  right: 20px;
+  top: 82px;
 }
 
 .plus-sign-create span:hover {
