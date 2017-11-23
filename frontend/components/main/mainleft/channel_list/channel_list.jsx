@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
-import { withRouter } from 'react-router-dom';
+import { withRouter , Redirect } from 'react-router-dom';
 
 class ChannelList extends React.Component {
   constructor(props) {
@@ -21,8 +21,7 @@ class ChannelList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm});
-    this.setState({modalClosed: ""});
+    this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal());
   }
 
   update(property) {
