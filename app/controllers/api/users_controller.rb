@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
+      Subscription.create(user_id: @user.id, channel_id: 1)
       render :show
     else
       render json: @user.errors.full_messages, status: 401

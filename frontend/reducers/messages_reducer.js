@@ -1,9 +1,7 @@
 import
 {RECEIVE_ALL_MESSAGES,
   RECEIVE_MESSAGE,
-  REMOVE_MESSAGE,
-  CREATE_MESSAGE,
-  UPDATE_MESSAGE }
+  REMOVE_MESSAGE}
 from '../actions/message_actions';
 import merge from 'lodash/merge';
 

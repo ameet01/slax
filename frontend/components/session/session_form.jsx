@@ -10,7 +10,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   componentWillUnmount(){
     this.props.clearErrors();
   }
@@ -25,13 +25,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    var header, link;
+    var header, link, submitButton, enterDetails;
     if(this.props.formType === 'login') {
       header = 'Log In To Slack';
       link = <div className='form-redirect'>Need to register? <Link className='form-link' to='/signup'>Sign Up!</Link></div>;
+      submitButton = 'Log In';
+      enterDetails = <h6 className='session-mid-form-enter-details-para'>Enter your <span>username</span> and <span>password</span></h6>;
       } else {
         header = 'Create Account';
         link = <div className='form-redirect'>Already have an account? <Link className='form-link' to='/login'>Log In!</Link></div>;
+        submitButton = 'Sign Up';
+        enterDetails = <h6 className='session-mid-form-enter-details-para'>Create a <span>username</span> and <span>password</span></h6>;
         }
 
         return (
@@ -53,7 +57,7 @@ class SessionForm extends React.Component {
                 <ul className='session-errors'>{this.props.errors.map(error => <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   {error}</li>)}</ul>
                 <section className='session-mid-form'>
                   <h2 className='session-mid-form-header'>{header}</h2>
-                  <h6 className='session-mid-form-enter-details-para'>Enter your <span>username</span> and <span>password</span></h6>
+                  {enterDetails}
 
                   <form onSubmit={this.handleSubmit}>
                     <label>
@@ -82,10 +86,16 @@ class SessionForm extends React.Component {
 
                     <br />
 
-                    <button className='form-submit-button' type='submit'>Submit</button>
+                    <button className='form-submit-button' type='submit'>{submitButton}</button>
+                    <button className='form-submit-button' onClick={() => this.props.demoLogin({
+                        username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`,
+                        password: 'password'})
+                      }>Demo Login
+                    </button>
                     {link}
                   </form>
                 </section>
+
               </section>
 
             </section>
