@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
   render() {
     var header, link, submitButton, enterDetails;
     if(this.props.formType === 'login') {
-      header = 'Log In To Slack';
+      header = 'Log In To Slax';
       link = <div className='form-redirect'>Need to register? <Link className='form-link' to='/signup'>Sign Up!</Link></div>;
       submitButton = 'Log In';
       enterDetails = <h6 className='session-mid-form-enter-details-para'>Enter your <span>username</span> and <span>password</span></h6>;
@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
             <section className='session-header'>
               <Link className='logo-and-thumb'to="/">
                 <img className='session-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
-                <h3 className='session-header-logo'>slack</h3>
+                <h3 className='session-header-logo'>slax</h3>
               </Link>
 
               <div className='loginsignup'>

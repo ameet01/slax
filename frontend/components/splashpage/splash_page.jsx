@@ -16,7 +16,7 @@ class SplashPage extends React.Component {
         <section className='splash-header'>
           <Link className='logo-and-thumb'to="/">
             <img className='splash-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
-            <h3 className='splash-header-logo'>slack</h3>
+            <h3 className='splash-header-logo'>slax</h3>
           </Link>
 
           <div className='loginsignup'>
@@ -47,7 +47,7 @@ class SplashPage extends React.Component {
             <p className='splash-mid-paragraph'>
               When your team needs to kick off a project, hire a new employee,
               deploy some code, review a sales contract, finalize next year's budget,
-              measure an A/B test, plan your next office opening, and more, Slack has you covered.
+              measure an A/B test, plan your next office opening, and more, Slax has you covered.
             </p>
             <button
               className='demobutton'
