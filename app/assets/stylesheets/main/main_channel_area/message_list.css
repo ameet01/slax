@@ -1,7 +1,28 @@
+.message-list {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
 .message-content-header-user {
   font-weight: 700;
 }
 
 .message-list-item {
   border: 1px solid black;
+  display: flex;
+}
+
+.message-content-header-timestamp {
+  color: #717274;
+}
+
+.user-message-picture {
+  width: 35px;
+  height: 35px;
+}
+
+.message-content-header {
+  display: flex;
+  flex-direction: column;
 }
