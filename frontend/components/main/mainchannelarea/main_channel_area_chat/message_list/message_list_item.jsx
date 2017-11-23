@@ -12,7 +12,7 @@ class MessageListItem extends React.Component {
 
         <div className='message-content-header'>
           <div>
-            <span className='message-content-header-user'>{this.props.message.user.username}</span>: <span className='message-content-header-timestamp'>{this.props.message.created_at}</span>
+            <span className='message-content-header-user'>{this.props.message.user.username}</span> <span className='message-content-header-timestamp'>{this.props.message.created_at}</span>
           </div>
           <div className='message-body'>
             {this.props.message.body}

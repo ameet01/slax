@@ -2,26 +2,38 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
 .message-content-header-user {
   font-weight: 700;
+  font-size: 14px;
 }
 
 .message-list-item {
   display: flex;
+  margin-top: 10px;
 }
 
 .message-content-header-timestamp {
   color: #717274;
+  font-size: 12px;
 }
 
 .user-message-picture {
   width: 35px;
   height: 35px;
+  padding-left: 30px;
+  margin-right: 5px;
 }
 
 .message-content-header {
   display: flex;
   flex-direction: column;
+  padding-top: 2px;
+}
+
+.message-body {
+  padding-top: 5px;
+  font-size: 14px;
 }
