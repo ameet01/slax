@@ -37,7 +37,7 @@ class SplashPage extends React.Component {
                         <h2 className="rotator h1-like heading-1">Remember everything.</h2>
                         <h2 className="rotator h1-like heading-2">Get organized.</h2>
                         <h2 className="rotator h1-like heading-3">Succeed together.</h2>
-                        <h1 className="rotator h1-like heading-4">Where Work Happens</h1>
+                        <h1 className="rotator h1-like heading-4">Where Teams Connect</h1>
                       </div>
                     </div>
                   </div>

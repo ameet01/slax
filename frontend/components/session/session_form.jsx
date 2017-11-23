@@ -87,11 +87,11 @@ class SessionForm extends React.Component {
                     <br />
 
                     <button className='form-submit-button' type='submit'>{submitButton}</button>
-                    <button className='form-submit-button' onClick={() => this.props.demoLogin({
-                        username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`,
-                        password: 'password'})
-                      }>Demo Login
-                    </button>
+                    <div className='form-submit-button session-demo-button' onClick={() => this.props.login({
+                      username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`,
+                      password: 'password'}).then(() => this.props.history.push('/channels/1'))
+                    }>Guest Log In
+                    </div>
                     {link}
                   </form>
                 </section>
