@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import MessageList from './message_list';
 import { fetchMessages } from '../../../../../actions/message_actions';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   let messages = [];
