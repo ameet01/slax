@@ -1,11 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
+import ChannelModal from './channel_modal';
 
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: ""};
+    this.state = {activeSelected: "", modalClosed: ""};
   }
 
   componentDidMount() {
@@ -14,11 +15,20 @@ class ChannelList extends React.Component {
 
   render() {
     let { activeSelected } = this.state;
+    let modal;
+    if(this.state.modalClosed === "") {
+      modal = undefined;
+    } else if(this.state.modalClosed === 'open'){
+      modal = <ChannelModal />;
+    }
+
     return (
       <section className='main-left-channel-list'>
 
         <div>
-          <h1>Channels</h1>
+          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}>+</div></h1>
+          {modal}
+
           <ul>
             {this.props.channels.map((channel,idx) =>
               <Link to={`/channels/${channel.id}`}>

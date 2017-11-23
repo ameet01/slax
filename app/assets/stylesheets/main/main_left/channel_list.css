@@ -32,3 +32,11 @@
   color: white;
   background: #3E323C;
 }
+
+.plus-sign-create {
+  font-size: 20px;
+  display: inline;
+  margin-left: 55%;
+  padding-top: 1px;
+  cursor: pointer;
+}

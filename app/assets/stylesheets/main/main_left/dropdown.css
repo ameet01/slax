@@ -26,13 +26,17 @@
   font-weight: 400;
 }
 
-.dropdown-signout {
-  font-weight: 700;
-}
-
 .dropdown-signout span {
   cursor: pointer;
-  border: 1px solid gray;
-  border-radius: 5px;
+  border: 1px solid black;
+  border-radius: .25rem;
   padding: 2px 4px;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+  font-weight: 600;
+  background: #3f46ad;
+}
+
+.dropdown-signout span:hover {
+  background: #203497;
 }

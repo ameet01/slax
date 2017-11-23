@@ -1,0 +1,43 @@
+.channel-modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: white;
+  border: 1px solid black;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: black;
+}
+
+.channel-modal-form {
+  text-align: left;
+  width: 30%;
+  margin: auto;
+  margin-top: 175px;
+}
+
+.channel-modal-form h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.channel-modal-form input {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.close-channel-modal {
+  font-size: 40px;
+  position: absolute;
+  right: 100px;
+  top: 70px;
+}
