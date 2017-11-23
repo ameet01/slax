@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
-import ChannelModal from './channel_modal';
 
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {activeSelected: "", modalClosed: ""};
     this.close = this.close.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -19,18 +19,23 @@ class ChannelList extends React.Component {
     e.currentTarget.parentElement.parentElement.className = 'hidden';
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createChannel({name: 'hi'});
+  }
+
   render() {
     let { activeSelected } = this.state;
     let modal;
 
     if(this.state.modalClosed === "") {
       modal = undefined;
-    } else if(this.state.modalClosed === 'open'){
+    } else if(this.state.modalClosed === 'open') {
       modal = <div className='channel-modal'>
         <div className='channel-modal-form'>
           <h1>Create a new channel!</h1>
           <div onClick={this.close} className='close-channel-modal'>X</div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <br/>
               <input type='text' placeholder="Name"></input>
               <button>Create New Channel</button>
@@ -48,7 +53,7 @@ class ChannelList extends React.Component {
 
           <ul>
             {this.props.channels.map((channel,idx) =>
-              <Link to={`/channels/${channel.id}`}>
+              <Link to={`/channels/${channel.id}`} >
                 <li
                   key={idx}
                   className={ classNames({
