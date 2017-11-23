@@ -25,7 +25,7 @@ class Header extends React.Component {
     let dropdown;
 
     if(this.state.open === true) {
-      dropdown = <Dropdown logout={this.props.logout}/>;
+      dropdown = <Dropdown currentUser={this.props.currentUser} logout={this.props.logout}/>;
     }
 
     return (

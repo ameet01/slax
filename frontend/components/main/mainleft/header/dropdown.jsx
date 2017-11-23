@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Dropdown = ({logout}) => {
-  let button = <button onClick={logout}>Log Out</button>;
+const Dropdown = ({logout, currentUser}) => {
   return (
     <div className='dropdown'>
-      {button}
+      <ul>
+        <li className='dropdown-username'>Username: {currentUser.username}</li>
+        <li className='dropdown-signout'><span onClick={logout}>Sign Out</span></li>
+      </ul>
     </div>
   );
 };

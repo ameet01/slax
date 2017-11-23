@@ -45,9 +45,9 @@ class SplashPage extends React.Component {
               </section>
             </div>
             <p className='splash-mid-paragraph'>
-              When your team needs to kick off a project, hire a new employee,
-              deploy some code, review a sales contract, finalize next year's budget,
-              measure an A/B test, plan your next office opening, and more, Slax has you covered.
+              Slax makes work simpler, more pleasant, and more productive.
+              Millions of people around the world use Salx to bring their teams together,
+              make sense of their work, and drive their business forward.
             </p>
             <button
               className='demobutton'

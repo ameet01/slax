@@ -1,7 +1,6 @@
 .dropdown {
   width: 270px;
   z-index: 10;
-  height: 300px;
   background-color: white;
   color: #2c2d30;
   position: absolute;
@@ -11,4 +10,29 @@
   box-shadow: 0 5px 10px rgba(0,0,0,.12);
   border-radius: 6px;
   transition-delay: 1s;
+  padding: 20px 20px;
+  box-sizing: content-box;
+}
+
+.dropdown ul li {
+  margin-bottom: 5px;
+}
+
+.dropdown ul li:first-child {
+  margin-bottom: 13px;
+}
+
+.dropdown-username {
+  font-weight: 400;
+}
+
+.dropdown-signout {
+  font-weight: 700;
+}
+
+.dropdown-signout span {
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 2px 4px;
 }
