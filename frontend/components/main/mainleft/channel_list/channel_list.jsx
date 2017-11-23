@@ -48,7 +48,7 @@ class ChannelList extends React.Component {
       <section className='main-left-channel-list'>
 
         <div>
-          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}>+</div></h1>
+          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span>+</span></div></h1>
           {modal}
 
           <ul>

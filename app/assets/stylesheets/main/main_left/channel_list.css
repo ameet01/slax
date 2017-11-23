@@ -4,13 +4,17 @@
   font-weight: 400;
   width: 100%;
   margin-top: 20px;
-  padding-left: 15px;
   box-sizing: border-box;
 }
 
 .main-left-channel-list a {
   color: rgb(202,196,201);
   text-decoration: none;
+}
+
+.main-left-channel-list h1 {
+  padding-left: 15px;
+  -webkit-transition: all .3s ease;
 }
 
 .main-left-channel-list ul {
@@ -21,6 +25,7 @@
 .main-left-channel-list li {
   cursor: pointer;
   padding: 5px 0;
+  padding-left: 15px;
 }
 
 .selected {
@@ -33,10 +38,21 @@
   background: #3E323C;
 }
 
+.main-left-channel-list h1:hover {
+  color: white;
+}
+
+
 .plus-sign-create {
   font-size: 20px;
   display: inline;
   margin-left: 55%;
   padding-top: 1px;
   cursor: pointer;
+  -webkit-transition: all .3s ease;
+  z-index: 4;
+}
+
+.plus-sign-create span:hover {
+  color: white;
 }

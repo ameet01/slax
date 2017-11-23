@@ -38,7 +38,7 @@
 }
 
 .main-left-header-username {
-  margin-left: 1px;
+  margin-left: 4px;
   color: #ab9ba9;
   font-size: .875rem;
   font-weight: 500;
@@ -55,7 +55,7 @@
 
 .example-enter {
   opacity: 0;
-  transition: opacity .5s ease-out;
+  transition: opacity .3s ease-out;
 }
 
 .example-enter.example-enter-active {
@@ -64,7 +64,7 @@
 
 .example-leave {
   opacity: 1;
-  transition: opacity .3s ease-in;
+  transition: opacity .3s ease-out;
 }
 
 .example-leave.example-leave-active {
