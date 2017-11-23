@@ -12,7 +12,7 @@ export default (state = {}, action) => {
   var newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_CHANNELS:
-      return merge({}, state, action.channels);
+      return action.channels;
     case RECEIVE_CHANNEL:
       newState[action.channel.id] = action.channel;
       return newState;

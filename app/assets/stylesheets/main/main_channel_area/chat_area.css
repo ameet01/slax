@@ -1,0 +1,25 @@
+.mainchannelarea {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+.main-area {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-list {
+  height: 90%;
+}
+
+.message-form {
+  width: 95%;
+  border: 2px solid rgba(160,160,162,.7);
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  height: 40px;
+  min-width: 500px;
+}

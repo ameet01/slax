@@ -1,2 +1,3 @@
 json.extract! @channel, :id, :name, :description
-json.userCount @channel.users.count
+json.userCount @userCount
+json.messages @channel.messages
