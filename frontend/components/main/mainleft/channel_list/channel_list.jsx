@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: "", modalClosed: ""};
+    this.state = {activeSelected: "", modalClosed: "", name: ""};
     this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,7 +21,12 @@ class ChannelList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel({name: 'hi'});
+    this.props.createChannel({name: this.state.name});
+    this.setState({modalClosed: ""});
+  }
+
+  update(property) {
+    return (e) => this.setState({ [property]: e.target.value });
   }
 
   render() {
@@ -37,7 +42,7 @@ class ChannelList extends React.Component {
           <div onClick={this.close} className='close-channel-modal'>X</div>
           <form onSubmit={this.handleSubmit}>
             <br/>
-              <input type='text' placeholder="Name"></input>
+              <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>
               <button>Create New Channel</button>
           </form>
         </div>
@@ -48,7 +53,15 @@ class ChannelList extends React.Component {
       <section className='main-left-channel-list'>
 
         <div>
-          <h1>Channels<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></div></h1>
+          <h1>Channels
+            <div
+              className='plus-sign-create'
+              onClick={() => this.setState({modalClosed: 'open'})}>
+              <span>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </span>
+            </div>
+          </h1>
           {modal}
 
           <ul>
@@ -67,7 +80,15 @@ class ChannelList extends React.Component {
         </div>
 
           <div>
-            <h1 className='direct-messages-title'>Direct Messages<div className='plus-sign-create' onClick={() => this.setState({modalClosed: 'open'})}><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></div></h1>
+            <h1 className='direct-messages-title'>Direct Messages
+              <div
+                className='plus-sign-create'
+                onClick={() => this.setState({modalClosed: 'open'})}>
+                <span>
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </span>
+              </div>
+            </h1>
               <ul>
                 {this.props.directmessages.map((dm,idx) =>
                   <Link to={`/channels/${dm.id}`} >
