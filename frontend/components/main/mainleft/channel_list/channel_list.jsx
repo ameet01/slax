@@ -7,19 +7,36 @@ class ChannelList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {activeSelected: "", modalClosed: ""};
+    this.close = this.close.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchChannels();
   }
 
+  close(e) {
+    this.setState({modalClosed: ""});
+    e.currentTarget.parentElement.parentElement.className = 'hidden';
+  }
+
   render() {
     let { activeSelected } = this.state;
     let modal;
+
     if(this.state.modalClosed === "") {
       modal = undefined;
     } else if(this.state.modalClosed === 'open'){
-      modal = <ChannelModal />;
+      modal = <div className='channel-modal'>
+        <div className='channel-modal-form'>
+          <h1>Create a new channel!</h1>
+          <div onClick={this.close} className='close-channel-modal'>X</div>
+          <form>
+            <br/>
+              <input type='text' placeholder="Name"></input>
+              <button>Create New Channel</button>
+          </form>
+        </div>
+      </div>;
     }
 
     return (
