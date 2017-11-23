@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class MessageListItem extends React.Component {
   constructor(props) {
@@ -24,4 +25,4 @@ class MessageListItem extends React.Component {
 
 }
 
-export default MessageListItem;
+export default withRouter(MessageListItem);

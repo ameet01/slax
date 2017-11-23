@@ -20,7 +20,6 @@ class MessageForm extends React.Component {
   render() {
     return (
       <section className='message-form'>
-        Message Form
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
           <input type='text' placeholder='Type here...' onChange={this.update('body')}></input>
 

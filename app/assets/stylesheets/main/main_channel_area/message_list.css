@@ -1,8 +1,15 @@
 .message-list {
+  padding-bottom: 20px;
+  overflow-y: scroll;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.message-list ul {
+  min-height: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  padding-bottom: 20px;
 }
 
 .message-content-header-user {

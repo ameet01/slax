@@ -7,7 +7,7 @@ import SplashPageContainer from './splashpage/splash_page_container';
 
 const App = () => {
   return (
-    <div>
+    <div className='app-div'>
       <AuthRoute path='/' component={SplashPageContainer} />
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />

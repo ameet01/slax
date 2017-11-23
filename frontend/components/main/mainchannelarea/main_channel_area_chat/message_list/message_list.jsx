@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageListItemContainer from './message_list_item_container';
+import { withRouter } from 'react-router-dom';
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class MessageList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages();
+    this.props.fetchMessages().then(() => $('.message-list').scrollTop($('.message-list')[0].scrollHeight));
   }
 
   render() {
@@ -22,4 +23,4 @@ class MessageList extends React.Component {
 
 }
 
-export default MessageList;
+export default withRouter(MessageList);
