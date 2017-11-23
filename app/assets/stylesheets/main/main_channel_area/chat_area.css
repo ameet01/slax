@@ -23,3 +23,7 @@
   height: 40px;
   min-width: 500px;
 }
+
+.message-form-actual {
+  display: flex;
+}

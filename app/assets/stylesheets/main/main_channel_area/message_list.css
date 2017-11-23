@@ -7,7 +7,7 @@
 
 .message-content-header-user {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .message-list-item {
@@ -17,7 +17,7 @@
 
 .message-content-header-timestamp {
   color: #717274;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .user-message-picture {
@@ -30,10 +30,9 @@
 .message-content-header {
   display: flex;
   flex-direction: column;
-  padding-top: 2px;
 }
 
 .message-body {
   padding-top: 5px;
-  font-size: 14px;
+  font-size: 13px;
 }

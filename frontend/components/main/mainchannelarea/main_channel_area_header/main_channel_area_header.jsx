@@ -5,6 +5,10 @@ class MainChannelAreaHeader extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchChannel(this.props.match.params.channelId);
+  }
+
   render() {
     return (
       <section className='main-header'>

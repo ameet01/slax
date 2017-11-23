@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   let obj = Object.values(state.entities.messages);
 
   for(var i = 0; i < obj.length; i++) {
-    if(obj[i].channel_id.toString() === ownProps.match.params.channelId) {
+    if(obj[i].channel_id === parseInt(ownProps.match.params.channelId)) {
       messages.push(obj[i]);
     }
   }

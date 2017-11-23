@@ -65,7 +65,7 @@ class ChannelList extends React.Component {
               className='plus-sign-create'
               onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
               <span>
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <i className="fa fa-plus-circle" aria-hidden="true"></i>
               </span>
             </div>
           </h1>
@@ -92,7 +92,7 @@ class ChannelList extends React.Component {
                 className='plus-sign-create'
                 onClick={() => this.setState({modalClosed: 'open', is_dm: true})}>
                 <span>
-                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 </span>
               </div>
             </h1>
