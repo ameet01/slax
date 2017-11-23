@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
+import { withRouter } from 'react-router-dom';
 
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: "", modalClosed: "", name: ""};
-    this.close = this.close.bind(this);
+    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false};
+    this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -14,14 +15,13 @@ class ChannelList extends React.Component {
     this.props.fetchChannels();
   }
 
-  close(e) {
+  closeModal(e) {
     this.setState({modalClosed: ""});
-    e.currentTarget.parentElement.parentElement.className = 'hidden';
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel({name: this.state.name});
+    this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm});
     this.setState({modalClosed: ""});
   }
 
@@ -31,19 +31,27 @@ class ChannelList extends React.Component {
 
   render() {
     let { activeSelected } = this.state;
-    let modal;
+    let modal, modalTitle, modalButton;
+
+    if(this.state.is_dm === true) {
+      modalTitle = <h2 className='modal-title'>Create a DM</h2>;
+      modalButton = <button className='modal-button'>Create New DM</button>;
+    } else {
+      modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
+      modalButton = <button className='modal-button'>Create New Channel</button>;
+    }
 
     if(this.state.modalClosed === "") {
       modal = undefined;
     } else if(this.state.modalClosed === 'open') {
       modal = <div className='channel-modal'>
         <div className='channel-modal-form'>
-          <h1>Create a new channel!</h1>
-          <div onClick={this.close} className='close-channel-modal'>X</div>
+          {modalTitle}
+          <div onClick={this.closeModal} className='close-channel-modal'>X</div>
           <form onSubmit={this.handleSubmit}>
             <br/>
               <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>
-              <button>Create New Channel</button>
+              {modalButton}
           </form>
         </div>
       </div>;
@@ -56,7 +64,7 @@ class ChannelList extends React.Component {
           <h1>Channels
             <div
               className='plus-sign-create'
-              onClick={() => this.setState({modalClosed: 'open'})}>
+              onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
               <span>
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
               </span>
@@ -83,7 +91,7 @@ class ChannelList extends React.Component {
             <h1 className='direct-messages-title'>Direct Messages
               <div
                 className='plus-sign-create'
-                onClick={() => this.setState({modalClosed: 'open'})}>
+                onClick={() => this.setState({modalClosed: 'open', is_dm: true})}>
                 <span>
                   <i class="fa fa-plus-circle" aria-hidden="true"></i>
                 </span>
@@ -109,4 +117,4 @@ class ChannelList extends React.Component {
 
   }
 
-  export default ChannelList;
+  export default withRouter(ChannelList);
