@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from './dropdown';
 import capitalize from 'lodash/capitalize';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import ClickOutside from 'react-click-outside';
 
 class Header extends React.Component {
   constructor(props) {
@@ -30,10 +31,10 @@ class Header extends React.Component {
 
     return (
       <section>
-        <div onClick={this.showDropdown} className='main-left-header'>
-            <h1 className='main-left-header-title'>Workspace <span>&or;</span></h1>
-            <div className='main-left-header-username-area'><span className='circle'></span><span className='main-left-header-username'>{capitalize(this.props.currentUser.username)}</span></div>
-        </div>
+        <ClickOutside onClickOutside={this.showDropdown} onClick={this.showDropdown} className='main-left-header'>
+          <h1 className='main-left-header-title'>Workspace <span>&or;</span></h1>
+          <div className='main-left-header-username-area'><span className='circle'></span><span className='main-left-header-username'>{capitalize(this.props.currentUser.username)}</span></div>
+        </ClickOutside>
         <CSSTransitionGroup transitionName="example">
           {dropdown}
         </CSSTransitionGroup>
