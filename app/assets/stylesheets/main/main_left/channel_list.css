@@ -25,7 +25,7 @@
   width: 100%;
 }
 
-.main-left-channel-list li {
+.main-left-channel-list > li {
   cursor: pointer;
   width: 100%;
   height: 100%;
@@ -38,6 +38,7 @@
   margin-right: 10px;
   padding-top: 4px;
   z-index: 6;
+  cursor: pointer;
 }
 
 .channel-list-li {
@@ -48,12 +49,7 @@
   height: 100%;
 }
 
-.selected {
-  background-color: #4F9589 !important;
-  color: white !important;
-}
-
-.main-left-channel-list li:hover {
+.main-left-channel-list > li:hover {
   background: #3E323C;
 }
 
@@ -81,9 +77,29 @@
   margin-top: 15px;
 }
 
+.direct-message-li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dm-remove-li {
+  position: absolute;
+  right: 10px;
+}
+
+.fa-times:hover {
+  color: white;
+}
+
 .fa-plus-circle:hover {
   color: white;
 }
 
 .direct-messages-title {
+}
+
+
+.selected {
+  background-color: #4F9589 !important;
+  color: white !important;
 }

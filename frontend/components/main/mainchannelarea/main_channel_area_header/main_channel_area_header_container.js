@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { fetchChannel } from '../../../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  channel: state.entities.channels[ownProps.match.params.channelId]
+  channel: state.entities.channels[ownProps.match.params.channelId],
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

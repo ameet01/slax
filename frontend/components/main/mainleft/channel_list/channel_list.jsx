@@ -60,7 +60,6 @@ class ChannelList extends React.Component {
 
   removeChannel(e) {
     console.log(e.currentTarget.value);
-    debugger
     this.props.deleteChannel(parseInt(e.currentTarget.value));
   }
 
@@ -153,7 +152,7 @@ class ChannelList extends React.Component {
                           <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
                             # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
                           </NavLink>
-                          <li onClick={this.removeChannel} value={dm.id}><i className="fa fa-times"  ></i></li>
+                          <li className='dm-remove-li' onClick={this.removeChannel} value={dm.id}><i className="fa fa-times"></i></li>
                         </li>
                       )}
                     </ul>
