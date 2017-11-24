@@ -33,7 +33,7 @@ export const fetchChannel = (channelId) => dispatch => (
 
 export const deleteChannel = (channelId) => dispatch => (
   ChannelAPIUtil.deleteChannel(channelId)
-    .then(channel => dispatch(removeChannel(channel.id)))
+    .then(channel => dispatch(removeChannel(channelId)))
 );
 
 export const createChannel = (channel) => dispatch => (

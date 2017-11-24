@@ -17,7 +17,7 @@ export default (state = {}, action) => {
       newState[action.channel.id] = action.channel;
       return newState;
     case REMOVE_CHANNEL:
-      delete newState.channels[action.channelId];
+      delete newState[action.channelId];
       return newState;
     default:
       return state;

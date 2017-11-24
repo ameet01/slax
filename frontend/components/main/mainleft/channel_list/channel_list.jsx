@@ -11,6 +11,7 @@ class ChannelList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
     this.addUser = this.addUser.bind(this);
+    this.removeChannel = this.removeChannel.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +56,12 @@ class ChannelList extends React.Component {
     let users = this.state.userList;
     users.push(e.target.value);
     this.setState({userList: users});
+  }
+
+  removeChannel(e) {
+    console.log(e.currentTarget.value);
+    debugger
+    this.props.deleteChannel(parseInt(e.currentTarget.value));
   }
 
   render() {
@@ -142,11 +149,11 @@ class ChannelList extends React.Component {
 
                     <ul>
                       {this.props.directmessages.map((dm,idx) =>
-
-                        <li>
+                        <li className='direct-message-li'>
                           <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
                             # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
                           </NavLink>
+                          <li onClick={this.removeChannel} value={dm.id}><i className="fa fa-times"  ></i></li>
                         </li>
                       )}
                     </ul>
