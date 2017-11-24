@@ -7,7 +7,9 @@ class Api::MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.all
+    @messages = Message.where(channel_id: params[:channelId])
+    channel = Channel.find_by(id: params[:channelId])
+    @users = channel.users
     render '/api/messages/index'
   end
 

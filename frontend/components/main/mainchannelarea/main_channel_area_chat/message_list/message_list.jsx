@@ -8,7 +8,7 @@ class MessageList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages().then(() => $('.message-list').scrollTop($('.message-list')[0].scrollHeight));
+    this.props.fetchMessages(this.props.match.params.channelId).then(() => $('.message-list').scrollTop($('.message-list')[0].scrollHeight));
   }
 
   render() {
