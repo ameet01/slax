@@ -26,6 +26,7 @@ class ChannelList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
       this.props.fetchMessages(nextProps.match.params.channelId);
+      this.props.fetchChannels();
       this.props.fetchUsers();
     }
   }
