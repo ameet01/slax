@@ -121,7 +121,7 @@ class ChannelList extends React.Component {
 
                         <li className='channel-li' key={channel.id}>
                           <NavLink to={`/channels/${channel.id}`} className='channel-list-li' activeClassName="selected">
-                            # {channel.name}
+                            <span>#</span> {channel.name}
                           </NavLink>
                         </li>
                       )}
@@ -144,7 +144,7 @@ class ChannelList extends React.Component {
                       {this.props.directmessages.map((dm,idx) =>
                         <li className='direct-message-li'>
                           <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
-                            # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
+                            <span>#</span> {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
                           </NavLink>
                           <li className='dm-remove-li' onClick={this.removeChannel} value={dm.id}><i className="fa fa-times"></i></li>
                         </li>

@@ -50,6 +50,13 @@
   padding-right: 20px;
 }
 
+.channel-list-li span {
+  color: #ab9ba9;
+  font-size: 13px;
+  padding-right: 2px;
+  margin: auto 0;
+}
+
 .main-left-channel-list >li:hover {
   background: #3E323C;
 }
@@ -106,6 +113,10 @@
 
 .selected {
   background-color: #4F9589 !important;
+  color: white !important;
+}
+
+.selected span {
   color: white !important;
 }
 

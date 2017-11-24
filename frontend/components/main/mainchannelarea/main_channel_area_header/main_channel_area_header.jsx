@@ -7,21 +7,30 @@ class MainChannelAreaHeader extends React.Component {
   }
 
   render() {
-    let headerTitle;
+    let headerTitle, userCount;
 
     if(!this.props.channel) {
       return null;
     }
 
     if(this.props.channel.is_dm === false) {
-      headerTitle = <div className='main-header-channel'># {this.props.channel.name} </div>;
+      headerTitle = <div className='main-header-channel'>#{this.props.channel.name} </div>;
+      userCount = <div className='main-header-usercount'><i class="fa fa-user-o" aria-hidden="true"></i><span>{this.props.channel.userCount}</span></div>
     } else {
-      headerTitle = <div className='main-header-channel'># {this.props.channel.users.filter(user => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')} </div>;
+      headerTitle = <div className='main-header-channel'>#{this.props.channel.users.filter(user => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')} </div>;
+      if(this.props.channel.userCount > 2) {
+        userCount = <div className='main-header-usercount'><i class="fa fa-user-o" aria-hidden="true"></i><span>{this.props.channel.userCount}</span></div>
+      } else {
+        userCount = undefined;
+      }
     }
 
     return (
       <section className='main-header'>
-        {headerTitle}
+        <div className='header-and-user-count-box'>
+          {headerTitle}
+          {userCount}
+        </div>
       </section>
     );
   }
