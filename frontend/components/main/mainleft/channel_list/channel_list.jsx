@@ -21,6 +21,12 @@ class ChannelList extends React.Component {
     document.removeEventListener('keydown', this.keydownHandler);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
+      this.props.fetchMessages(nextProps.match.params.channelId);
+    }
+  }
+
   closeModal(e) {
     this.setState({modalClosed: "", name: ""});
   }
@@ -71,7 +77,7 @@ class ChannelList extends React.Component {
 
                 <div>
                   {modal}
-                  
+
                   <h1>Channels
                     <div
                       className='plus-sign-create'

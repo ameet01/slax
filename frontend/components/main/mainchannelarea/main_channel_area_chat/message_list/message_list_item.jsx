@@ -7,6 +7,9 @@ class MessageListItem extends React.Component {
   }
 
   render() {
+    if(!this.props.user) {
+      return null;
+    }
     return (
       <section className='message-list-item'>
         <img src ={this.props.user.image_url} className='user-message-picture'></img>
