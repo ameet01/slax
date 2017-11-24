@@ -8,13 +8,20 @@ class MainChannelAreaHeader extends React.Component {
 
   render() {
     let headerTitle;
+
     if(!this.props.channel) {
       return null;
     }
-    console.log(this.props.channel.users);
+
+    if(this.props.channel.is_dm === false) {
+      headerTitle = <div className='main-header-channel'># {this.props.channel.name} </div>
+    } else {
+      headerTitle = <div className='main-header-channel'># {this.props.channel.users.map(user => user.username).join(', ')} </div>
+    }
+
     return (
       <section className='main-header'>
-        <div className='main-header-channel'># {this.props.channel.name} </div>
+        {headerTitle}
       </section>
     );
   }

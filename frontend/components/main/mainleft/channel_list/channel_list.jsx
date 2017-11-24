@@ -6,14 +6,16 @@ import { withRouter, Redirect, NavLink } from 'react-router-dom';
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false};
+    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false, userList: []};
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
+    this.addUser = this.addUser.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchChannels();
+    this.props.fetchUsers();
     document.addEventListener('keydown', this.keydownHandler);
   }
 
@@ -24,6 +26,7 @@ class ChannelList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
       this.props.fetchMessages(nextProps.match.params.channelId);
+      this.props.fetchUsers();
     }
   }
 
@@ -33,7 +36,11 @@ class ChannelList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal());
+    if(this.state.is_dm) {
+      this.props.createChannel({name: "dm_channel", is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal());
+    } else {
+      this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal());
+    }
   }
 
   update(property) {
@@ -44,14 +51,29 @@ class ChannelList extends React.Component {
     if(e.keyCode===27) this.closeModal();
   }
 
+  addUser(e) {
+    e.preventDefault();
+    let users = this.state.userList;
+    users.push(e.currentTarget.value);
+    console.log(users);
+    this.setState({userList: users});
+  }
+
   render() {
     let { activeSelected } = this.state;
-    let modal, modalTitle, modalButton;
+    let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
     if(this.state.is_dm === true) {
       modalTitle = <h2 className='modal-title'>Create a DM</h2>;
         modalButton = <button className='modal-button'>Create New DM</button>;
+            userList = <ul className='dm-user-list'>
+              {this.props.users.map(user => <li value={user.id} onClick={this.addUser}>{user.username}</li>)}
+            </ul>;
+              selectedUsers = <ul>
+                {this.state.userList.map(id => <li>{this.props.users[id].username}</li>)}
+              </ul>
         } else {
+          input = <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
           modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
             modalButton = <button className='modal-button'>Create New Channel</button>;
             }
@@ -62,10 +84,12 @@ class ChannelList extends React.Component {
               modal = <div className='channel-modal'>
                 <div className='channel-modal-form'>
                   {modalTitle}
+                  {selectedUsers}
                   <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                   <form onSubmit={this.handleSubmit}>
                     <br/>
-                    <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>
+                    {input}
+                    {userList}
                     {modalButton}
                   </form>
                 </div>
@@ -116,7 +140,7 @@ class ChannelList extends React.Component {
 
                           <li>
                             <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
-                              # {dm.name}
+                              # {dm.users.map(user => user.username).join(', ')}
                             </NavLink>
                           </li>
                       )}
@@ -124,7 +148,7 @@ class ChannelList extends React.Component {
                     </div>
                   </section>
                 );
-              }
+        }
 }
 
 export default withRouter(ChannelList);

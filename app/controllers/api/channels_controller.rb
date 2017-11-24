@@ -12,10 +12,17 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
+    @channel = Channel.new(params.require(:channel).permit(:name, :is_dm, :userList))
 
     if @channel.save
-      Subscription.create(user_id: current_user.id, channel_id: @channel.id)
+      if params[:channel][:userList]
+        params[:channel][:userList].each do |userId|
+          Subscription.create(user_id: userId, channel_id: @channel.id)
+        end
+        Subscription.create(user_id: current_user.id, channel_id: @channel.id)
+      else
+        Subscription.create(user_id: current_user.id, channel_id: @channel.id)
+      end
       render :show
     else
       render json: @channel.errors.full_messages, status: 401
