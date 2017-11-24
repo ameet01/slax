@@ -9,10 +9,6 @@
 .main-header {
   height: 61px;
   border-bottom: 1px solid #e8e8e8;
-  /*position: absolute;
-  z-index: 3;
-  background-color: white;
-  width: 100%;*/
 }
 
 .main-area {
@@ -21,13 +17,14 @@
   flex-direction: column;
 }
 
-
 .message-form {
   width: 96%;
   border: 2px solid rgba(160,160,162,.7);
-  border-radius: 5px;
+  border-radius: .375rem;
+  box-shadow: none;
+  overflow: auto;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 22px;
   height: 40px;
   min-width: 500px;
   justify-content: flex-end;
@@ -40,9 +37,16 @@
 
 .message-form-actual input {
   height: 95%;
-  font-size: 17px;
+  font-size: 14px;
   padding-left: 10px;
   flex: 1;
+  font-weight: 400;
+  color: black;
+}
+
+.message-form-actual input::placeholder {
+  font-weight: 300;
+  color: gray;
 }
 
 .app-div {

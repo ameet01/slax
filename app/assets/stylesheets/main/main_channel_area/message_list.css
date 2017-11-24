@@ -15,11 +15,22 @@
 .message-content-header-user {
   font-weight: 700;
   font-size: 13px;
+  cursor: pointer;
+}
+
+.message-content-header-user:hover {
+  text-decoration: underline;
 }
 
 .message-list-item {
   display: flex;
-  margin-top: 10px;
+  color: #2C2D30;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.message-list-item:hover {
+  background: #F9F9F9;
 }
 
 .message-content-header-timestamp {
@@ -32,6 +43,7 @@
   height: 35px;
   padding-left: 30px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .message-content-header {
