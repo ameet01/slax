@@ -47,9 +47,18 @@
   padding: 5px 0;
   padding-left: 15px;
   height: 100%;
+  padding-right: 20px;
 }
 
-.main-left-channel-list > li:hover {
+.main-left-channel-list >li:hover {
+  background: #3E323C;
+}
+
+.direct-message-li:hover {
+  background: #3E323C;
+}
+
+.channel-li:hover {
   background: #3E323C;
 }
 
@@ -84,7 +93,7 @@
 
 .dm-remove-li {
   position: absolute;
-  right: 10px;
+  right: 5px;
 }
 
 .fa-times:hover {
@@ -95,11 +104,11 @@
   color: white;
 }
 
-.direct-messages-title {
-}
-
-
 .selected {
   background-color: #4F9589 !important;
   color: white !important;
+}
+
+.user-list-li:hover {
+  background: purple;
 }

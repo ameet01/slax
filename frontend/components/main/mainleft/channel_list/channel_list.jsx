@@ -68,10 +68,10 @@ class ChannelList extends React.Component {
     let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
     if(this.state.is_dm === true) {
-      modalTitle = <h2 className='modal-title'>Create a DM</h2>;
-        modalButton = <button className='modal-button'>Create New DM</button>;
+      modalTitle = <h2 className='modal-title'>Create Direct Message</h2>;
+        modalButton = <button className='modal-button'>Create New Direct Message</button>;
           userList = <ul className='dm-user-list'>
-            {this.props.users.map(user => <li value={user.id} onClick={this.addUser}>{user.username}</li>)}
+            {this.props.users.map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
           </ul>;
           selectedUsers = <ul>
             {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
@@ -106,10 +106,7 @@ class ChannelList extends React.Component {
                   <div>
                     {modal}
                     <div className='channels-header-thing'>
-                      <h1>Channels
-
-                      </h1>
-
+                      <h1>Channels</h1>
                       <div
                         className='plus-sign-create'
                         onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
@@ -122,7 +119,7 @@ class ChannelList extends React.Component {
                     <ul>
                       {this.props.channels.map((channel,idx) =>
 
-                        <li key={channel.id}>
+                        <li className='channel-li' key={channel.id}>
                           <NavLink to={`/channels/${channel.id}`} className='channel-list-li' activeClassName="selected">
                             # {channel.name}
                           </NavLink>
@@ -133,10 +130,7 @@ class ChannelList extends React.Component {
 
                   <div className='dm-channels'>
                     <div className='channels-header-thing'>
-                      <h1 className='direct-messages-title'>Direct Messages
-
-                      </h1>
-
+                      <h1 className='direct-messages-title'>Direct Messages</h1>
                       <div
                         className='plus-sign-create'
                         onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
