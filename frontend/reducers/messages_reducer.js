@@ -10,7 +10,7 @@ export default (state = {}, action) => {
   var newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_MESSAGES:
-      return action.messages;
+      return action.payload.messages;
     case RECEIVE_MESSAGE:
       newState[action.message.id] = action.message;
       return newState;

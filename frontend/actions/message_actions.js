@@ -8,7 +8,7 @@ export const CREATE_MESSAGE = 'CREATE_MESSAGE';
 
 const receiveAllMessages = messages => ({
   type: RECEIVE_ALL_MESSAGES,
-  messages
+  payload: messages
 });
 
 const receiveMessage = message => ({
