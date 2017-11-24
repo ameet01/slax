@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
     let number = Math.floor(Math.random() * (16 - 1) + 1);
     this.props.login({
         username: `demo${number}`,
-        password: 'password'}).then(() => this.props.history.push('/channels/1'))
+        password: 'password'}).then(() => this.props.history.push('/channels/1'));
   }
 
   simType (input, field) {
@@ -60,10 +60,8 @@ class SessionForm extends React.Component {
     let finChars = "";
     let i = 0;
     let typeAction = setInterval(() => {
-      console.log(chars);
       finChars+=chars[i++];
       this.setState({[field]: finChars});
-      console.log(finChars);
       if (i === chars.length) {
         clearInterval(typeAction);
       }

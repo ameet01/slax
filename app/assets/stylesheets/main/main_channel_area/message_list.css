@@ -36,7 +36,7 @@
 .message-content-header-timestamp {
   color: #717274;
   font-size: 9px;
-  margin: auto 0;
+  height: 100%;
   margin-left: 5px;
 }
 
