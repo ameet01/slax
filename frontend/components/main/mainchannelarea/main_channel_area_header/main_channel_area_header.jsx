@@ -1,21 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class MainChannelAreaHeader extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchChannel(this.props.match.params.channelId);
-  }
-
   render() {
+    let headerTitle;
+
     return (
       <section className='main-header'>
-        <h1>Header</h1>
+        <div className='main-header-channel'>#</div>
       </section>
     );
   }
 }
 
-export default MainChannelAreaHeader;
+export default withRouter(MainChannelAreaHeader);

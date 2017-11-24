@@ -148,10 +148,10 @@
 }
 
 .form-username-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
 .form-password-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
 .form-submit-button {
@@ -171,7 +171,7 @@
 }
 
 .form-submit-button:hover {
-    box-shadow: inset 0 -2px rgba(0,0,0,.25);
+  box-shadow: inset 0 -2px rgba(0,0,0,.25);
 }
 
 .session-demo-button {

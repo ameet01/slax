@@ -27,12 +27,20 @@
 
 .main-left-channel-list li {
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.channel-list-li {
+  width: 100%;
+  display: block;
   padding: 5px 0;
   padding-left: 15px;
+  height: 100%;
 }
 
 .selected {
-  background: #4F9589 !important;
+  background-color: #4F9589 !important;
   color: white;
 }
 

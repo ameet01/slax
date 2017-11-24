@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames';
-import { withRouter , Redirect } from 'react-router-dom';
+import { withRouter , Redirect, NavLink} from 'react-router-dom';
 
 
 class ChannelList extends React.Component {
@@ -84,16 +84,13 @@ class ChannelList extends React.Component {
 
                   <ul>
                     {this.props.channels.map((channel,idx) =>
-                      <Link to={`/channels/${channel.id}`} >
-                        <li
-                          key={channel.id}
-                          className={ classNames({
-                            'selected' : activeSelected === `item${channel.id}`
-                          }) }
-                          onClick={ event => this.setState({ activeSelected : activeSelected === `item${channel.id}` ? '' : `item${channel.id}` })}
-                          ># {channel.name}
+
+                        <li key={channel.id}>
+                          <NavLink to={`/channels/${channel.id}`} className='channel-list-li' activeClassName="selected">
+                             # {channel.name}
+                          </NavLink>
                         </li>
-                      </Link>)}
+                    )}
                     </ul>
                   </div>
 
@@ -107,18 +104,16 @@ class ChannelList extends React.Component {
                         </span>
                       </div>
                     </h1>
+
                     <ul>
                       {this.props.directmessages.map((dm,idx) =>
-                        <Link to={`/channels/${dm.id}`} >
-                          <li
-                            key={dm.id}
-                            className={ classNames({
-                              'selected' : activeSelected === `item${dm.id}`
-                            }) }
-                            onClick={ event => this.setState({ activeSelected : activeSelected === `item${dm.id}` ? '' : `item${dm.id}` })}
-                            ># {dm.name}
+
+                          <li>
+                            <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
+                              # {dm.name}
+                            </NavLink>
                           </li>
-                        </Link>)}
+                      )}
                       </ul>
                     </div>
                   </section>

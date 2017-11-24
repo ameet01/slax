@@ -1,6 +1,7 @@
 import React from 'react';
 import MainLeftContainer from './mainleft/main_left_container';
 import MainChannelAreaContainer from './mainchannelarea/main_channel_area_container';
+import { withRouter } from 'react-router-dom';
 
 class Main extends React.Component {
   constructor(props) {
@@ -18,4 +19,4 @@ class Main extends React.Component {
 
 }
 
-export default Main;
+export default withRouter(Main);
