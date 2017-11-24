@@ -8,7 +8,7 @@ export default (state = [], action) => {
   var newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      return action.users;
+      return action.users; 
     default:
       return state;
   }
