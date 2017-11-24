@@ -17,16 +17,19 @@
 }
 
 .main-left-header-title {
-  font-weight: 700;
-  font-size: 20px;
-  padding-top: 10px;
+  font-weight: 900;
+  font-size: 19px;
+  padding-top: 11px;
   margin-left: 15px;
+  font-family: Lato;
 }
 
 .main-left-header-title span {
-  font-size: 11px;
+  content: "\f107";
+  font-size: 14px;
+  font-weight: 900;
   position: absolute;
-  left: 135px;
+  left: 125px;
   top: 14px;
   color: #ab9ba9;
 }
@@ -42,6 +45,7 @@
   color: #ab9ba9;
   font-size: .875rem;
   font-weight: 500;
+  font-family: Lato;
 }
 
 .circle:before {

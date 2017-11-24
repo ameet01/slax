@@ -5,3 +5,12 @@
   width: 100%;
   text-align: center;
 }
+
+.about-me h3 {
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.about-me h2 {
+  font-weight: 500;
+}

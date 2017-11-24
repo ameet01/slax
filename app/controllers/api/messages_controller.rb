@@ -1,6 +1,9 @@
 class Api::MessagesController < ApplicationController
+  before_action :require_logged_in
+
   def show
     @message = Message.find(params[:id])
+    render 'api/messages/show'
   end
 
   def index
@@ -11,7 +14,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      render :show
+      render 'api/messages/show'
     else
       render json: @message.errors.full_messages, status: 401
     end

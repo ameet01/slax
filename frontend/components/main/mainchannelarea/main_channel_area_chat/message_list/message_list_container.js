@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
-    messages: messages
+    messages
   };
 };
 

@@ -41,7 +41,7 @@
 
 .selected {
   background-color: #4F9589 !important;
-  color: white;
+  color: white !important;
 }
 
 .main-left-channel-list li:hover {

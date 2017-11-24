@@ -1,4 +1,6 @@
 class Api::ChannelsController < ApplicationController
+  before_action :require_logged_in
+
   def show
     @channel = Channel.find(params[:id])
     @userCount = @channel.users.count

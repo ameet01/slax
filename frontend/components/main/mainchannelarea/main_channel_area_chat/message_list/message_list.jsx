@@ -15,7 +15,7 @@ class MessageList extends React.Component {
     return (
       <section className='message-list'>
         <ul>
-          {this.props.messages.map((message) => <MessageListItemContainer message={message}/>)}
+          {this.props.messages.map((message) => <MessageListItemContainer message={message} key={message.id}/>)}
         </ul>
       </section>
     );

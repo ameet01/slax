@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import classNames from 'classnames';
-import { withRouter , Redirect, NavLink} from 'react-router-dom';
+import { withRouter, Redirect, NavLink } from 'react-router-dom';
 
 
 class ChannelList extends React.Component {
@@ -71,16 +70,17 @@ class ChannelList extends React.Component {
               <section className='main-left-channel-list'>
 
                 <div>
+                  {modal}
+                  
                   <h1>Channels
                     <div
                       className='plus-sign-create'
                       onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
                       <span>
-                        <i className="fa fa-plus-circle" aria-hidden="true"></i>
+                        <i className="fa fa-plus-circle"></i>
                       </span>
                     </div>
                   </h1>
-                  {modal}
 
                   <ul>
                     {this.props.channels.map((channel,idx) =>
@@ -100,7 +100,7 @@ class ChannelList extends React.Component {
                         className='plus-sign-create'
                         onClick={() => this.setState({modalClosed: 'open', is_dm: true})}>
                         <span>
-                          <i className="fa fa-plus-circle" aria-hidden="true"></i>
+                          <i className="fa fa-plus-circle"></i>
                         </span>
                       </div>
                     </h1>
@@ -119,7 +119,6 @@ class ChannelList extends React.Component {
                   </section>
                 );
               }
+}
 
-            }
-
-            export default withRouter(ChannelList);
+export default withRouter(ChannelList);

@@ -1,8 +1,8 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import MessageForm from './message_form';
 import { createMessage } from '../../../../../actions/message_actions';
 import { fetchChannel } from '../../../../../actions/channel_actions';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,

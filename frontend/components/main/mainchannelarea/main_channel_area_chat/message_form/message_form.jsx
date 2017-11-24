@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createMessage({body: this.state.body, channel_id: parseInt(this.props.match.params.channelId), user_id: parseInt(this.props.currentUser.id) });
+    this.setState({body: ""});
   }
 
   update(property) {
