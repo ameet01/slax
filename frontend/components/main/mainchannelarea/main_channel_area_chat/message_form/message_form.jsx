@@ -21,7 +21,7 @@ class MessageForm extends React.Component {
     return (
       <section className='message-form'>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
-          <input type='text' placeholder={`Message #${this.props.channel.name}`} onChange={this.update('body')}></input>
+          <input type='text' value={this.state.body} placeholder={`Message #${this.props.channel.name}`} onChange={this.update('body')}></input>
           <button></button>
         </form>
 

@@ -19,4 +19,4 @@ class MainChannelAreaChat extends React.Component {
 
 }
 
-export default MainChannelAreaChat;
+export default withRouter(MainChannelAreaChat);

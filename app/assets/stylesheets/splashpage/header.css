@@ -4,9 +4,10 @@
   border-bottom: 1px solid #ebebeb;
   display: flex;
   box-sizing: border-box;
-  padding-left: 16%;
+  padding-left: 14%;
   padding-top: 15px;
   padding-right: 16%;
+  justify-content: space-between;
 }
 
 .logo-and-thumb {
@@ -35,8 +36,10 @@
 }
 
 .loginsignup {
-  margin-left: 67%;
-  margin-top: 14px;
+  margin-top: 7px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .loginsignup .link {
@@ -46,8 +49,18 @@
   color: gray;
   -webkit-transition: all .3s ease;
   margin-left: 40px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  padding: 7px;
+  box-sizing: content-box;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  width: 80px;
+  text-align: center;
+  transition: all 420ms cubic-bezier(.165,.84,.44,1);
 }
 
 .loginsignup .link:hover {
   color: #4049AA;
+  box-shadow: inset 0 0 0 1px #9ba0d3;
 }
