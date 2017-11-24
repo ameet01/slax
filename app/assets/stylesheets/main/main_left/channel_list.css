@@ -59,10 +59,18 @@
   margin-right: 15px;
 }
 
-.plus-sign-create span:hover {
+.channels-header-thing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dm-channels {
+  margin-top: 15px;
+}
+
+.fa-plus-circle:hover {
   color: white;
 }
 
 .direct-messages-title {
-  margin-top: 15px;
 }

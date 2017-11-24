@@ -30,7 +30,7 @@ class ChannelList extends React.Component {
   }
 
   closeModal(e) {
-    this.setState({modalClosed: "", name: ""});
+    this.setState({modalClosed: "", name: "", userList: []});
   }
 
   handleSubmit(e) {
@@ -53,8 +53,7 @@ class ChannelList extends React.Component {
   addUser(e) {
     e.preventDefault();
     let users = this.state.userList;
-    users.push(e.currentTarget.value);
-    console.log(users);
+    users.push(e.target.value);
     this.setState({userList: users});
   }
 
@@ -65,66 +64,73 @@ class ChannelList extends React.Component {
     if(this.state.is_dm === true) {
       modalTitle = <h2 className='modal-title'>Create a DM</h2>;
         modalButton = <button className='modal-button'>Create New DM</button>;
-            userList = <ul className='dm-user-list'>
-              {this.props.users.map(user => <li value={user.id} onClick={this.addUser}>{user.username}</li>)}
-            </ul>;
-              selectedUsers = <ul>
-                {this.state.userList.map(id => <li>{this.props.users[id].username}</li>)}
-              </ul>;
+          userList = <ul className='dm-user-list'>
+            {this.props.users.map(user => <li value={user.id} onClick={this.addUser}>{user.username}</li>)}
+          </ul>;
+          selectedUsers = <ul>
+            {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
+          </ul>;
         } else {
           input = <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
-          modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
-            modalButton = <button className='modal-button'>Create New Channel</button>;
-            }
+            modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
+              modalButton = <button className='modal-button'>Create New Channel</button>;
+              }
 
-            if(this.state.modalClosed === "") {
-              modal = undefined;
-            } else if(this.state.modalClosed === 'open') {
-              modal = <div className='channel-modal'>
-                <div className='channel-modal-form'>
-                  {modalTitle}
-                  {selectedUsers}
-                  <div onClick={this.closeModal} className='close-channel-modal'>X</div>
-                  <form onSubmit={this.handleSubmit}>
-                    <br/>
-                    {input}
-                    {userList}
-                    {modalButton}
-                  </form>
-                </div>
-              </div>;
-            }
+              if(this.state.modalClosed === "") {
+                modal = undefined;
+              } else if(this.state.modalClosed === 'open') {
+                modal = <div className='channel-modal'>
+                  <div className='channel-modal-form'>
+                    {modalTitle}
+                    {selectedUsers}
+                    <div onClick={this.closeModal} className='close-channel-modal'>X</div>
+                    <form onSubmit={this.handleSubmit}>
+                      <br/>
+                      {input}
+                      {userList}
+                      {modalButton}
+                    </form>
+                  </div>
+                </div>;
+              }
 
-            return (
-              <section className='main-left-channel-list'>
+              return (
+                <section className='main-left-channel-list'>
 
-                <div>
-                  {modal}
+                  <div>
+                    {modal}
+                    <div className='channels-header-thing'>
+                      <h1>Channels
 
-                  <h1>Channels
-                    <div
-                      className='plus-sign-create'
-                      onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
-                      <span>
-                        <i className="fa fa-plus-circle"></i>
-                      </span>
+                      </h1>
+
+                      <div
+                        className='plus-sign-create'
+                        onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
+                        <span>
+                          <i className="fa fa-plus-circle"></i>
+                        </span>
+                      </div>
                     </div>
-                  </h1>
 
-                  <ul>
-                    {this.props.channels.map((channel,idx) =>
+                    <ul>
+                      {this.props.channels.map((channel,idx) =>
 
                         <li key={channel.id}>
                           <NavLink to={`/channels/${channel.id}`} className='channel-list-li' activeClassName="selected">
-                             # {channel.name}
+                            # {channel.name}
                           </NavLink>
                         </li>
-                    )}
+                      )}
                     </ul>
                   </div>
 
-                  <div>
-                    <h1 className='direct-messages-title'>Direct Messages
+                  <div className='dm-channels'>
+                    <div className='channels-header-thing'>
+                      <h1 className='direct-messages-title'>Direct Messages
+
+                      </h1>
+
                       <div
                         className='plus-sign-create'
                         onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
@@ -132,22 +138,22 @@ class ChannelList extends React.Component {
                           <i className="fa fa-plus-circle"></i>
                         </span>
                       </div>
-                    </h1>
+                    </div>
 
                     <ul>
                       {this.props.directmessages.map((dm,idx) =>
 
-                          <li>
-                            <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
-                              # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
-                            </NavLink>
-                          </li>
+                        <li>
+                          <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
+                            # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
+                          </NavLink>
+                        </li>
                       )}
-                      </ul>
-                    </div>
-                  </section>
-                );
-        }
-}
+                    </ul>
+                  </div>
+                </section>
+              );
+            }
+          }
 
-export default withRouter(ChannelList);
+          export default withRouter(ChannelList);
