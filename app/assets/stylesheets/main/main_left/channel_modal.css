@@ -44,6 +44,11 @@
   cursor: pointer;
 }
 
+.close-channel-modal:hover {
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
 .hidden {
   display: none;
 }
@@ -62,5 +67,5 @@
 }
 
 .modal-button:hover {
-    box-shadow: inset 0 -2px rgba(0,0,0,.25);
+  box-shadow: inset 0 -2px rgba(0,0,0,.25);
 }

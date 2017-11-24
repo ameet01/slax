@@ -15,11 +15,11 @@ class ChannelList extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels();
-    document.addEventListener('keydown',this.keydownHandler);
+    document.addEventListener('keydown', this.keydownHandler);
   }
 
   componentWillUnmount(){
-    document.removeEventListener('keydown',this.keydownHandler);
+    document.removeEventListener('keydown', this.keydownHandler);
   }
 
   closeModal(e) {

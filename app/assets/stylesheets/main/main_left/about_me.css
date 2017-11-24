@@ -1,7 +1,7 @@
 .about-me {
   height: 4rem;
   position: absolute;
-  bottom: 5px;
+  bottom: -10px;
   width: 100%;
   text-align: center;
 }
