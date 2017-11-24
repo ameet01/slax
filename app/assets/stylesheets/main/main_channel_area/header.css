@@ -1,0 +1,11 @@
+.main-header {
+  display: flex;
+  width: 100%;
+}
+
+.main-header-channel {
+  margin: auto 0;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}

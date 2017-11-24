@@ -11,7 +11,7 @@ class MainChannelAreaHeader extends React.Component {
 
     return (
       <section className='main-header'>
-        <div className='main-header-channel'>#</div>
+        <div className='main-header-channel'># {this.props.channel.name}</div>
       </section>
     );
   }
