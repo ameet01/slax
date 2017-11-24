@@ -26,8 +26,6 @@ class ChannelList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
       this.props.fetchMessages(nextProps.match.params.channelId);
-      this.props.fetchChannels();
-      this.props.fetchUsers();
     }
   }
 
@@ -72,7 +70,7 @@ class ChannelList extends React.Component {
             </ul>;
               selectedUsers = <ul>
                 {this.state.userList.map(id => <li>{this.props.users[id].username}</li>)}
-              </ul>
+              </ul>;
         } else {
           input = <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
           modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
@@ -129,7 +127,7 @@ class ChannelList extends React.Component {
                     <h1 className='direct-messages-title'>Direct Messages
                       <div
                         className='plus-sign-create'
-                        onClick={() => this.setState({modalClosed: 'open', is_dm: true})}>
+                        onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
                         <span>
                           <i className="fa fa-plus-circle"></i>
                         </span>
@@ -141,7 +139,7 @@ class ChannelList extends React.Component {
 
                           <li>
                             <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
-                              # {dm.users.map(user => user.username).join(', ')}
+                              # {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
                             </NavLink>
                           </li>
                       )}
