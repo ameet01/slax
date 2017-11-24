@@ -19,10 +19,20 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    let placeholder;
+    if(this.props.channel.is_dm) {
+      if(this.props.channel.users.length === 2) {
+        placeholder = `Message @${this.props.channel.users.filter(user => user.username !== this.props.currentUser.username)[0].username}`;
+      } else {
+        placeholder = `Message ${this.props.channel.users.filter(user => user.username !== this.props.currentUser.username).map(user => user.username).join(', ')}`;
+      }
+    } else {
+      placeholder = `Message #${this.props.channel.name}`
+    }
     return (
       <section className='message-form'>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
-          <input type='text' value={this.state.body} placeholder={`Message #${this.props.channel.name}`} onChange={this.update('body')}></input>
+          <input type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
           <button></button>
         </form>
 
