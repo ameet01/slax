@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageListItemContainer from './message_list_item_container';
+import MessageListItem from './message_list_item';
 import { withRouter } from 'react-router-dom';
 
 class MessageList extends React.Component {
@@ -15,7 +15,7 @@ class MessageList extends React.Component {
     return (
       <section className='message-list'>
         <ul>
-          {this.props.messages.map((message) => <MessageListItemContainer message={message} key={message.id}/>)}
+          {this.props.messages.map((message) => <MessageListItem message={message} user={this.props.users[message.user_id]} key={message.id}/>)}
         </ul>
       </section>
     );

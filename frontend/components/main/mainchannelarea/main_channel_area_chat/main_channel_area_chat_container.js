@@ -6,17 +6,9 @@ import { fetchChannel } from '../../../../actions/channel_actions';
 import { fetchMessages } from '../../../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  let messages = [];
-  let obj = Object.values(state.entities.messages);
-
-  for(var i = 0; i < obj.length; i++) {
-    if(obj[i].channel_id === parseInt(ownProps.match.params.channelId)) {
-      messages.push(obj[i]);
-    }
-  }
-
   return {
-    messages,
+    messages: Object.values(state.entities.messages),
+    users: state.entities.users,
     currentUser: state.session.currentUser,
     channel: state.entities.channels[ownProps.match.params.channelId] || {}
   };
