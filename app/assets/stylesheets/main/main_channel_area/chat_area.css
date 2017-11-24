@@ -6,11 +6,6 @@
   height: 100%;
 }
 
-.main-header {
-  height: 61px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
 .main-area {
   height: 100%;
   display: flex;
