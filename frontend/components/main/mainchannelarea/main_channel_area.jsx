@@ -11,8 +11,8 @@ class MainChannelArea extends React.Component {
   render() {
     return (
       <div className='mainchannelarea'>
-          <MainChannelAreaHeaderContainer />
-          <MainChannelAreaChatContainer />
+        <MainChannelAreaHeaderContainer />
+        <MainChannelAreaChatContainer />
       </div>
     );
   }

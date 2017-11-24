@@ -1,5 +1,5 @@
 .message-list {
-  padding-bottom: 13px;
+  padding-bottom: 10px;
   overflow-y: scroll;
   height: 100%;
   scroll-behavior: smooth;
@@ -41,7 +41,7 @@
 .user-message-picture {
   width: 35px;
   height: 35px;
-  padding-left: 25px;
+  padding-left: 30px;
   margin-right: 5px;
   cursor: pointer;
 }
