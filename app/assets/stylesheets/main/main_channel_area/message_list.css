@@ -1,5 +1,6 @@
 .message-list {
-  padding-bottom: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
   overflow-y: auto;
   height: 100%;
   scroll-behavior: smooth;

@@ -10,8 +10,8 @@ class MessageForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createMessage({body: this.state.body, channel_id: parseInt(this.props.match.params.channelId), user_id: parseInt(this.props.currentUser.id) });
-    this.setState({body: ""});
+    this.props.createMessage({body: this.state.body, channel_id: parseInt(this.props.match.params.channelId), user_id: parseInt(this.props.currentUser.id) }).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false)).then(() => this.setState({body: ""}));
+
   }
 
   update(property) {
@@ -27,7 +27,7 @@ class MessageForm extends React.Component {
         placeholder = `Message ${this.props.channel.users.filter(user => user.username !== this.props.currentUser.username).map(user => user.username).join(', ')}`;
       }
     } else {
-      placeholder = `Message #${this.props.channel.name}`
+      placeholder = `Message #${this.props.channel.name}`;
     }
     return (
       <section className='message-form'>

@@ -13,7 +13,7 @@ class MessageList extends React.Component {
 
   render() {
     return (
-      <section className='message-list'>
+      <section id='message-list' className='message-list'>
         <ul>
           {this.props.messages.map((message) => <MessageListItem message={message} user={this.props.users[message.user_id]} key={message.id}/>)}
         </ul>
