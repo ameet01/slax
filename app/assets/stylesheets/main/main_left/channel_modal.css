@@ -143,3 +143,22 @@
 .user-list-li:hover + li {
   border-top: none;
 }
+
+
+.browse-channel-li {
+  height: 15px;
+  border-top: 1px solid lightgray;
+  padding: 10px 0;
+  padding-left: 15px;
+  display: block;
+}
+
+.browse-channel-li:hover + li {
+  border-top: none;
+}
+
+.browse-channel-li:hover {
+  background: #EBF5FC;
+  border: 1px solid #cbe7f7;
+  border-radius: 6px;
+}

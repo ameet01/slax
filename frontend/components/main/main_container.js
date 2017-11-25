@@ -1,7 +1,7 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Main from './main';
-import {logout} from '../../actions/session_actions';
-import {fetchChannel} from '../../actions/channel_actions';
+import { logout } from '../../actions/session_actions';
+import { fetchChannel } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({

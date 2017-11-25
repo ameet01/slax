@@ -5,3 +5,6 @@
     json.users channel.users
   end
 end
+
+
+json.allChannels @allChannels

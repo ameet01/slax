@@ -59,7 +59,7 @@
 
 .example-enter {
   opacity: 0;
-  transition: opacity .3s ease-out;
+  transition: opacity .3s ease-in;
 }
 
 .example-enter.example-enter-active {

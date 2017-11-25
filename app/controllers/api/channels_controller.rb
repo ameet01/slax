@@ -9,6 +9,7 @@ class Api::ChannelsController < ApplicationController
 
   def index
     @channels = current_user.channels
+    @allChannels = Channel.all - current_user.channels
   end
 
   def create
