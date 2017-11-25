@@ -48,6 +48,12 @@
   padding-left: 15px;
   height: 100%;
   padding-right: 20px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 1.08em;
+  line-height: 1.08em;
+  position: relative;
 }
 
 .channel-list-li span {
