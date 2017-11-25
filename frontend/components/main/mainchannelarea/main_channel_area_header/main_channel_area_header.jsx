@@ -6,6 +6,12 @@ class MainChannelAreaHeader extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.match.params.channelId !== nextProps.match.params.channelId) {
+      this.props.fetchChannel(nextProps.match.params.channelId);
+    }
+  }
+
   render() {
     let headerTitle, userCount;
 
@@ -20,6 +26,8 @@ class MainChannelAreaHeader extends React.Component {
       headerTitle = <div className='main-header-channel'>{this.props.channel.users.filter(user => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')} </div>;
       if(this.props.channel.userCount > 2) {
         userCount = <div className='main-header-usercount'><i class="fa fa-user-o" aria-hidden="true"></i><span>{this.props.channel.userCount}</span></div>
+      } else if(this.props.channel.userCount === 2) {
+        userCount = <div className='main-header-usercount'><span>Private Chat</span></div>
       } else {
         userCount = undefined;
       }
