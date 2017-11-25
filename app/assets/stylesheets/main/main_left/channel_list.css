@@ -54,6 +54,7 @@
   max-height: 1.08em;
   line-height: 1.08em;
   position: relative;
+  white-space: nowrap;
 }
 
 .channel-list-li span {
