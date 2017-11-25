@@ -23,7 +23,7 @@
 .modal-title {
   font-size: 35px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -78,11 +78,7 @@
 .dm-user-list {
 }
 
-.dm-user-list li {
-  height: 15px;
-  border-top: 1px solid gray;
-  padding: 10px 30px;
-}
+
 
 .selected-users {
   display: flex;
@@ -121,15 +117,32 @@
 }
 
 .gray {
-  background: gray;
+  background: #CDCECE;
 }
 
 .green {
-  background: green;
+  background: #35A566;
 }
-
 
 .title-and-button-dm-form {
   position: relative;
   margin: auto;
+}
+
+.user-list-li {
+  height: 15px;
+  border-top: 1px solid lightgray;
+  padding: 10px 0;
+  padding-left: 15px;
+  display: block;
+}
+
+.user-list-li:hover {
+  background: #EBF5FC;
+  border: 1px solid #cbe7f7;
+  border-radius: 6px;
+}
+
+.user-list-li:hover + li {
+  border-top: none;
 }

@@ -127,7 +127,3 @@
 .selected span {
   color: white !important;
 }
-
-.user-list-li:hover {
-  background: purple;
-}

@@ -69,21 +69,27 @@ class ChannelList extends React.Component {
 
     let goButton;
 
-    if(!(this.state.userList.length > 0)) {
-      goButton = <button className='go-button gray' onClick={this.handleSubmit}>Go</button>
-    } else {
-      goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>
-    }
+
 
     if(this.state.is_dm === true) {
+      if(!(this.state.userList.length > 0)) {
+        goButton = <button className='go-button gray' onClick={this.handleSubmit}>Go</button>;
+      } else {
+        goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
+      }
       modalTitle = <h2 className='modal-title'>Create Direct Message</h2>;
           userList = <ul className='dm-user-list'>
-            {this.props.users.filter(user => !user.username.startsWith('demo')).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
+            {this.props.users.filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
           </ul>;
           selectedUsers = <ul className='selected-users'>
             {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
           </ul>;
         } else {
+          if(!(this.state.name.length > 0)) {
+            goButton = <button className='go-button gray' onClick={this.handleSubmit}>Go</button>;
+          } else {
+            goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
+          }
           input = <input ref={i => i && i.focus()} type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
             modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
               modalButton = <button type='submit' className='modal-button'>Create New Channel</button>;
