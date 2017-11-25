@@ -79,3 +79,21 @@
 .dm-user-list li {
   height: 15px;
 }
+
+.selected-users {
+  display: flex;
+  max-width: 100%;
+}
+
+.selected-users li {
+  width: 100%;
+  height: 18px;
+  padding: 10px;
+  padding-left: 15px;
+  background: #3f46ad;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  margin-right: 3px;
+}

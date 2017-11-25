@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import { withRouter, Redirect, NavLink } from 'react-router-dom';
 
-
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +30,7 @@ class ChannelList extends React.Component {
   }
 
   closeModal(e) {
-    this.setState({modalClosed: "", name: "", userList: []});
+    this.setState({modalClosed: "", name: "", userList: [], is_dm: false});
   }
 
   handleSubmit(e) {
@@ -73,7 +72,7 @@ class ChannelList extends React.Component {
           userList = <ul className='dm-user-list'>
             {this.props.users.map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
           </ul>;
-          selectedUsers = <ul>
+          selectedUsers = <ul className='selected-users'>
             {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
           </ul>;
         } else {
@@ -106,7 +105,7 @@ class ChannelList extends React.Component {
                   <div>
                     {modal}
                     <div className='channels-header-thing'>
-                      <h1>Channels</h1>
+                      <h1 onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>Channels</h1>
                       <div
                         className='plus-sign-create'
                         onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
@@ -130,7 +129,7 @@ class ChannelList extends React.Component {
 
                   <div className='dm-channels'>
                     <div className='channels-header-thing'>
-                      <h1 className='direct-messages-title'>Direct Messages</h1>
+                      <h1 onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))} className='direct-messages-title'>Direct Messages</h1>
                       <div
                         className='plus-sign-create'
                         onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
