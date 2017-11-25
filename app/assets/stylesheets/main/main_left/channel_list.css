@@ -6,6 +6,7 @@
   margin-top: 20px;
   box-sizing: border-box;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .main-left-channel-list a {
@@ -107,7 +108,7 @@
 
 .dm-remove-li {
   position: absolute;
-  right: 5px;
+  right: 2px;
 }
 
 .fa-times:hover {

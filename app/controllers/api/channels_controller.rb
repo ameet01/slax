@@ -8,7 +8,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def index
-    @channels = User.find_by(id: current_user.id).channels
+    @channels = current_user.channels
   end
 
   def create

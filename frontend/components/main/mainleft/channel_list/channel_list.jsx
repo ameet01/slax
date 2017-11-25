@@ -35,7 +35,7 @@ class ChannelList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.state.is_dm) {
+    if(this.state.is_dm && this.state.userList.length > 0) {
       this.props.createChannel({name: "dm_channel", is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal());
     } else {
       this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal());
@@ -47,7 +47,8 @@ class ChannelList extends React.Component {
   }
 
   keydownHandler(e){
-    if(e.keyCode===27) this.closeModal();
+    if(e.keyCode===27) this.closeModal(e);
+    if(e.keyCode===13 && this.state.is_dm) this.handleSubmit(e);
   }
 
   addUser(e) {
@@ -66,19 +67,26 @@ class ChannelList extends React.Component {
     let { activeSelected } = this.state;
     let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
+    let goButton;
+
+    if(!(this.state.userList.length > 0)) {
+      goButton = <button className='go-button gray' onClick={this.handleSubmit}>Go</button>
+    } else {
+      goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>
+    }
+
     if(this.state.is_dm === true) {
       modalTitle = <h2 className='modal-title'>Create Direct Message</h2>;
-        modalButton = <button className='modal-button'>Create New Direct Message</button>;
           userList = <ul className='dm-user-list'>
-            {this.props.users.map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
+            {this.props.users.filter(user => !user.username.startsWith('demo')).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
           </ul>;
           selectedUsers = <ul className='selected-users'>
             {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
           </ul>;
         } else {
-          input = <input type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
+          input = <input ref={i => i && i.focus()} type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
             modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
-              modalButton = <button className='modal-button'>Create New Channel</button>;
+              modalButton = <button type='submit' className='modal-button'>Create New Channel</button>;
               }
 
               if(this.state.modalClosed === "") {
@@ -86,13 +94,13 @@ class ChannelList extends React.Component {
               } else if(this.state.modalClosed === 'open') {
                 modal = <div className='channel-modal'>
                   <div className='channel-modal-form'>
-                    {modalTitle}
+                    <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
                     {selectedUsers}
                     <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                     <form onSubmit={this.handleSubmit}>
                       <br/>
                       {input}
-                      {userList}
+                      <div className='modal-div-list'>{userList}</div>
                       {modalButton}
                     </form>
                   </div>
