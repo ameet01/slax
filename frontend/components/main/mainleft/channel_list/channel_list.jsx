@@ -36,9 +36,9 @@ class ChannelList extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if(this.state.is_dm && this.state.userList.length > 0) {
-      this.props.createChannel({name: "dm_channel", is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal());
+      this.props.createChannel({name: "dm_channel", is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.directmessages[this.props.directmessages.length - 1].id)}`));
     } else {
-      this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal());
+      this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.channels[this.props.channels.length - 1].id)}`));
     }
   }
 

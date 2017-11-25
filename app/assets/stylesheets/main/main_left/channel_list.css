@@ -1,11 +1,11 @@
 .main-left-channel-list {
-  height: 585px;
+  height: 80%;
   color: rgb(202,196,201);
   font-weight: 400;
   width: 100%;
   margin-top: 20px;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

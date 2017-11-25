@@ -4,7 +4,7 @@
   position: absolute;
   background: white;
   border: 1px solid black;
-  z-index: 100;
+  z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
@@ -78,8 +78,6 @@
 .dm-user-list {
 }
 
-
-
 .selected-users {
   display: flex;
   flex-wrap: wrap;
@@ -109,11 +107,10 @@
   justify-content: center;
   padding: auto;
   border-radius: 5px;
-  position: absolute;
-  left: 450px;
-  top: 0px;
   color: white;
   cursor: pointer;
+  position: relative;
+  left: 50%;
 }
 
 .gray {
@@ -125,8 +122,8 @@
 }
 
 .title-and-button-dm-form {
-  position: relative;
-  margin: auto;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .user-list-li {

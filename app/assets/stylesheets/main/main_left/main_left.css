@@ -4,7 +4,7 @@
   background: #4C3A4A;
   color: white;
   font-weight: 600;
-  height: -webkit-fill-available;
+  height: 100%;
   width: 220px;
   position: relative;
   flex: 1;
