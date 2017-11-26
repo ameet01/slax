@@ -106,7 +106,7 @@ class ChannelList extends React.Component {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
           input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.update('search')}></input>;
-          modalTitle = <h2 className='modal-title'>Create Message</h2>;
+          modalTitle = <h2 className='modal-title'>Direct Messages</h2>;
             userList = <ul className='dm-user-list'>
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
             </ul>;
