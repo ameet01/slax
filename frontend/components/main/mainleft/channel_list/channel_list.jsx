@@ -105,7 +105,7 @@ class ChannelList extends React.Component {
         } else {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
-          input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.update('search')}></input>;
+          input = <input type='text' value={this.state.search} placeholder={`Find or start a conversation`} onChange={this.update('search')}></input>;
           modalTitle = <h2 className='modal-title'>Direct Messages</h2>;
             userList = <ul className='dm-user-list'>
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li key={user.id} className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
@@ -162,7 +162,7 @@ class ChannelList extends React.Component {
                               <div className='channel-modal-form'>
                                 <div className='title-and-button-dm-form'>{modalTitle}</div>
                                 <span class="fa fa-search"></span>
-                                <input type='text' value={this.state.search} placeholder='Search' onChange={this.update('search')}></input>
+                                <input type='text' value={this.state.search} placeholder='Search channels' onChange={this.update('search')}></input>
                                 {selectedChannels}
                                 <div className='channel-modal-form-innerdiv'>
                                   <ul>
