@@ -12,7 +12,7 @@ class MainChannelAreaChat extends React.Component {
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId);
   }
-
+  
   joinChannel(e) {
     e.preventDefault();
 

@@ -19,7 +19,9 @@ class ChannelList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchChannels();
+    if(!this.props.match.path.includes('preview')) {
+      this.props.fetchChannels();
+    }
     this.props.fetchUsers();
     document.addEventListener('keydown', this.keydownHandler);
   }
@@ -31,6 +33,12 @@ class ChannelList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
       this.props.fetchMessages(nextProps.match.params.channelId);
+    }
+
+    if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
+      if(nextProps.match.path.includes('preview')) {
+
+      }
     }
   }
 
@@ -50,7 +58,6 @@ class ChannelList extends React.Component {
   previewChannel(e) {
     e.preventDefault();
     this.closeModal(e);
-    console.log(e.currentTarget.value);
     this.props.history.push(`/channels/${e.currentTarget.value}/preview`);
   }
 
