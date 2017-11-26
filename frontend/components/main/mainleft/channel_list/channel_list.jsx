@@ -108,10 +108,10 @@ class ChannelList extends React.Component {
           input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.update('search')}></input>;
           modalTitle = <h2 className='modal-title'>Direct Messages</h2>;
             userList = <ul className='dm-user-list'>
-              {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
+              {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li key={user.id} className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
             </ul>;
             selectedUsers = <ul className='selected-users'>
-              {this.state.userList.map(id => <li value={id} onClick={this.removeUser}>{this.props.users.find(user => user.id === id).username}</li>)}
+              {this.state.userList.map(id => <li key={id} value={id} onClick={this.removeUser}>{this.props.users.find(user => user.id === id).username}</li>)}
             </ul>;
           } else if(this.state.is_dm === false){
             if(!(this.state.name.length > 0)) {
@@ -227,7 +227,7 @@ class ChannelList extends React.Component {
 
                                   <ul>
                                     {this.props.directmessages.map((dm,idx) =>
-                                      <li className='direct-message-li'>
+                                      <li key={dm.id} className='direct-message-li'>
                                         <NavLink to={`/channels/${dm.id}`} className='channel-list-li' activeClassName="selected" >
                                           <span>#</span> {dm.users.filter((user) => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')}
                                           </NavLink>

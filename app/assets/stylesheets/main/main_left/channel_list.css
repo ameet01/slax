@@ -97,6 +97,10 @@
   justify-content: space-between;
 }
 
+.channels-header-thing:hover {
+  color: white;
+}
+
 .dm-channels {
   margin-top: 25px;
 }
