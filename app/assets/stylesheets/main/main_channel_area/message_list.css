@@ -58,3 +58,11 @@
   padding-top: 5px;
   font-size: 13px;
 }
+
+
+.message-list-divider {
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 700;
+  padding: 25px 0;
+}
