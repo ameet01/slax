@@ -61,17 +61,40 @@
   border: 1px solid black;
 }
 
+.channel-modal-form input:hover {
+  border: 1px solid black;
+}
+
+.channel-modal-form { position: relative; }
+.channel-modal-form input { text-indent: 25px;}
+.channel-modal-form .fa-search {
+  position: relative;
+  top: 30px;
+  left: 10px;
+  font-size: 20px;
+  color: #a0a0a2;
+}
+
 .close-channel-modal {
-  font-size: 40px;
+  font-size: 30px;
+  font-weight: 400;
   position: absolute;
-  right: 100px;
+  padding: 5px 10px;
+  right: 60px;
+  color: #717274;
   top: 70px;
   cursor: pointer;
+  border: 1px solid white;
 }
 
 .close-channel-modal:hover {
-  border: 1px solid black;
+  background: #E8E8E8;
   border-radius: 50px;
+  color: black;
+}
+
+.close-channel-modal:active {
+  background: #2ea664;
 }
 
 .hidden {
@@ -146,6 +169,8 @@
   padding: 25px 0;
   padding-left: 15px;
   display: block;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .user-list-li:hover {
@@ -169,6 +194,8 @@
   flex-direction: column;
   font-weight: 500;
   cursor: pointer;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .browse-channel-li span {

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { withRouter, Redirect, NavLink } from 'react-router-dom';
-import {CSSTransitionGroup} from 'react-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class ChannelList extends React.Component {
   constructor(props) {
@@ -131,13 +131,14 @@ class ChannelList extends React.Component {
                       modal = <div className='channel-modal'>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
+                          <span class="fa fa-search"></span>
                           {input}
                           {selectedUsers}
-                          <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                           <div className='channel-modal-form-innerdiv'>
                             {userList}
                           </div>
                         </div>
+                        <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                       </div>;
                     }
 
@@ -159,7 +160,8 @@ class ChannelList extends React.Component {
 
                             browseModal = <div className='channel-modal'>
                               <div className='channel-modal-form'>
-                                <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
+                                <div className='title-and-button-dm-form'>{modalTitle}</div>
+                                <span class="fa fa-search"></span>
                                 <input type='text' value={this.state.search} placeholder='Search' onChange={this.update('search')}></input>
                                 {selectedChannels}
                                 <div className='channel-modal-form-innerdiv'>
@@ -169,13 +171,9 @@ class ChannelList extends React.Component {
                                       filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).
                                       map(channel => <li key={channel.id} value={channel.id} className='browse-channel-li' onClick={this.previewChannel}># {channel.name} <span>Created on {channel.created_at}</span> <div className='browse-channels-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{channel.userCount}</span></div></li>)}
                                   </ul>
-                                  <div onClick={this.closeModal} className='close-channel-modal'>X</div>
-                                  <form onSubmit={this.handleSubmit}>
-
-                                    <button></button>
-                                  </form>
                                 </div>
                               </div>
+                              <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                             </div>;
                           } else {
                             browseModal === undefined;

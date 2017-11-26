@@ -70,3 +70,5 @@ button {
   -moz-appearance: none;
   appearance: none;
 }
+
+button:focus {outline:0 !important;}
