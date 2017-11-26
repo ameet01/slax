@@ -26,8 +26,7 @@
 .message-list-item {
   display: flex;
   color: #2C2D30;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 10px;
 }
 
 .message-list-item:hover {

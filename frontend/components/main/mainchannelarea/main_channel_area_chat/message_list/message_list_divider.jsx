@@ -8,7 +8,7 @@ class MessageListDivider extends React.Component {
 
   render() {
     return (
-      <li className='message-list-divider'>{this.props.message}</li>
+      <li className='message-list-divider'><span>{this.props.message}</span></li>
     );
   }
 
