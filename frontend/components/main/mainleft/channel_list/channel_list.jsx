@@ -6,7 +6,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: [], search: ""};
+    this.state = {modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: [], search: ""};
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
@@ -50,7 +50,8 @@ class ChannelList extends React.Component {
   previewChannel(e) {
     e.preventDefault();
     this.closeModal(e);
-    this.props.history.push(`/channels/${e.target.value}/preview`);
+    console.log(e.currentTarget.value);
+    this.props.history.push(`/channels/${e.currentTarget.value}/preview`);
   }
 
   update(property) {
@@ -84,7 +85,6 @@ class ChannelList extends React.Component {
   updateSearch(e) {
     e.preventDefault();
     this.setState({search: e.target.value});
-    console.log(this.state.search);
   }
 
   removeUser(e) {
@@ -94,6 +94,9 @@ class ChannelList extends React.Component {
   }
 
   render() {
+    if(this.props.channel === {}) {
+      return null;
+    }
     let { activeSelected } = this.state;
     let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
@@ -107,6 +110,7 @@ class ChannelList extends React.Component {
         } else {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
+          input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.updateSearch}></input>;
           modalTitle = <h2 className='modal-title'>Create Message</h2>;
             userList = <ul className='dm-user-list'>
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
@@ -132,7 +136,7 @@ class ChannelList extends React.Component {
                       modal = <div className='channel-modal'>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
-                          <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.updateSearch}></input>
+                          {input}
                           {selectedUsers}
                           <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                           <div className='channel-modal-form-innerdiv'>

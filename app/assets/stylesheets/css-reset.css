@@ -29,6 +29,7 @@ body {
 	line-height: 1;
   -webkit-font-smoothing: antialiased;
 	font-family: 'Open Sans';
+	color: #2c2d30;
 }
 ol, ul {
 	list-style: none;

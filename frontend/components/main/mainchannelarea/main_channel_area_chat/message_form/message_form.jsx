@@ -32,7 +32,7 @@ class MessageForm extends React.Component {
       <section className='message-form'>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
           <input ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
-          <button></button>
+        
         </form>
 
       </section>
