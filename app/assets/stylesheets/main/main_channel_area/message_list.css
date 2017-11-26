@@ -60,9 +60,28 @@
   font-size: 13px;
 }
 
+
 .message-list-divider {
   line-height: 1.2;
   text-align: center;
   font-weight: 700;
-  padding: 25px 0;
+  padding: 18px 0;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.message-list-divider:before, .message-list-divider:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: #e8e8e8;
+}
+.message-list-divider:before {
+    margin-left: -50%;
+    text-align: right;
 }
