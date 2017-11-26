@@ -84,4 +84,9 @@
 .message-list-divider:before {
     margin-left: -50%;
     text-align: right;
+    right: 57%;
+}
+
+.message-list-divider:after {
+    left: 57%;
 }

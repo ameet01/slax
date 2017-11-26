@@ -17,17 +17,25 @@ class MessageList extends React.Component {
     let {messages} = this.props;
 
     let array = [];
-    
+
     for(var i = 0; i < messages.length; i++) {
       if(i === 0) {
-        array.push(messages[i].date);
+        if(new Date(messages[i].date.concat(' 2017')).toDateString() === new Date().toDateString()) {
+          array.push('Today');
+        } else {
+          array.push(messages[i].date);
+        }
       }
       array.push(messages[i]);
       if(i === messages.length-1) {
         continue;
       }
       if(messages[i].date !== messages[i+1].date) {
-        array.push(messages[i+1].date);
+        if(new Date(messages[i+1].date.concat(' 2017')).toDateString() === new Date().toDateString()) {
+          array.push('Today');
+        } else {
+          array.push(messages[i+1].date);
+        }
       }
     }
 
