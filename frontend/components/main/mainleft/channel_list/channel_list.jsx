@@ -60,7 +60,11 @@ class ChannelList extends React.Component {
 
   keydownHandler(e){
     if(e.keyCode===27) this.closeModal(e);
-    if(e.keyCode===13) this.handleSubmit(e);
+    if(this.state.browseClosed === 'open' || this.state.modalClosed === 'open') {
+      if(e.keyCode === 13) {
+        this.handleSubmit(e);
+      }
+    }
   }
 
   addUser(e) {
