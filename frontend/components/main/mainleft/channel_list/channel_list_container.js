@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   let channels = [];
   let dms = [];
 
-  for(var i = 0; i < allChannels.length; i++) {
+  for(var i = 0; i < allChannels.length - 1; i++) {
     if(allChannels[i].is_dm === true) {
       dms.push(allChannels[i]);
     } else {

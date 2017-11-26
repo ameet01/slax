@@ -19,7 +19,7 @@ class ChannelList extends React.Component {
   }
 
   componentDidMount() {
-    if(!this.props.match.path.includes('preview')) {
+    if(this.props.match.path.includes('preview') === false) {
       this.props.fetchChannels();
     }
     this.props.fetchUsers();
@@ -33,12 +33,6 @@ class ChannelList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
       this.props.fetchMessages(nextProps.match.params.channelId);
-    }
-
-    if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
-      if(nextProps.match.path.includes('preview')) {
-
-      }
     }
   }
 
@@ -104,12 +98,8 @@ class ChannelList extends React.Component {
     if(this.props.channel === {}) {
       return null;
     }
-    let { activeSelected } = this.state;
-    let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
-    let goButton;
-
-    let preview;
+    let modal, modalTitle, modalButton, input, userList, selectedUsers, goButton, preview;
 
     if(this.state.is_dm === true) {
       if(!(this.state.userList.length > 0)) {
