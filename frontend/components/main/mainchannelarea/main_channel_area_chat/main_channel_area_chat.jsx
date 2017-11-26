@@ -12,10 +12,11 @@ class MainChannelAreaChat extends React.Component {
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId);
   }
-  
+
   joinChannel(e) {
     e.preventDefault();
-
+    this.props.history.push(`/channels/${this.props.match.params.channelId}`);
+    this.props.createSubscription({user_id: this.props.currentUser.id, channel_id: this.props.match.params.channelId});
   }
 
   render() {

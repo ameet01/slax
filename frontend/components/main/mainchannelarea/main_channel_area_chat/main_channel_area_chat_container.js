@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { createMessage } from '../../../../actions/message_actions';
 import { fetchChannel } from '../../../../actions/channel_actions';
 import { fetchMessages } from '../../../../actions/message_actions';
+import { createSubscription } from '../../../../actions/subscription_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
   createMessage: (message) => dispatch(createMessage(message)),
-  fetchChannel: (channel) => dispatch(fetchChannel(channel))
+  fetchChannel: (channel) => dispatch(fetchChannel(channel)),
+  createSubscription: (subscription) => dispatch(createSubscription(subscription))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainChannelAreaChat));

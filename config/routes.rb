@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:show, :index, :create, :update] do
       resources :channels, only: [:index]
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
     end
 
     resources :messages, only: [:show, :index, :create, :update, :destroy]
+
+    resources :subscriptions, only: [:create]
   end
 
   root 'static_pages#root'
