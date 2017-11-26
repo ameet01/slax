@@ -17,6 +17,9 @@ class MessageList extends React.Component {
     let {messages} = this.props;
     let array = [];
     for(var i = 0; i < messages.length-1; i++) {
+      if(i === 0) {
+        array.push(messages[i].date);
+      }
       array.push(messages[i]);
       if(messages[i].date !== messages[i+1].date) {
         array.push(messages[i+1].date);
@@ -35,7 +38,7 @@ class MessageList extends React.Component {
       })}
     </ul>;
 
-    
+
     return (
         <section id='message-list' className='message-list'>
           {fullMessages}
