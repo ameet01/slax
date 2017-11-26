@@ -184,6 +184,9 @@
   border-top: none;
 }
 
+.user-list-li:last-child {
+  border-bottom: 1px solid lightgray;
+}
 
 .browse-channel-li {
   height: 100%;
@@ -214,6 +217,10 @@
   background: #EBF5FC;
   border: 1px solid #cbe7f7;
   border-radius: 6px;
+}
+
+.browse-channel-li:last-child {
+  border-bottom: 1px solid lightgray;
 }
 
 .browse-channels-usercount {

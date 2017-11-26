@@ -81,6 +81,11 @@
   opacity: 1;
 }
 
+.main-left-channel-list h1 {
+  cursor: pointer;
+  width: 100%;
+}
+
 .main-left-channel-list h1:hover {
   color: white;
 }
@@ -95,10 +100,6 @@
 .channels-header-thing {
   display: flex;
   justify-content: space-between;
-}
-
-.channels-header-thing:hover {
-  color: white;
 }
 
 .dm-channels {

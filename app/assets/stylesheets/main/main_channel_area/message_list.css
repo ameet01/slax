@@ -44,8 +44,9 @@
 .user-message-picture {
   width: 35px;
   height: 35px;
-  padding-left: 30px;
-  margin-right: 5px;
+  margin-left: 30px;
+  border-radius: 3px;
+  margin-right: 6px;
   cursor: pointer;
 }
 
@@ -58,7 +59,6 @@
   padding-top: 5px;
   font-size: 13px;
 }
-
 
 .message-list-divider {
   line-height: 1.2;
