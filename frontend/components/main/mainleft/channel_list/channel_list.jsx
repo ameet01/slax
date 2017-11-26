@@ -6,7 +6,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: []};
+    this.state = {activeSelected: "", modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: [], search: ""};
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
@@ -14,6 +14,7 @@ class ChannelList extends React.Component {
     this.removeChannel = this.removeChannel.bind(this);
     this.addChannel = this.addChannel.bind(this);
     this.previewChannel = this.previewChannel.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   componentDidMount() {
@@ -33,7 +34,7 @@ class ChannelList extends React.Component {
   }
 
   closeModal(e) {
-    this.setState({browseClosed: "", modalClosed: "", name: "", userList: [], is_dm: false, channelSelect: []});
+    this.setState({browseClosed: "", modalClosed: "", name: "", userList: [], is_dm: false, channelSelect: [], search: ""});
   }
 
   handleSubmit(e) {
@@ -78,6 +79,12 @@ class ChannelList extends React.Component {
     this.props.deleteChannel(parseInt(e.currentTarget.value));
   }
 
+  updateSearch(e) {
+    e.preventDefault();
+    this.setState({search: e.target.value});
+    console.log(this.state.search);
+  }
+
   render() {
     let { activeSelected } = this.state;
     let modal, modalTitle, modalButton, input, userList, selectedUsers;
@@ -92,7 +99,7 @@ class ChannelList extends React.Component {
           }
           modalTitle = <h2 className='modal-title'>Create Direct Message</h2>;
             userList = <ul className='dm-user-list'>
-              {this.props.users.filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
+              {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
             </ul>;
             selectedUsers = <ul className='selected-users'>
               {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
@@ -111,17 +118,16 @@ class ChannelList extends React.Component {
                     if(this.state.modalClosed === "") {
                       modal = undefined;
                     } else if(this.state.modalClosed === 'open') {
+
                       modal = <div className='channel-modal'>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
+                          <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
                           {selectedUsers}
                           <div onClick={this.closeModal} className='close-channel-modal'>X</div>
-                          <form onSubmit={this.handleSubmit}>
-                            <br/>
-                            {input}
-                            <div className='modal-div-list'>{userList}</div>
-                            {modalButton}
-                          </form>
+                          <div className='channel-modal-form-innerdiv'>
+                            {userList}
+                          </div>
                         </div>
                       </div>;
                     }
@@ -145,15 +151,18 @@ class ChannelList extends React.Component {
                             browseModal = <div className='channel-modal'>
                               <div className='channel-modal-form'>
                                 <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
+                                <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
                                 {selectedChannels}
-                                <ul>
-                                  {this.props.allChannels.map(channel => <li value={channel.id} className='browse-channel-li' onClick={this.addChannel}>{channel.name}</li>)}
-                                </ul>
-                                <div onClick={this.closeModal} className='close-channel-modal'>X</div>
-                                <form onSubmit={this.handleSubmit}>
+                                <div className='channel-modal-form-innerdiv'>
+                                  <ul>
+                                    {this.props.allChannels.filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).map(channel => <li value={channel.id} className='browse-channel-li' onClick={this.addChannel}>{channel.name}</li>)}
+                                  </ul>
+                                  <div onClick={this.closeModal} className='close-channel-modal'>X</div>
+                                  <form onSubmit={this.handleSubmit}>
 
-                                  <button></button>
-                                </form>
+                                    <button></button>
+                                  </form>
+                                </div>
                               </div>
                             </div>;
                           } else {
