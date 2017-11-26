@@ -14,7 +14,6 @@ class ChannelList extends React.Component {
     this.removeChannel = this.removeChannel.bind(this);
     this.addChannel = this.addChannel.bind(this);
     this.previewChannel = this.previewChannel.bind(this);
-    this.updateSearch = this.updateSearch.bind(this);
     this.removeUser = this.removeUser.bind(this);
   }
 
@@ -61,7 +60,7 @@ class ChannelList extends React.Component {
 
   keydownHandler(e){
     if(e.keyCode===27) this.closeModal(e);
-    if(e.keyCode===13 && this.state.is_dm) this.handleSubmit(e);
+    if(e.keyCode===13) this.handleSubmit(e);
   }
 
   addUser(e) {
@@ -83,11 +82,6 @@ class ChannelList extends React.Component {
     this.props.deleteChannel(parseInt(e.currentTarget.value));
   }
 
-  updateSearch(e) {
-    e.preventDefault();
-    this.setState({search: e.target.value});
-  }
-
   removeUser(e) {
     e.preventDefault();
     let users = this.state.userList;
@@ -107,7 +101,7 @@ class ChannelList extends React.Component {
         } else {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
-          input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.updateSearch}></input>;
+          input = <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.update('search')}></input>;
           modalTitle = <h2 className='modal-title'>Create Message</h2>;
             userList = <ul className='dm-user-list'>
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
@@ -162,7 +156,7 @@ class ChannelList extends React.Component {
                             browseModal = <div className='channel-modal'>
                               <div className='channel-modal-form'>
                                 <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
-                                <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
+                                <input type='text' value={this.state.search} placeholder='Search' onChange={this.update('search')}></input>
                                 {selectedChannels}
                                 <div className='channel-modal-form-innerdiv'>
                                   <ul>
