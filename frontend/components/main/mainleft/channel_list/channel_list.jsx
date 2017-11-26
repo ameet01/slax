@@ -15,6 +15,7 @@ class ChannelList extends React.Component {
     this.addChannel = this.addChannel.bind(this);
     this.previewChannel = this.previewChannel.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.removeUser = this.removeUser.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +49,8 @@ class ChannelList extends React.Component {
 
   previewChannel(e) {
     e.preventDefault();
-    console.log('preview');
+    this.closeModal(e);
+    this.props.history.push(`/channels/${e.target.value}/preview`);
   }
 
   update(property) {
@@ -85,11 +87,19 @@ class ChannelList extends React.Component {
     console.log(this.state.search);
   }
 
+  removeUser(e) {
+    e.preventDefault();
+    let users = this.state.userList;
+    this.setState({userList: users.filter(userId => userId !== e.target.value)});
+  }
+
   render() {
     let { activeSelected } = this.state;
     let modal, modalTitle, modalButton, input, userList, selectedUsers;
 
     let goButton;
+
+    let preview;
 
     if(this.state.is_dm === true) {
       if(!(this.state.userList.length > 0)) {
@@ -97,12 +107,12 @@ class ChannelList extends React.Component {
         } else {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
-          modalTitle = <h2 className='modal-title'>Create Direct Message</h2>;
+          modalTitle = <h2 className='modal-title'>Create Message</h2>;
             userList = <ul className='dm-user-list'>
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
             </ul>;
             selectedUsers = <ul className='selected-users'>
-              {this.state.userList.map(id => <li>{this.props.users.find(user => user.id === id).username}</li>)}
+              {this.state.userList.map(id => <li value={id} onClick={this.removeUser}>{this.props.users.find(user => user.id === id).username}</li>)}
             </ul>;
           } else if(this.state.is_dm === false){
             if(!(this.state.name.length > 0)) {
@@ -122,7 +132,7 @@ class ChannelList extends React.Component {
                       modal = <div className='channel-modal'>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
-                          <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
+                          <input type='text' value={this.state.search} placeholder={`Search`} onChange={this.updateSearch}></input>
                           {selectedUsers}
                           <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                           <div className='channel-modal-form-innerdiv'>
@@ -137,7 +147,7 @@ class ChannelList extends React.Component {
                     if(this.state.browseClosed === "open") {
 
                       let selectedChannels = <ul className='selected-users'>
-                        {this.state.channelSelect.map(id => <li>{this.props.allChannels.find(channel => channel.id === id).name}</li>)}
+                        {this.state.channelSelect.map(id => <li key={id}>{this.props.allChannels.find(channel => channel.id === id).name}</li>)}
                       </ul>;
 
                       modalTitle = <h2 className='modal-title'>Browse Channels</h2>;
@@ -155,7 +165,10 @@ class ChannelList extends React.Component {
                                 {selectedChannels}
                                 <div className='channel-modal-form-innerdiv'>
                                   <ul>
-                                    {this.props.allChannels.filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).map(channel => <li value={channel.id} className='browse-channel-li' onClick={this.addChannel}>{channel.name}</li>)}
+                                    {this.props.allChannels.reverse().
+                                      filter(channel => channel.name !== 'dm_channel').
+                                      filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).
+                                      map(channel => <li key={channel.id} value={channel.id} className='browse-channel-li' onClick={this.previewChannel}># {channel.name} <span>Created on {channel.created_at}</span> <div className='browse-channels-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{channel.userCount}</span></div></li>)}
                                   </ul>
                                   <div onClick={this.closeModal} className='close-channel-modal'>X</div>
                                   <form onSubmit={this.handleSubmit}>
@@ -195,7 +208,7 @@ class ChannelList extends React.Component {
                                   {this.props.channels.map((channel,idx) =>
 
                                     <li className='channel-li' key={channel.id}>
-                                      <NavLink to={`/channels/${channel.id}`} className='channel-list-li' activeClassName="selected">
+                                      <NavLink to={`/channels/${channel.id}/`} className='channel-list-li' activeClassName="selected">
                                         <span>#</span> {channel.name}
                                         </NavLink>
                                       </li>

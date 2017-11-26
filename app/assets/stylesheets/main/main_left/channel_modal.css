@@ -15,16 +15,16 @@
 .channel-modal-form {
   height: 100%;
   text-align: left;
-  width: 30%;
+  width: 37%;
   margin: auto;
   margin-top: 140px;
-
 }
 
 .channel-modal-form-innerdiv {
   overflow-y: scroll;
   height: 100%;
   margin-top: 15px;
+  padding-right: 15px;
 }
 
 .channel-modal-form-innerdiv::-webkit-scrollbar {
@@ -33,15 +33,16 @@
 }
 .channel-modal-form-innerdiv::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: lightgray;
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 .modal-title {
   font-size: 35px;
   font-weight: 600;
+  width: 100%;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .channel-modal-form input {
@@ -100,11 +101,8 @@
 }
 
 .selected-users li {
-  height: 18px;
-  padding: 14px;
-  padding-top: 16px;
-  padding-left: 15px;
-  background: #3f46ad;
+  padding: 3px 5px;
+  background: #2d9ee0;
   border-radius: 5px;
   color: white;
   font-weight: 900;
@@ -126,7 +124,7 @@
   color: white;
   cursor: pointer;
   position: relative;
-  left: 50%;
+  left: 8vw;
 }
 
 .gray {
@@ -162,11 +160,22 @@
 
 
 .browse-channel-li {
-  height: 15px;
+  height: 100%;
   border-top: 1px solid lightgray;
-  padding: 25px 0;
+  padding: 20px 0;
   padding-left: 15px;
-  display: block;
+  padding-bottom: 13px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.browse-channel-li span {
+  font-size: 11px;
+  font-weight: 500;
+  color: gray;
+  margin-top: 4px;
 }
 
 .browse-channel-li:hover + li {
@@ -177,4 +186,8 @@
   background: #EBF5FC;
   border: 1px solid #cbe7f7;
   border-radius: 6px;
+}
+
+.browse-channels-usercount {
+  display: block;
 }

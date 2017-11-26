@@ -9,10 +9,20 @@ class MainChannelAreaChat extends React.Component {
   }
 
   render() {
+    let bottomArea;
+
+    if(this.props.match.path.includes('preview')) {
+      bottomArea = <div className='preview'>
+        <h1>You are viewing {this.props.channel.name}</h1>
+      </div>;
+    } else {
+      bottomArea = <MessageForm channel={this.props.channel} createMessage={this.props.createMessage} currentUser={this.props.currentUser} />;
+    }
+
     return (
       <section className='main-area'>
         <MessageList channel={this.props.channel} fetchMessages={this.props.fetchMessages} messages={this.props.messages} users={this.props.users}/>
-        <MessageForm channel={this.props.channel} createMessage={this.props.createMessage} currentUser={this.props.currentUser} />
+        {bottomArea}
       </section>
     );
   }

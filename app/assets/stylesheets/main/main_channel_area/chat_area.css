@@ -58,3 +58,12 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+
+.preview {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: lightgray;
+  padding: 15px 0;
+  width: 100%;
+}
