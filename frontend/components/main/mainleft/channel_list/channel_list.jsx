@@ -15,7 +15,6 @@ class ChannelList extends React.Component {
     this.addChannel = this.addChannel.bind(this);
     this.previewChannel = this.previewChannel.bind(this);
     this.removeUser = this.removeUser.bind(this);
-    this.redirect = this.redirect.bind(this);
   }
 
   componentDidMount() {
@@ -83,14 +82,7 @@ class ChannelList extends React.Component {
   }
 
   removeChannel(e) {
-    this.props.deleteChannel(parseInt(e.currentTarget.value))
-      .then(this.redirect(e));
-  }
-
-  redirect(e) {
-    if(parseInt(e.currentTarget.value) === parseInt(this.props.match.params.channelId)) {
-      this.props.history.push('/channels/1');
-    }
+    this.props.deleteChannel(parseInt(e.currentTarget.value));
   }
 
   removeUser(e) {
