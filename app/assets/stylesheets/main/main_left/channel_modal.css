@@ -125,7 +125,7 @@
 }
 
 .selected-users li {
-  padding: 3px 5px;
+  padding: 4px 8px;
   background: #2d9ee0;
   border-radius: 5px;
   color: white;
@@ -134,6 +134,17 @@
   margin-right: 2px;
   margin-bottom: 2px;
   cursor: pointer;
+}
+
+.selected-users li span {
+  opacity: 0.55;
+  font-size: 12px;
+  padding-left: 3px;
+  -webkit-transition: all .3s ease;
+}
+
+.selected-users li:hover span {
+  opacity: 1;
 }
 
 .go-button {

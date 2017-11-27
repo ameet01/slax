@@ -89,7 +89,7 @@ class ChannelList extends React.Component {
   removeUser(e) {
     e.preventDefault();
     let users = this.state.userList;
-    this.setState({userList: users.filter(userId => userId !== e.target.value)});
+    this.setState({userList: users.filter(userId => userId !== e.currentTarget.value)});
   }
 
   render() {
@@ -111,7 +111,7 @@ class ChannelList extends React.Component {
               {this.props.users.filter(user => (user.username.toLowerCase()).includes(this.state.search.toLowerCase())).filter(user => !user.username.startsWith('demo')).filter(user => !this.state.userList.includes(user.id)).map(user => <li key={user.id} className='user-list-li' value={user.id} onClick={this.addUser}>{user.username}</li>)}
             </ul>;
             selectedUsers = <ul className='selected-users'>
-              {this.state.userList.map(id => <li className='selected-user-li' key={id} value={id} onClick={this.removeUser}>{this.props.users.find(user => user.id === id).username}  X</li>)}
+              {this.state.userList.map(id => <li className='selected-user-li' key={id} value={id} onClick={this.removeUser}>{this.props.users.find(user => user.id === id).username} <span>X</span></li>)}
             </ul>;
           } else if(this.state.is_dm === false){
             if(!(this.state.name.length > 0)) {
