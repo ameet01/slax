@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
   createMessage: (message) => dispatch(createMessage(message)),
   fetchChannel: (channel) => dispatch(fetchChannel(channel)),
   createSubscription: (subscription) => dispatch(createSubscription(subscription)),
-  receiveMessage: (channelId) => dispatch(receiveMessage(channelId)),
+  receiveMessage: (channelId) => dispatch(receiveMessage(channelId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainChannelAreaChat));
