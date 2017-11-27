@@ -42,7 +42,7 @@
 }
 
 .message-list-item-nested {
-  display: flex;
+  display: flex; 
   color: #2C2D30;
   padding-top: 2px;
   padding-bottom: 1.5px;
