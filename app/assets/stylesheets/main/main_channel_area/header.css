@@ -34,6 +34,7 @@
   color: gray;
   padding-top: 1px;
   display: flex;
+  cursor: pointer;
 }
 
 .main-header-usercount:hover {

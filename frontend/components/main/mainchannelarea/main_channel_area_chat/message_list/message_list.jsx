@@ -131,6 +131,7 @@ class MessageList extends React.Component {
     return (
         <section id='message-list' className='message-list'>
           {fullMessages}
+
         </section>
     );
   }
