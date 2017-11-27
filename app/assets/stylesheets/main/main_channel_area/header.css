@@ -8,6 +8,7 @@
   padding-top: 20px;
   padding-bottom: 14px;
   flex: 0 0 auto;
+  justify-content: space-between;
 }
 
 .main-header-channel {
@@ -44,4 +45,19 @@
 .main-header-usercount span {
   font-size: 13px;
   padding-top: 3.5px;
+}
+
+.main-header-right-menubar {
+  margin-right: 4%;
+  margin-top: 1%;
+}
+
+.fa-info-circle {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.fa-info-circle:hover {
+  color: #2d9ee0;
 }

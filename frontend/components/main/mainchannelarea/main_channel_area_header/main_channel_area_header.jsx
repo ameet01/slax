@@ -49,6 +49,7 @@ class MainChannelAreaHeader extends React.Component {
           {headerTitle}
           {userCount}
         </div>
+        <div className='main-header-right-menubar'><i onClick={this.toggleSideBar} class="fa fa-info-circle" aria-hidden="true"></i></div>
       </section>
     );
   }

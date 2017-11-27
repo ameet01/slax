@@ -62,9 +62,17 @@
   padding-left: 7px;
 }
 
+.channel-info-user-list .fa-user-o {
+  color: green;
+  font-size: 12px;
+}
+
 .channel-info-user-list h1 {
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-top: 17px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 .channel-info-user-li {
@@ -75,10 +83,13 @@
 
 .channel-info-user-li span {
   padding-left: 3px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .channel-info-pics {
-  width: 10%;
+  width: 7%;
+  border-radius: 4px;
 }
 
 

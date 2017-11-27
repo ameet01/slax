@@ -170,6 +170,8 @@
 }
 
 .sweet-loading {
-  margin: auto;
+  position: absolute;
+  top: 46%;
+  right: 40%;
   padding-right: 7%;
 }
