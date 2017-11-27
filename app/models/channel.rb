@@ -16,7 +16,7 @@ class Channel < ApplicationRecord
   validates :description, length: {maximum: 50}, allow_nil: true
   validates :is_dm, inclusion: { in: [true, false] }
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :subscriptions
 
   has_many :users,

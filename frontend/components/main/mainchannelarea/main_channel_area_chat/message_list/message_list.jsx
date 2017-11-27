@@ -1,15 +1,20 @@
 import React from 'react';
 import MessageListItem from './message_list_item';
 import { withRouter } from 'react-router-dom';
-import {CSSTransitionGroup} from 'react-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 import MessageListDivider from './message_list_divider';
+import { ClipLoader } from 'react-spinners';
 
 class MessageList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    };
   }
 
   componentWillReceiveProps(newProps) {
+    document.getElementById('message-list').lastChild.scrollIntoView(false);
     if (this.props.match.params.channelId !== newProps.match.params.channelId) {
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
 
@@ -37,6 +42,20 @@ class MessageList extends React.Component {
   render() {
     let {messages} = this.props;
 
+
+    let spinner;
+
+    if(this.props.messages.length === 0) {
+      spinner = <div className='sweet-loading'>
+        <ClipLoader
+          color={'#2d9ee0'}
+          loading={this.state.loading}
+          size={45}
+        />
+      </div>;
+    }
+
+
     let array = [];
 
     for(var i = 0; i < messages.length; i++) {
@@ -63,7 +82,7 @@ class MessageList extends React.Component {
     let header, purpose, paragraph, title;
     let users = Object.values(this.props.users);
 
-    if(this.props.messages) {
+    if(this.props.messages.length !== 0) {
       if(this.props.channel.id === 1) {
         purpose = <p>Purpose: This is for workspace-wide communication and announcements.</p>;
       }
@@ -87,7 +106,10 @@ class MessageList extends React.Component {
     }
 
     let fullMessages = <ul>
-      {header}
+      {spinner}
+      <CSSTransitionGroup transitionName="example">
+        {header}
+      </CSSTransitionGroup>
 
       {array.map((message, idx) => {
         let obj;

@@ -168,3 +168,8 @@
 .message-list-header-paragraph {
   margin-bottom: 8px;
 }
+
+.sweet-loading {
+  margin: auto;
+  padding-right: 7%;
+}
