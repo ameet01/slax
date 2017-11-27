@@ -1,4 +1,5 @@
 import * as SubscriptionAPIUtil from '../util/subscription_api_util';
+import {fetchChannels} from './channel_actions';
 
 export const RECEIVE_SUBSCRIPTION = 'RECEIVE_SUBSCRIPTION';
 
@@ -9,4 +10,5 @@ export const RECEIVE_SUBSCRIPTION = 'RECEIVE_SUBSCRIPTION';
 
 export const createSubscription = (subscription) => (
   SubscriptionAPIUtil.createSubscription(subscription)
+    .then(() => fetchChannels())
 );
