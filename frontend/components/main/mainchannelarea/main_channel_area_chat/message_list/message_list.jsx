@@ -98,7 +98,7 @@ class MessageList extends React.Component {
             obj = <MessageListItem message={message} user={this.props.users[message.user_id]} key={message.id}/>;
           }
         } else if(typeof message === 'string') {
-          obj = <MessageListDivider message={message} />;
+          obj = <MessageListDivider message={message} key={message.id} />;
         }
         return obj;
       })}
