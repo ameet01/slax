@@ -28,7 +28,7 @@
 
 .dropdown-signout span {
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid #2c2d30;
   border-radius: .25rem;
   padding: 2px 4px;
   color: white;

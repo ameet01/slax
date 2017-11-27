@@ -14,7 +14,7 @@
 
 .message-form {
   width: 96%;
-  border: 2px solid rgba(160,160,162,.7);
+  border: 1px solid rgba(160,160,162,.7);
   border-radius: .375rem;
   box-shadow: none;
   overflow: auto;
@@ -25,7 +25,9 @@
   justify-content: flex-end;
 }
 
-
+.message-form:focus-within {
+  border: 1px solid #2c2d30;
+}
 
 .message-form-actual {
   display: flex;
@@ -40,7 +42,7 @@
   text-overflow: ellipsis;
   flex: 1;
   font-weight: 400;
-  color: black;
+  color: #2c2d30;
 }
 
 .message-form-actual input::placeholder {

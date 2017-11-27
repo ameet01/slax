@@ -3,13 +3,13 @@
   min-height: 100%;
   position: absolute;
   background: white;
-  border: 1px solid black;
+  border: 1px solid #2c2d30;
   z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  color: black;
+  color: #2c2d30;
 }
 
 .channel-modal-form {
@@ -58,11 +58,11 @@
 }
 
 .channel-modal-form input:focus {
-  border: 1px solid black;
+  border: 1px solid #2c2d30;
 }
 
 .channel-modal-form input:hover {
-  border: 1px solid black;
+  border: 1px solid #2c2d30;
 }
 
 .channel-modal-form { position: relative; }
@@ -91,7 +91,7 @@
 .close-channel-modal:hover {
   background: #E8E8E8;
   border-radius: 50px;
-  color: black;
+  color: #2c2d30;
 }
 
 .close-channel-modal:active {
