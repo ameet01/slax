@@ -10,15 +10,15 @@ class MessageList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // if (this.props.match.params.channelId !== newProps.match.params.channelId) {
-    //   pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
-    //
-    //   var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
-    //
-    //   channel.bind('create-message', (message) => {
-    //     this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
-    //   });
-    // }
+    if (this.props.match.params.channelId !== newProps.match.params.channelId) {
+      pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
+
+      var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
+
+      channel.bind('create-message', (message) => {
+        this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+      });
+    }
   }
 
   componentWillUnmount() {

@@ -33,7 +33,7 @@ class MainChannelAreaChat extends React.Component {
         <button onClick={this.joinChannel} className='preview-join-channel-button'>Join Channel</button>
       </div>;
     } else {
-      bottomArea = <MessageForm channel={this.props.channel} createMessage={this.props.createMessage} currentUser={this.props.currentUser} />;
+      bottomArea = <MessageForm channel={this.props.channel} receiveMessage={this.props.receiveMessage} createMessage={this.props.createMessage} currentUser={this.props.currentUser} />;
     }
     return (
       <section className='main-area'>
