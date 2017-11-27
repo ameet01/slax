@@ -11,7 +11,30 @@ class MessageList extends React.Component {
 
   componentDidMount() {
     this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+
+    var channel = pusher.subscribe(`channel-${this.props.match.params.channelId}`);
+
+    channel.bind('create-message', (message) => {
+      this.props.receiveMessage(message);
+    });
   }
+
+  componentWillReceiveProps(newProps) {
+    // if (this.props.match.params.channelId !== newProps.match.params.channelId) {
+    //   pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
+    //
+    //   var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
+    //
+    //   channel.bind('create-message', (message) => {
+    //     this.props.receiveMessage(message);
+    //   });
+    // }
+  }
+
+  componentWillUnmount() {
+    pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
+  }
+
 
   render() {
     let {messages} = this.props;

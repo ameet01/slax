@@ -7,6 +7,7 @@
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  is_dm       :boolean          default(FALSE), not null
 #
 
 class Channel < ApplicationRecord

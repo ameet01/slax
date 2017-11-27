@@ -8,11 +8,22 @@ class Main extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    var channel = pusher.subscribe('channel');
+    channel.bind('update-channel', function(id) {
+      this.props.fetchChannel(id);
+    });
+  }
+
+  componentWillUnmount() {
+    pusher.unsubscribe('channel');
+  }
+
   render() {
     return (
       <div className='main'>
-          <MainLeftContainer />
-          <MainChannelAreaContainer />
+        <MainLeftContainer />
+        <MainChannelAreaContainer />
       </div>
     );
   }

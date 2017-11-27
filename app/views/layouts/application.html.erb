@@ -12,6 +12,17 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
   <%= render 'application/favicon' %>
+
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script>
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('2368b1d2b3bf3d271a72', {
+      cluster: 'us2',
+      encrypted: true
+    });
+  </script>
 </head>
 
 <body>
