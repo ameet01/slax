@@ -14,8 +14,11 @@ class MessageList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    document.getElementById('message-list').lastChild.scrollIntoView(false);
+    document.getElementById('message-list').lastChild.scrollIntoView(false)
     if (this.props.match.params.channelId !== newProps.match.params.channelId) {
+      this.setState({ loading: true });
+      this.props.fetchMessages(this.props.match.params.channelId).then(() => this.setState({loading: false}));
+
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
 
       var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
@@ -31,7 +34,7 @@ class MessageList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+    this.props.fetchMessages(this.props.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
     var channel = pusher.subscribe(`channel-${this.props.match.params.channelId}`);
 
     channel.bind('create-message', (message) => {
@@ -45,7 +48,6 @@ class MessageList extends React.Component {
 
     let spinner;
 
-    if(this.props.messages.length === 0) {
       spinner = <div className='sweet-loading'>
         <ClipLoader
           color={'#2d9ee0'}
@@ -53,7 +55,6 @@ class MessageList extends React.Component {
           size={45}
         />
       </div>;
-    }
 
 
     let array = [];
@@ -82,7 +83,7 @@ class MessageList extends React.Component {
     let header, purpose, paragraph, title;
     let users = Object.values(this.props.users);
 
-    if(this.props.messages.length !== 0) {
+    if(!this.state.loading) {
       if(this.props.channel.id === 1) {
         purpose = <p>Purpose: This is for workspace-wide communication and announcements.</p>;
       }
