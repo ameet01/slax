@@ -11,7 +11,7 @@
 #
 
 class Channel < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :name, length: {maximum: 25}
   validates :description, length: {maximum: 50}, allow_nil: true
   validates :is_dm, inclusion: { in: [true, false] }

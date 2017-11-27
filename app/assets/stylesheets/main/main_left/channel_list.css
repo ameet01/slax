@@ -132,3 +132,8 @@
 .selected span {
   color: white !important;
 }
+
+.channels-errors {
+  text-align: center;
+  color: red;
+}

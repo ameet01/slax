@@ -5,6 +5,7 @@ import { createMessage } from '../../../../actions/message_actions';
 import { fetchChannel } from '../../../../actions/channel_actions';
 import { fetchMessages, receiveMessage } from '../../../../actions/message_actions';
 import { createSubscription } from '../../../../actions/subscription_actions';
+import { fetchUsers } from '../../../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

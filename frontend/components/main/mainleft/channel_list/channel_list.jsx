@@ -20,8 +20,8 @@ class ChannelList extends React.Component {
   componentDidMount() {
     if(this.props.match.path.includes('preview') === false) {
       this.props.fetchChannels();
+      // this.props.fetchUsers();
     }
-    this.props.fetchUsers();
     document.addEventListener('keydown', this.keydownHandler);
   }
 
@@ -42,7 +42,7 @@ class ChannelList extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if(this.state.is_dm && this.state.userList.length > 0) {
-      this.props.createChannel({name: "dm_channel", is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.directmessages[this.props.directmessages.length - 1].id)}`));
+      this.props.createChannel({name: `dm_channel${Math.floor(Math.random() * 100000)}`, is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.directmessages[this.props.directmessages.length - 1].id)}`));
     } else {
       this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.channels[this.props.channels.length - 1].id)}`));
     }
@@ -59,7 +59,7 @@ class ChannelList extends React.Component {
   }
 
   keydownHandler(e){
-    if(e.keyCode===27) this.closeModal(e);
+    if(e.keyCode === 27) this.closeModal(e);
     if(this.state.browseClosed === 'open' || this.state.modalClosed === 'open') {
       if(e.keyCode === 13) {
         this.handleSubmit(e);
@@ -128,6 +128,7 @@ class ChannelList extends React.Component {
                     } else if(this.state.modalClosed === 'open') {
 
                       modal = <div className='channel-modal'>
+                        <ul className='channels-errors'>{this.props.errors.map(error => <li>{error}</li>)}</ul>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
                           <span className="fa fa-search"></span>
@@ -166,7 +167,7 @@ class ChannelList extends React.Component {
                                 <div className='channel-modal-form-innerdiv'>
                                   <ul>
                                     {this.props.allChannels.reverse().
-                                      filter(channel => channel.name !== 'dm_channel').
+                                      filter(channel => !channel.name.startsWith(`dm_channel`)).
                                       filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).
                                       map(channel => <li key={channel.id} value={channel.id} className='browse-channel-li' onClick={this.previewChannel}># {channel.name} <span>Created on {channel.created_at}</span> <div className='browse-channels-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{channel.userCount}</span></div></li>)}
                                   </ul>

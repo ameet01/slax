@@ -43,7 +43,7 @@ class MainChannelAreaChat extends React.Component {
           {bottomArea}
         </div>
 
-        <ChannelInfo channel={this.props.channel} users={this.props.users}/>
+        <ChannelInfo fetchChannel={this.props.fetchChannel} channel={this.props.channel} messages={this.props.messages} users={this.props.users}/>
       </section>
     );
   }
