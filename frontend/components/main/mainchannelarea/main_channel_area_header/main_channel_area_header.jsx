@@ -15,10 +15,10 @@ class MainChannelAreaHeader extends React.Component {
 
   toggleSideBar(e) {
     let channelInfo = document.getElementById('channel-info');
-    if(channelInfo.style.width === '20%') {
+    if(channelInfo.style.width === '25%') {
       channelInfo.style.width = '0%';
     } else {
-      channelInfo.style.width = '20%';
+      channelInfo.style.width = '25%';
     }
   }
 
