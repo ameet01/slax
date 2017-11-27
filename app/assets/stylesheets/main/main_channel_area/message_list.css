@@ -26,6 +26,20 @@
   text-decoration: underline;
 }
 
+.message-list-item {
+  display: flex;
+  color: #2C2D30;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-width: 100%;
+  height: 100%;
+  padding-left: 25px;
+}
+
+.message-list-item:hover {
+  background: #F9F9F9;
+}
+
 .message-body {
   padding-top: 3px;
   font-size: 13px;
@@ -36,35 +50,39 @@
   line-height: 17px;
 }
 
-.message-body-nested {
-  font-size: 13px;
-  width: 90%;
-  font-weight: 400;
-  height: 100%;
-  word-wrap: break-word;
-  line-height: 17px;
-  margin-left: 39px;
-}
-
-.message-list-item {
-  display: flex;
-  color: #2C2D30;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  min-width: 100%;
-  height: 100%;
-  margin-left: 30px;
-}
-
-.message-list-item:hover {
-  background: #F9F9F9;
-}
-
 .message-content-header-timestamp {
   color: #717274;
   font-size: 9px;
   height: 100%;
   margin-left: 4px;
+}
+
+.message-body-nested {
+  font-size: 13px;
+  width: 100%;
+  font-weight: 400;
+  height: 100%;
+  word-wrap: break-word;
+  line-height: 17px;
+  display: flex;
+}
+
+.message-content-header-nested-timestamp {
+  color: #717274;
+  font-size: 9px;
+  width: 4%;
+  height: 100%;
+  margin-left: -.8%;
+  visibility: hidden;
+  margin-right: 0.09%;
+}
+
+.message-list-item:hover .message-content-header-nested-timestamp {
+  visibility: visible;
+}
+
+.nested-message-body {
+  width: 90%;
 }
 
 .user-message-picture {
