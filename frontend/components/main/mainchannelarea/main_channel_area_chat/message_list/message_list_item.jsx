@@ -10,20 +10,22 @@ class MessageListItem extends React.Component {
     if(!this.props.user) {
       return null;
     }
-    let image, timeStamp, body;
+    let image, timeStamp, body, classname;
 
     if(this.props.user === 'no user') {
       image = undefined;
       timeStamp = undefined;
+      classname = 'message-list-item-nested';
       body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'>{this.props.message.body}</div></div>;
     } else {
       image = <img src ={this.props.user.image_url} className='user-message-picture'></img>;
       timeStamp = <span className='message-content-header-timestamp'>{this.props.message.created_at}</span>;
+      classname = 'message-list-item';
       body = <div className='message-body'>{this.props.message.body}</div>;
     }
 
     return (
-      <section className='message-list-item'>
+      <section className={classname}>
         {image}
         <div className='message-content-header'>
           <div>
