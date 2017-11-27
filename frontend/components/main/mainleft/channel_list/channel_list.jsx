@@ -131,7 +131,7 @@ class ChannelList extends React.Component {
                       modal = <div className='channel-modal'>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
-                          <span class="fa fa-search"></span>
+                          <span className="fa fa-search"></span>
                           {input}
                           {selectedUsers}
                           <div className='channel-modal-form-innerdiv'>
@@ -161,7 +161,7 @@ class ChannelList extends React.Component {
                             browseModal = <div className='channel-modal'>
                               <div className='channel-modal-form'>
                                 <div className='title-and-button-dm-form'>{modalTitle}</div>
-                                <span class="fa fa-search"></span>
+                                <span className="fa fa-search"></span>
                                 <input type='text' value={this.state.search} placeholder='Search channels' onChange={this.update('search')}></input>
                                 {selectedChannels}
                                 <div className='channel-modal-form-innerdiv'>

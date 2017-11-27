@@ -37,7 +37,7 @@ class MainChannelAreaChat extends React.Component {
     }
     return (
       <section className='main-area'>
-        <MessageList channel={this.props.channel} receiveMessage={this.props.receiveMessage} fetchMessages={this.props.fetchMessages} messages={this.props.messages} users={this.props.users}/>
+        <MessageList channel={this.props.channel} receiveMessage={this.props.receiveMessage} fetchMessages={this.props.fetchMessages} messages={this.props.messages} users={this.props.users} currentUser={this.props.currentUser}/>
         {bottomArea}
       </section>
     );

@@ -60,7 +60,35 @@ class MessageList extends React.Component {
       }
     }
 
+    let header, purpose, paragraph, title;
+    let users = Object.values(this.props.users);
+
+    if(this.props.messages) {
+      if(this.props.channel.id === 1) {
+        purpose = <p>Purpose: This is for workspace-wide communication and announcements.</p>;
+      }
+      if(this.props.channel.is_dm) {
+        if(users.length > 4) {
+          title = users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 4}`).concat(' others');
+          paragraph = <p className='message-list-header-paragraph'>This is the very beginning of your direct message history with {users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 4}`).concat(' others')}</p>
+        } else {
+          title = users.filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ');
+          paragraph = <p className='message-list-header-paragraph'>This is the very beginning of your direct message history with {users.filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ')}</p>
+        }
+      } else {
+        title = this.props.channel.name;
+        paragraph = <p className='message-list-header-paragraph'>This channel was created on {this.props.channel.created_at}. This is the very beginning of the {this.props.channel.name} channel.</p>
+      }
+        header = <div className='message-list-header'>
+        <h1 className='message-list-header-title'>#{title}</h1>
+        {paragraph}
+        {purpose}
+    </div>;
+    }
+
     let fullMessages = <ul>
+      {header}
+
       {array.map((message, idx) => {
         let obj;
         if(typeof message === 'object') {
