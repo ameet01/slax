@@ -137,3 +137,70 @@
   text-align: center;
   color: red;
 }
+
+.channels-header-thing:hover .channels-tooltip {
+  visibility: visible;
+}
+
+.channels-tooltip {
+  position: absolute;
+  top: 4.8%;
+  left: 5px;
+  visibility: hidden;
+  -webkit-transition: all .6s ease;
+  animation: all .6s;
+  font-size: 13px;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: 600;
+  color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+}
+
+.channels-tooltip:after {
+  display: block;
+  content:"";
+  border-color: #000 transparent;
+  position: absolute;
+  left: 35px;
+  border-style: solid;
+  bottom: -5px;
+  width: 0px;
+  border-width: 6px 6px 0;
+}
+
+
+.channels-header-thing:hover .dm-tooltip{
+  visibility: visible;
+}
+
+.dm-tooltip{
+  position: absolute;
+  top: 16.3%;
+  left: 5px;
+  visibility: hidden;
+  -webkit-transition: all .6s ease;
+  animation: all .6s;
+  font-size: 13px;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: 600;
+  color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+}
+
+.dm-tooltip:after {
+  display: block;
+  content:"";
+  border-color: #000 transparent;
+  position: absolute;
+  left: 35px;
+  border-style: solid;
+  bottom: -5px;
+  width: 0px;
+  border-width: 6px 6px 0;
+}

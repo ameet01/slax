@@ -204,7 +204,8 @@ class ChannelList extends React.Component {
                               <div>
 
                                 <div className='channels-header-thing'>
-                                  <h1 onClick={() => this.setState({browseClosed: 'open', is_dm: false})}>Channels</h1>
+                                  <h1 className='channels-header-thing-h1' onClick={() => this.setState({browseClosed: 'open', is_dm: false})}>Channels</h1>
+                                  <div class="channels-tooltip">Browse All Channels</div>
                                   <div
                                     className='plus-sign-create'
                                     onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
@@ -229,7 +230,8 @@ class ChannelList extends React.Component {
                                 <div className='dm-channels'>
                                   <div className='channels-header-thing'>
                                     <h1 onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))} className='direct-messages-title'>Direct Messages</h1>
-                                    <div
+                                    <div class="dm-tooltip">Open a Direct Message</div>
+                                  <div
                                       className='plus-sign-create'
                                       onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
                                       <span>
