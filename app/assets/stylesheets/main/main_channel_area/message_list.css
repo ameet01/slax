@@ -44,8 +44,8 @@
 .message-list-item-nested {
   display: flex;
   color: #2C2D30;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
   min-width: 100%;
   height: 100%;
 }
@@ -84,7 +84,7 @@
   visibility: hidden;
   position: relative;
   right: 14px;
-  padding-left: 23px;
+  padding-left: 23.2px;
 }
 
 .message-body {

@@ -233,3 +233,7 @@ html, body {
   background: red;
   height: 20%;
 }
+
+.giphy-embed {
+  border-left: 2px solid #e8e8e8;
+}
