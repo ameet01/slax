@@ -144,7 +144,7 @@
 
 .message-form-actual input::placeholder {
   font-weight: 300;
-  color: gray;
+  color: rgba(160,160,162,.7);
 }
 
 .app-div {
@@ -210,14 +210,20 @@ html, body {
 }
 
 .giphy-button {
-  width: 3.5%;
+  width: 4.5%;
   border-right: 1px solid rgba(160,160,162,.7);
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  background: white;
+  color: rgba(160,160,162,.7);
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 3px;
+}
+
+.giphy-button:hover {
   background: #2ea664;
   color: white;
-  font-size: 12px;
-  padding-top: 3px;
 }
