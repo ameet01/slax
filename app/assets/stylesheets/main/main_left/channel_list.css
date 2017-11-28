@@ -139,14 +139,13 @@
 }
 
 .channels-header-thing:hover .channels-tooltip {
-  visibility: visible;
+  display: block;
 }
 
 .channels-tooltip {
-  position: absolute;
+  display: none;
   top: 4.8%;
   left: 5px;
-  visibility: hidden;
   -webkit-transition: all .6s ease;
   animation: all .6s;
   font-size: 13px;
@@ -157,6 +156,8 @@
   padding: 10px;
   border-radius: 10px;
   background: #000;
+  position: absolute;
+  top: 43px;
 }
 
 .channels-tooltip:after {
@@ -172,13 +173,13 @@
 }
 
 
-.channels-header-thing:hover .dm-tooltip{
+/*.channels-header-thing:hover .dm-tooltip{
   visibility: visible;
-}
-
+}*/
+/*
 .dm-tooltip{
   position: absolute;
-  top: 16.3%;
+  bottom: 5%;
   left: 5px;
   visibility: hidden;
   -webkit-transition: all .6s ease;
@@ -203,4 +204,4 @@
   bottom: -5px;
   width: 0px;
   border-width: 6px 6px 0;
-}
+}*/
