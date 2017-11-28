@@ -30,15 +30,15 @@ class ChannelList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
-      this.props.fetchMessages(nextProps.match.params.channelId);
-    }
+    // if(nextProps.match.params.channelId !== this.props.match.params.channelId) {
+    //   this.props.fetchMessages(nextProps.match.params.channelId);
+    // }
   }
 
   closeModal(e) {
     this.props.clearErrors();
     this.setState({browseClosed: "", modalClosed: "", name: "", userList: [], is_dm: false, channelSelect: [], search: ""});
-    this.props.fetchMessages(this.props.match.params.channelId);
+    // this.props.fetchMessages(this.props.match.params.channelId);
   }
 
   handleSubmit(e) {

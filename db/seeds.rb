@@ -6,9 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Channel.create(name: 'General')
+require 'faker'
 
-(0..15).each do |i|
-  user1 = User.create(username: 'demo#{i}', password: 'password', image_url: '');
-  Subscription.create(user_id: user1.id, channel_id: 1)
+
+
+
+channel1 = Channel.create(name: 'General')
+
+(1..15).each do |i|
+  user1 = User.create(username: "demo#{i}", password: 'password', image_url: UiFaces.face);
+  Subscription.create(user_id: user1.id, channel_id: channel1.id)
+end
+
+
+
+(0..20).each do |j|
+  user2 = User.create(username: Faker::GameOfThrones.character, password: 'password', image_url: UiFaces.face)
+  Subscription.create(user_id: user2.id, channel_id: channel1.id)
 end
