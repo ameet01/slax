@@ -39,7 +39,7 @@
 
 .modal-title {
   font-size: 35px;
-  font-weight: 600;
+  font-weight: 800;
   width: 100%;
   margin-bottom: 20px;
   text-align: left;
@@ -80,7 +80,7 @@
   font-size: 30px;
   font-weight: 400;
   position: absolute;
-  padding: 5px 10px;
+  padding: 18px 22px;
   right: 60px;
   color: #717274;
   top: 70px;
@@ -96,6 +96,7 @@
 
 .close-channel-modal:active {
   background: #2ea664;
+  color: white;
 }
 
 .hidden {
@@ -178,7 +179,7 @@
 
 .user-list-li {
   height: 15px;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #e8e8e8;
   padding: 25px 0;
   padding-left: 15px;
   display: block;
@@ -200,18 +201,27 @@
   border-bottom: 1px solid lightgray;
 }
 
+.browse-hash {
+  font-weight: 400;
+  color: #717274;
+  font-size: 14px;
+}
+
 .browse-channel-li {
   height: 100%;
-  border-top: 1px solid lightgray;
-  padding: 20px 0;
+  border-top: 1px solid #e8e8e8;
   padding-left: 15px;
-  padding-bottom: 13px;
   display: flex;
   flex-direction: column;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   border-left: 1px solid white;
   border-right: 1px solid white;
+}
+
+.browse-inner-div {
+  padding-top: 5%;
+  margin-bottom: -4%;
 }
 
 .browse-channel-li span {
@@ -220,6 +230,7 @@
   color: gray;
   margin-top: 4px;
 }
+
 
 .browse-channel-li:hover + li {
   border-top: none;
@@ -231,10 +242,59 @@
   border-radius: 6px;
 }
 
+.browse-channel-li:hover .browse-preview {
+  visibility: visible;
+}
+
+.browse-channel-li:hover .browse-channels-usercount {
+  visibility: hidden;
+}
+
 .browse-channel-li:last-child {
   border-bottom: 1px solid lightgray;
 }
 
+#browse-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  margin-left: 2px;
+}
+
+.browse-preview {
+  text-align: right;
+  position: relative;
+  bottom: 40px;
+  right: 25px;
+  font-weight: 400;
+  font-size: 14px;
+  visibility: hidden;
+  color: #2d9ee0;
+  padding-right: 1%;
+}
+
+.browse-preview p {
+  padding-right: 3%;
+}
+
 .browse-channels-usercount {
-  display: block;
+  text-align: right;
+  position: relative;
+  bottom: 20px;
+  right: 25px;
+  font-weight: 400;
+  font-size: 14px;
+  visibility: visible;
+  padding-right: 3%;
+}
+
+.channels-you-can-join-p {
+  position: relative;
+  top: 1.2%;
+  font-size: 14px;
+  border-radius: 4px 4px 0 0;
+  font-weight: 600;
+  padding: 7px 0 7px 12px;
+  color: #717274;
+  background: #f9f9f9;
 }

@@ -175,12 +175,14 @@ class ChannelList extends React.Component {
                                 <span className="fa fa-search"></span>
                                 <input type='text' value={this.state.search} placeholder='Search channels' onChange={this.update('search')}></input>
                                 {selectedChannels}
+
                                 <div className='channel-modal-form-innerdiv'>
+                                  <p className='channels-you-can-join-p'>Channels you can join</p>
                                   <ul>
                                     {this.props.allChannels.reverse().
                                       filter(channel => !channel.name.startsWith(`dm_channel`)).
                                       filter(channel => (channel.name.toLowerCase()).includes(this.state.search.toLowerCase())).
-                                      map(channel => <li key={channel.id} value={channel.id} className='browse-channel-li' onClick={this.previewChannel}># {channel.name} <span>Created on {channel.created_at}</span> <div className='browse-channels-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{channel.userCount}</span></div></li>)}
+                                      map(channel => <li key={channel.id} value={channel.id} className='browse-channel-li' onClick={this.previewChannel}><div className='browse-inner-div'><div className='browse-hash'># <span id='browse-title'>{channel.name}</span></div>  <span>Created on {channel.created_at}</span> <div className='browse-channels-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{channel.userCount}</span></div><div className='browse-preview'><p>↵</p>Preview</div></div></li>)}
                                   </ul>
                                 </div>
                               </div>
