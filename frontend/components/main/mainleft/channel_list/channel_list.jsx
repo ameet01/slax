@@ -26,7 +26,7 @@ class ChannelList extends React.Component {
   }
 
   componentWillUnmount(){
-    document.removeEventListener('keydown', this.keydownHandler);
+    document.removeEventListener('keydown', this.keydownHandler); 
   }
 
   componentWillReceiveProps(nextProps) {
