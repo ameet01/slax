@@ -227,3 +227,9 @@ html, body {
   background: #2ea664;
   color: white;
 }
+
+.emoji-button {
+  width: 20%;
+  background: red;
+  height: 20%;
+}

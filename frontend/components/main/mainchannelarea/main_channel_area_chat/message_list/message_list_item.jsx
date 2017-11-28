@@ -10,7 +10,7 @@ class MessageListItem extends React.Component {
     if(!this.props.user) {
       return null;
     }
-    let image, timeStamp, body, classname;
+    let image, timeStamp, body, classname, emoji;
 
     if(this.props.user === 'no user') {
       image = undefined;
@@ -30,19 +30,21 @@ class MessageListItem extends React.Component {
       } else {
         body = <div className='message-body'>{this.props.message.body}</div>;
       }
-
     }
 
     return (
-      <section className={classname}>
-        {image}
-        <div className='message-content-header'>
-          <div>
-            <span className='message-content-header-user'>{this.props.user.username}</span> {timeStamp}
+      <div>
+        <section className={classname}>
+          {image}
+          <div className='message-content-header'>
+            <div>
+              <span className='message-content-header-user'>{this.props.user.username}</span> {timeStamp}
+            </div>
+            {body}
           </div>
-          {body}
-        </div>
-      </section>
+        </section>
+      </div>
+
     );
   }
 

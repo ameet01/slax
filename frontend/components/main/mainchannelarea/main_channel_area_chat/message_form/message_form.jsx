@@ -72,10 +72,10 @@ class MessageForm extends React.Component {
             'borderRadius': '8px',
             'padding': '7px 7px',
             'z-index': '400',
-            'border': '1px solid lightgray',
+            'border': '1px solid gray',
             'box-shadow': '0 5px 10px rgba(0,0,0,.12)',
             'width': '30%',
-            'height': '30%',
+            'height': '35%',
             'max-width': '100%',
           },
           searchBar: {
