@@ -29,13 +29,15 @@ class MainChannelAreaHeader extends React.Component {
       return null;
     }
 
+    let c = Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).length;
+
     if(this.props.channel.is_dm === false) {
       headerTitle = <div className='main-header-channel'>#{this.props.channel.name} </div>;
-      userCount = <div onClick={this.toggleSideBar} className='main-header-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{this.props.channel.userCount}</span></div>;
+      userCount = <div onClick={this.toggleSideBar} className='main-header-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{c}</span></div>;
     } else {
       headerTitle = <div className='main-header-channel'>{this.props.channel.users.filter(user => this.props.currentUser.username !== user.username).map(user => user.username).join(', ')} </div>;
       if(this.props.channel.userCount > 2) {
-        userCount = <div onClick={this.toggleSideBar} className='main-header-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{this.props.channel.userCount}</span></div>;
+        userCount = <div onClick={this.toggleSideBar} className='main-header-usercount'><i className="fa fa-user-o" aria-hidden="true"></i><span>{c}</span></div>;
       } else if(this.props.channel.userCount === 2) {
         userCount = <div onClick={this.toggleSideBar} className='main-header-usercount'><span>Private Chat</span></div>;
       } else {

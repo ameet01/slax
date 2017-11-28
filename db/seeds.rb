@@ -6,19 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Channel.create(name: 'General')
 
-User.create(username: 'demo1', password: 'password');
-User.create(username: 'demo2', password: 'password');
-User.create(username: 'demo3', password: 'password');
-User.create(username: 'demo4', password: 'password');
-User.create(username: 'demo5', password: 'password');
-User.create(username: 'demo6', password: 'password');
-User.create(username: 'demo7', password: 'password');
-User.create(username: 'demo8', password: 'password');
-User.create(username: 'demo9', password: 'password');
-User.create(username: 'demo10', password: 'password');
-User.create(username: 'demo11', password: 'password');
-User.create(username: 'demo12', password: 'password');
-User.create(username: 'demo13', password: 'password');
-User.create(username: 'demo14', password: 'password');
-User.create(username: 'demo15', password: 'password');
+(0..15).each do |i|
+  user1 = User.create(username: 'demo#{i}', password: 'password', image_url: '');
+  Subscription.create(user_id: user1.id, channel_id: 1)
+end

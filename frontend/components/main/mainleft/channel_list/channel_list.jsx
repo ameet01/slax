@@ -107,7 +107,6 @@ class ChannelList extends React.Component {
     if(this.props.channel === {}) {
       return null;
     }
-
     let modal, modalTitle, modalButton, input, userList, selectedUsers, goButton, preview;
 
     if(this.state.is_dm === true) {
