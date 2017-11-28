@@ -36,7 +36,7 @@ class MessageForm extends React.Component {
     return (
       <section className='message-form'>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
-          <input ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
+          <input id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
 
         </form>
 

@@ -59,7 +59,7 @@ class ChannelList extends React.Component {
       this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.channels[this.props.channels.length - 1].id)}`));
     }
   }
-  
+
   previewChannel(e) {
     e.preventDefault();
     this.closeModal(e);

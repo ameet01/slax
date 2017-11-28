@@ -30,9 +30,9 @@ class ChannelInfo extends React.Component {
         </section>
 
         <section className='channel-info-user-list'>
-          <h1><i class="fa fa-user-o"></i>{this.props.channel.userCount} Members </h1>
+          <h1><i class="fa fa-user-o"></i>{Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).length} Members </h1>
           <ul>
-            {Object.values(this.props.users).map(user => <li className='channel-info-user-li'><img className='channel-info-pics' src={`${user.image_url}`}></img><span>{user.username}</span></li>)}
+            {Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).map(user => <li className='channel-info-user-li'><img className='channel-info-pics' src={`${user.image_url}`}></img><span>{user.username}</span></li>)}
           </ul>
         </section>
       </div>
