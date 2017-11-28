@@ -8,7 +8,10 @@
 
 require 'faker'
 
-
+User.destroy_all
+Channel.destroy_all
+Subscription.destroy_all
+Message.destroy_all
 
 
 channel1 = Channel.create(name: 'General')
