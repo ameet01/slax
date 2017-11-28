@@ -236,4 +236,5 @@ html, body {
 
 .giphy-embed {
   border-left: 2px solid #e8e8e8;
+  padding-left: 2px;
 }
