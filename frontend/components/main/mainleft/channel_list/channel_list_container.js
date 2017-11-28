@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ChannelList from './channel_list';
-import { fetchChannels, createChannel, deleteChannel, removeErrors } from '../../../../actions/channel_actions';
+import { fetchChannel, fetchChannels, createChannel, deleteChannel, clearErrors } from '../../../../actions/channel_actions';
 import { fetchMessages } from '../../../../actions/message_actions';
 import { fetchUsers } from '../../../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
@@ -34,7 +34,8 @@ const mapDispatchToProps = (dispatch) => ({
   createChannel: (channel) => dispatch(createChannel(channel)),
   fetchUsers: () => dispatch(fetchUsers()),
   deleteChannel: (id) => dispatch(deleteChannel(id)),
-  removeErrors: () => dispatch(removeErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  fetchChannel: (id) => dispatch(fetchChannel(id))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelList));

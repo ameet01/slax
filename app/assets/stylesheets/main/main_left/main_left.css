@@ -10,7 +10,7 @@
   flex: 1;
   flex-shrink: 0;
   min-width: 1px;
-  max-width: 260px;
+  max-width: 280px;
   box-sizing: content-box;
-  flex-basis: 220px;
+  flex-basis: 280px;
 }

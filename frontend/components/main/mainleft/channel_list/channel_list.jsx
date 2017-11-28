@@ -36,18 +36,30 @@ class ChannelList extends React.Component {
   }
 
   closeModal(e) {
+    this.props.clearErrors();
     this.setState({browseClosed: "", modalClosed: "", name: "", userList: [], is_dm: false, channelSelect: [], search: ""});
+    this.props.fetchMessages(this.props.match.params.channelId);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearErrors();
     if(this.state.is_dm && this.state.userList.length > 0) {
+
+      for(var i = 0; i < this.props.directmessages.length; i++) {
+        let dmUserList = this.props.directmessages[i].users.map(user => user.id);
+        if(this.state.userList.concat(this.props.currentUser.id).sort().toString() === dmUserList.sort().toString()) {
+          this.props.history.push(`/channels/${this.props.directmessages[i].id}`);
+          this.closeModal();
+          return;
+        }
+      }
       this.props.createChannel({name: `dm_channel${Math.floor(Math.random() * 100000)}`, is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.directmessages[this.props.directmessages.length - 1].id)}`));
     } else {
       this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.channels[this.props.channels.length - 1].id)}`));
     }
   }
-
+  
   previewChannel(e) {
     e.preventDefault();
     this.closeModal(e);
