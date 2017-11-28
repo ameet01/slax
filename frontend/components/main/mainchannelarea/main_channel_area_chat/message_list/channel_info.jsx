@@ -9,7 +9,7 @@ class ChannelInfo extends React.Component {
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId);
     let channelInfo = document.getElementById('channel-info');
-    channelInfo.style.width = '25%';
+    channelInfo.style.width = '30%';
   }
 
   render() {

@@ -29,7 +29,7 @@
 .message-list-item {
   display: flex;
   color: #2C2D30;
-  padding-top: 3px;
+  padding-top: 1px;
   padding-bottom: 3px;
   min-width: 100%;
   height: 100%;
@@ -153,12 +153,12 @@
 }
 
 .message-list-header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-left: 25px;
   padding-top: 120px;
 }
 .message-list-header-title {
-  font-size: 40px;
+  font-size: 37px;
   font-weight: 600;
   margin-bottom: 10px;
 }
