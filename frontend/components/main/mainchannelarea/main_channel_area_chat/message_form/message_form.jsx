@@ -32,6 +32,7 @@ class MessageForm extends React.Component {
 
   handleGifSelection(id) {
     this.setState({body: `https://giphy.com/embed/${id}`});
+    this.showGif();
   }
 
   render() {
@@ -63,10 +64,10 @@ class MessageForm extends React.Component {
             'padding': '7px 7px'
           },
           searchBar: {
-
+            'borderRadius': '5px'
           },
           gifList: {
-
+            'borderRadius': '5px',
           },
           gifListItem: {
 
@@ -80,7 +81,7 @@ class MessageForm extends React.Component {
       <section className='message-form'>
         {giphy}
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
-          <div className='giphy-button' onClick={this.showGif}></div>
+          <div className='giphy-button' onClick={this.showGif}>Gif</div>
           <input autocomplete="off" id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
         </form>
       </section>

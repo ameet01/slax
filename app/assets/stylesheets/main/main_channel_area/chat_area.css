@@ -122,6 +122,10 @@
   border: 1px solid #2c2d30;
 }
 
+.message-form:focus-within .giphy-button {
+  border-right: 1px solid #2c2d30;
+}
+
 .message-form-actual {
   display: flex;
   height: 100%;
@@ -207,4 +211,13 @@ html, body {
 
 .giphy-button {
   width: 3.5%;
+  border-right: 1px solid rgba(160,160,162,.7);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: #2ea664;
+  color: white;
+  font-size: 12px;
+  padding-top: 3px;
 }
