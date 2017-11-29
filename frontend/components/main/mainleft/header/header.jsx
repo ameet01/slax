@@ -29,6 +29,7 @@ class Header extends React.Component {
       e.target.className !== 'main-left-header-title' &&
       e.target.className !== 'main-left-header' &&
       e.target.className !== 'main-left-header-username' &&
+      e.target.className !== 'little-v' &&
       e.target.className !== 'circle') {
       this.setState({open: false});
     }
@@ -48,7 +49,7 @@ class Header extends React.Component {
       <section>
 
         <div onClick={this.showDropdown} className='main-left-header'>
-          <h1 className='main-left-header-title'>Workspace <span>&or;</span></h1>
+          <h1 className='main-left-header-title'>Workspace <span className='little-v'>&or;</span></h1>
           <div className='main-left-header-username-area'><span className='circle'></span><span className='main-left-header-username'>{capitalize(this.props.currentUser.username)}</span></div>
         </div>
 
