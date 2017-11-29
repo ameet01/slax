@@ -352,8 +352,6 @@
   position: relative;
   display: inline-block;
   font-size: 0;
-  padding: 2px 4px;
-  margin-right: 6px;
   height: 17px;
   width: 17px;
 }
@@ -534,4 +532,7 @@
   border-radius: .375rem;
   font-family: Lato;
   font-size: 12px;
+  color: #959595;
+  margin-right: 6px;
+  padding: 1px 4px;
 }

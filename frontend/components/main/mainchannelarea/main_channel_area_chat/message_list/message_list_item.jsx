@@ -64,7 +64,7 @@ class MessageListItem extends React.Component {
       classname = 'message-list-item-nested';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-nested'>
-          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> {emojiCount[emoticon]}</div>)}
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>)}
         </div>;
       } else {
         emoji = undefined;

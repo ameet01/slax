@@ -15,6 +15,7 @@ class ChannelList extends React.Component {
     this.addChannel = this.addChannel.bind(this);
     this.previewChannel = this.previewChannel.bind(this);
     this.removeUser = this.removeUser.bind(this);
+    this.openDMModal = this.openDMModal.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,7 @@ class ChannelList extends React.Component {
         let dmUserList = this.props.directmessages[i].users.map(user => user.id);
         if(this.state.userList.concat(this.props.currentUser.id).sort().toString() === dmUserList.sort().toString()) {
           this.props.history.push(`/channels/${this.props.directmessages[i].id}`);
+          this.props.fetchMessages(this.props.match.params.channelId);
           this.closeModal();
           return;
         }
@@ -101,6 +103,11 @@ class ChannelList extends React.Component {
     e.preventDefault();
     let users = this.state.userList;
     this.setState({userList: users.filter(userId => userId !== e.currentTarget.value)});
+  }
+
+  openDMModal() {
+    this.setState({modalClosed: 'open', is_dm: true});
+    this.props.fetchUsers();
   }
 
   render() {
@@ -229,10 +236,10 @@ class ChannelList extends React.Component {
 
                                 <div className='dm-channels'>
                                   <div className='channels-header-thing'>
-                                    <h1 onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))} className='direct-messages-title'>Direct Messages</h1>
+                                    <h1 onClick={this.openDMModal} className='direct-messages-title'>Direct Messages</h1>
                                   <div
                                       className='plus-sign-create'
-                                      onClick={() => this.props.fetchUsers().then(() =>this.setState({modalClosed: 'open', is_dm: true}))}>
+                                      onClick={this.openDMModal}>
                                       <span>
                                         <i className="fa fa-plus-circle"></i>
                                       </span>
