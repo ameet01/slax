@@ -47,6 +47,16 @@ class MessageListItem extends React.Component {
       return null;
     }
     let image, timeStamp, body, classname, emoji;
+    let emojiCount = {};
+
+    for(var i = 0; i < this.props.emoticons.length; i++) {
+      if(!emojiCount[this.props.emoticons[i].icon]) {
+        emojiCount[this.props.emoticons[i].icon] = 1;
+      } else {
+        emojiCount[this.props.emoticons[i].icon]++;
+      }
+    }
+    console.log(emojiCount);
 
     if(this.props.user === 'no user') {
       image = undefined;
@@ -54,7 +64,7 @@ class MessageListItem extends React.Component {
       classname = 'message-list-item-nested';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-nested'>
-          {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> {emojiCount[emoticon]}</div>)}
         </div>;
       } else {
         emoji = undefined;

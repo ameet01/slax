@@ -302,7 +302,7 @@
   height: 100%;
 }
 
-.message-content-header .emoji-mart-emoji:hover {
+.message-content-header .emoji-box:hover {
   border: 1px solid #4fb0fc;
   color: #4fb0fc;
 }
@@ -352,8 +352,6 @@
   position: relative;
   display: inline-block;
   font-size: 0;
-  border: 1px solid lightgray;
-  border-radius: .375rem;
   padding: 2px 4px;
   margin-right: 6px;
   height: 17px;
@@ -518,7 +516,9 @@
 }
 
 .emoji-button:hover {
-  color: lightblue;
+  color: #4fb0fc;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  border-color: rgba(0,0,0,.3);
 }
 
 .message-list-item:hover .emoji-button {
@@ -527,4 +527,11 @@
 
 .message-list-item-nested:hover .emoji-button {
   visibility: visible;
+}
+
+.emoji-box {
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .375rem;
+  font-family: Lato;
+  font-size: 12px;
 }
