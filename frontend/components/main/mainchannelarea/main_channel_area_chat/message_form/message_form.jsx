@@ -75,7 +75,7 @@ class MessageForm extends React.Component {
         onGifSelection={(id) => this.handleGifSelection(id)}
         styles={{
           wrapper: {
-            'backgroundColor': 'lightblue',
+            'backgroundColor': '#2ea664',
             'position': 'absolute',
             'bottom': '65px',
             'borderRadius': '8px',

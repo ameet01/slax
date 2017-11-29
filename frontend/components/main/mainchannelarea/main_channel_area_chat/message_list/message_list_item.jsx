@@ -51,6 +51,14 @@ class MessageListItem extends React.Component {
       image = undefined;
       timeStamp = undefined;
       classname = 'message-list-item-nested';
+      if(this.props.emoticons.length !== 0) {
+        emoji = <div className='emoji-container-nested'>
+          {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
+        </div>;
+      } else {
+        emoji = undefined;
+      }
+
       if(this.props.message.body.includes('giphy')) {
         body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'><iframe src={this.props.message.body} width="430" height="270" frameBorder="0" className="giphy-embed"></iframe></div></div>;
       } else {
@@ -60,6 +68,14 @@ class MessageListItem extends React.Component {
       image = <img src ={this.props.user.image_url} className='user-message-picture'></img>;
       timeStamp = <span className='message-content-header-timestamp'>{this.props.message.created_at}</span>;
       classname = 'message-list-item';
+      if(this.props.emoticons.length !== 0) {
+        emoji = <div className='emoji-container-main'>
+          {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
+        </div>;
+      } else {
+        emoji = undefined;
+      }
+
       if(this.props.message.body.includes('giphy')) {
         body = body = <div className='message-body'><iframe src={this.props.message.body} width="480" height="320" frameBorder="0" class="giphy-embed"></iframe></div>;
       } else {
@@ -86,9 +102,7 @@ class MessageListItem extends React.Component {
               <span className='message-content-header-user'>{this.props.user.username}</span> {timeStamp}
             </div>
             {body}
-            <div className='emoji-container'>
-              {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
-            </div>
+            {emoji}
           </div>
           <button className='emoji-button' onClick={this.showEmoji}><i class="fa fa-smile-o" aria-hidden="true"></i></button>
         </section>
