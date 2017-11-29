@@ -91,6 +91,8 @@
 }
 
 .plus-sign-create {
+  display: flex;
+  align-items: center;
   font-size: 13px;
   cursor: pointer;
   -webkit-transition: all .3s ease;

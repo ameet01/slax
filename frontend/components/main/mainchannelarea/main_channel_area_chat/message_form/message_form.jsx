@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import GiphySearch from 'react-giphy-search';
 import { CSSTransitionGroup } from 'react-transition-group';
+import ClickOutHandler from 'react-onclickout';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class MessageForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showGif = this.showGif.bind(this);
     this.handleGifSelection = this.handleGifSelection.bind(this);
+    this.clickOut = this.clickOut.bind(this);
   }
 
   handleSubmit(e) {
@@ -44,6 +46,13 @@ class MessageForm extends React.Component {
     this.showGif();
   }
 
+  clickOut(e) {
+    if(this.state.showGif === true &&
+      e.target.className !== 'giphy-button') {
+      this.setState({showGif: false});
+    }
+  }
+
   render() {
     let placeholder;
 
@@ -71,16 +80,16 @@ class MessageForm extends React.Component {
             'bottom': '65px',
             'borderRadius': '8px',
             'padding': '7px 7px',
-            'z-index': '400',
+            'zIndex': '400',
             'border': '1px solid gray',
-            'box-shadow': '0 5px 10px rgba(0,0,0,.12)',
+            'boxShadow': '0 5px 10px rgba(0,0,0,.12)',
             'width': '30%',
             'height': '35%',
-            'max-width': '100%',
+            'maxWidth': '100%',
           },
           searchBar: {
             'borderRadius': '5px',
-            'font-family': 'Lato'
+            'fontFamily': 'Lato'
           },
           gifList: {
             'borderRadius': '5px',
@@ -92,14 +101,18 @@ class MessageForm extends React.Component {
           },
         }}
       />;
-    }
+  } else {
+    giphy = undefined;
+  }
 
 
     return (
       <section className='message-form'>
-        <CSSTransitionGroup transitionName="example">
-          {giphy}
-        </CSSTransitionGroup>
+        <ClickOutHandler onClickOut={this.clickOut}>
+          <CSSTransitionGroup transitionName="example">
+            {giphy}
+          </CSSTransitionGroup>
+        </ClickOutHandler>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
           <div className='giphy-button' onClick={this.showGif}>Gif</div>
           <input autocomplete="off" id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>

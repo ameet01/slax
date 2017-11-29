@@ -24,7 +24,6 @@ class Header extends React.Component {
   }
 
   clickOut(e) {
-    console.log(e);
     if(this.state.open === true &&
       e.target.className !== 'main-left-header-username-area' &&
       e.target.className !== 'main-left-header-title' &&
