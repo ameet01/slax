@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Picker } from 'emoji-mart';
+import { Picker, Emoji } from 'emoji-mart';
+import {linkEmoticonToMessage} from '../../../../../util/emoticon_api_util';
 
 class MessageListItem extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class MessageListItem extends React.Component {
     this.state = {showEmoji: false};
     this.showEmoji = this.showEmoji.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
+    console.log(this.props.emoticons);
   }
 
 
@@ -21,6 +23,10 @@ class MessageListItem extends React.Component {
 
   addEmoji(e) {
     console.log(e);
+    let obj = {user_id: this.props.currentUser.id, message_id: this.props.message.id, icon: JSON.stringify(e)};
+
+    linkEmoticonToMessage(obj);
+    // .then(resp => this.props.updateMessage(JSON.parse(resp.message)));
   }
 
   render() {
@@ -63,8 +69,11 @@ class MessageListItem extends React.Component {
               <span className='message-content-header-user'>{this.props.user.username}</span> {timeStamp}
             </div>
             {body}
+            <div className='emoji-container'>
+              {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
+            </div>
           </div>
-          <button className='emoji-button' onClick={this.showEmoji}></button>
+          <button className='emoji-button' onClick={this.showEmoji}>Emojis</button>
         </section>
       </div>
 

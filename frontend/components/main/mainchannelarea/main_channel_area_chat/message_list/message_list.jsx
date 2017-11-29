@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import MessageListDivider from './message_list_divider';
 import { ClipLoader } from 'react-spinners';
-import {linkEmoticonToMessage} from '../../../../../util/emoticon_api_util';
+
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -117,9 +117,9 @@ class MessageList extends React.Component {
         let obj;
         if(typeof message === 'object') {
           if(array[idx-1].user_id === array[idx].user_id) {
-            obj = <MessageListItem updateMessage={this.props.updateMessage} message={message} user={'no user'} key={message.id}/>;
+            obj = <MessageListItem currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={'no user'} key={message.id}/>;
           } else {
-            obj = <MessageListItem updateMessage={this.props.updateMessage} message={message} user={this.props.users[message.user_id]} key={message.id}/>;
+            obj = <MessageListItem currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={this.props.users[message.user_id]} key={message.id}/>;
           }
         } else if(typeof message === 'string') {
           obj = <MessageListDivider message={message} key={message.id} />;

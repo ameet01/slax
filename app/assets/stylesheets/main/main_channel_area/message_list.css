@@ -294,6 +294,16 @@
   cursor: default;
 }
 
+.emoji-mart-emoji span {
+  width: 20px;
+  height: 20px;
+}
+
+.emoji-container {
+  display: flex;
+  padding-left: 10%;
+}
+
 .emoji-mart-category .emoji-mart-emoji:hover:before {
   z-index: 0;
   content: "";

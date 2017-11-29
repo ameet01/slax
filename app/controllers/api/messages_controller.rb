@@ -40,7 +40,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.find(params[:id])
 
     if @message.update_attributes(message_params)
-      render :show
+      render "api/messages/show"
     else
       render json: @message.errors.full_messages, status: 401
     end

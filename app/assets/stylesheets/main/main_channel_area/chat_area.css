@@ -229,8 +229,8 @@ html, body {
 }
 
 .emoji-button {
-  width: 20%;
-  background: red;
+  width: 100px;
+  background: white;
   height: 20%;
 }
 

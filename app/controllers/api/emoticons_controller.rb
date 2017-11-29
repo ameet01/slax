@@ -2,7 +2,8 @@ class Api::EmoticonsController < ApplicationController
   def create
     @emoticon = Emoticon.new(emoticon_params)
 
-    if @emoticon.save
+    if @emoticon.valid?
+      @emoticon.save
       render "api/emoticons/show"
     else
       render json: @emoticon.errors.full_messages, status: 422
