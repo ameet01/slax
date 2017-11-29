@@ -356,8 +356,8 @@
   border-radius: .375rem;
   padding: 2px 4px;
   margin-right: 6px;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 17px;
 }
 
 .emoji-mart-no-results {
@@ -505,10 +505,12 @@
 .emoji-button {
   border-radius: .375rem;
   position: relative;
+  bottom: 5px;
   right: 20px;
   background: white;
   height: 20%;
-  font-family: Lato;
+  width: 4%;
+  font-size: 18px;
   visibility: hidden;
   color: #717274;
   border: 1px solid rgba(0,0,0,.15);

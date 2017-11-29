@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Picker, Emoji } from 'emoji-mart';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import ClickOutHandler from 'react-onclickout';
-import { receiveMessage, updateMessage, fetchMessages } from '../../../../../actions/message_actions';
+import {receiveMessage, updateMessage, fetchMessages, updateMessageWithEmoticon} from '../../../../../actions/message_actions';
 import {linkEmoticonToMessage} from '../../../../../util/emoticon_api_util';
 
 class MessageListItem extends React.Component {
@@ -29,7 +29,8 @@ class MessageListItem extends React.Component {
     let obj = {user_id: this.props.currentUser.id, message_id: this.props.message.id, icon: JSON.stringify(e)};
 
 
-    linkEmoticonToMessage(obj);
+    linkEmoticonToMessage(obj).then(() => this.props.fetchMessages(this.props.match.params.channelId));
+    //updateMessageWithEmoticon(obj);
     this.showEmoji();
     // .then(fetchMessages(this.props.match.params.channelId));
     // .then(resp => this.props.updateMessage(JSON.parse(resp.message)));

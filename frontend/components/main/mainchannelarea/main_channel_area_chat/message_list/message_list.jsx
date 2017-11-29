@@ -117,9 +117,9 @@ class MessageList extends React.Component {
         let obj;
         if(typeof message === 'object') {
           if(array[idx-1].user_id === array[idx].user_id) {
-            obj = <MessageListItem currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={'no user'} key={message.id}/>;
+            obj = <MessageListItem fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={'no user'} key={message.id}/>;
           } else {
-            obj = <MessageListItem currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={this.props.users[message.user_id]} key={message.id}/>;
+            obj = <MessageListItem fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={this.props.users[message.user_id]} key={message.id}/>;
           }
         } else if(typeof message === 'string') {
           obj = <MessageListDivider message={message} key={message.id} />;

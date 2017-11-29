@@ -221,6 +221,7 @@ html, body {
   font-size: 12px;
   font-weight: 400;
   padding-top: 3px;
+  cursor: pointer;
 }
 
 .giphy-button:hover {
@@ -228,8 +229,7 @@ html, body {
   color: white;
 }
 
-
 .giphy-embed {
-  border-left: 2px solid #e8e8e8;
+  border-left: 4px solid #e8e8e8;
   padding-left: 2px;
 }

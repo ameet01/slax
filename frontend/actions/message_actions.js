@@ -1,4 +1,5 @@
 import * as MessageAPIUtil from '../util/message_api_util';
+import linkEmoticonToMessage from '../util/emoticon_api_util';
 
 export const RECEIVE_ALL_MESSAGES = 'RECEIVE_ALL_MESSAGES';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
@@ -44,4 +45,11 @@ export const createMessage = (message) => dispatch => (
 export const updateMessage = (message) => dispatch => (
   MessageAPIUtil.updateMessage(message)
     .then(c => dispatch(receiveMessage(c)))
+);
+
+
+
+
+export const updateMessageWithEmoticon = (emoticon) => dispatch => (
+  linkEmoticonToMessage(emoticon).then(e => dispatch(receiveMessage(e)))
 );
