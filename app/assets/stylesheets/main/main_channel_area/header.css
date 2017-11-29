@@ -53,7 +53,7 @@
 }
 
 .fa-info-circle {
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   background-color: white;
 }
@@ -66,7 +66,7 @@
   width: 17%;
   z-index: 100000;
   position: absolute;
-  right: 11%;
+  right: 7%;
   top: 30px;
   border: 1px solid black;
   background: white;
@@ -113,15 +113,23 @@
   margin-bottom: 3px;
 }
 
+.fileInput:focus {
+  border: 1px solid black;
+}
+
+.fileInputText:focus {
+  border: 1px solid black;
+}
+
 .imgPreview {
   margin: 10px 0;
-  width: 95%;
+  width: 90%;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
 }
@@ -153,4 +161,15 @@
 
 .submitButton:hover {
   box-shadow: inset 0 -2px rgba(0,0,0,.25);
+}
+
+.fa-cog  {
+  font-size: 25px;
+  cursor: pointer;
+  background-color: white;
+  padding-right: 15px;
+}
+
+.fa-cog:hover {
+  color: #2d9ee0;
 }

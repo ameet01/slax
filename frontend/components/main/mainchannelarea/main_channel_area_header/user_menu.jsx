@@ -8,6 +8,7 @@ class UserMenu extends React.Component {
     this.state = {file: '', imagePreviewUrl: '', online_url: ''};
     this.handleOnlineChange = this.handleOnlineChange.bind(this);
     this.imageExists = this.imageExists.bind(this);
+    this._handleImageChange = this._handleImageChange.bind(this);
   }
 
   _handleSubmit(e) {
@@ -20,18 +21,14 @@ class UserMenu extends React.Component {
   }
 
   imageExists (url){
-
     var image = new Image();
-
     image.src = url;
-
     if (!image.complete) {
         return false;
     }
     else if (image.height === 0) {
         return false;
     }
-
     return true;
   }
 
@@ -53,9 +50,7 @@ class UserMenu extends React.Component {
 
   handleOnlineChange(e) {
     e.preventDefault();
-    if(this.state.imagePreviewUrl !== "") {
-      this.setState({imagePreviewUrl: ""});
-    }
+    this.setState({imagePreviewUrl: "", file: ""});
     this.setState({online_url: e.target.value});
   }
 
@@ -85,7 +80,7 @@ class UserMenu extends React.Component {
               <label><h3>Upload Picture:</h3>
                 <input className="fileInput"
                   type="file"
-                  onChange={(e)=>this._handleImageChange(e)} />
+                  onChange={this._handleImageChange} />
 
                 <label><h3>Or Insert Image URL:</h3>
                   <input className='fileInputText' type='text' onChange={this.handleOnlineChange} value={this.state.online_url} />
