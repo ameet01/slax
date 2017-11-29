@@ -1,5 +1,5 @@
 import
-{RECEIVE_ALL_USERS}
+{RECEIVE_ALL_USERS, RECEIVE_USER}
 from '../actions/user_actions';
 import
 {RECEIVE_ALL_MESSAGES}
@@ -14,6 +14,9 @@ export default (state = [], action) => {
       return action.users;
     case RECEIVE_ALL_MESSAGES:
       return action.payload.users;
+    case RECEIVE_USER:
+      newState[action.user.id] = action.user;
+      return newState;
     default:
       return state;
   }

@@ -50,13 +50,13 @@ class MessageList extends React.Component {
 
     let spinner;
 
-      spinner = <div className='sweet-loading'>
-        <ClipLoader
-          color={'#2d9ee0'}
-          loading={this.state.loading}
-          size={45}
-        />
-      </div>;
+    spinner = <div className='sweet-loading'>
+      <ClipLoader
+        color={'#2d9ee0'}
+        loading={this.state.loading}
+        size={45}
+      />
+    </div>;
 
 
     let array = [];

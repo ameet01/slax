@@ -518,6 +518,7 @@
   color: #717274;
   border: 1px solid rgba(0,0,0,.15);
   transition: all 50ms ease-in 0s;
+  cursor: pointer;
 }
 
 .emoji-button:hover {

@@ -1,10 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import UserMenu from './user_menu';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import ClickOutHandler from 'react-onclickout';
 
 class MainChannelAreaHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {showMenu: false};
     this.toggleSideBar = this.toggleSideBar.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.clickOut = this.clickOut.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,6 +25,16 @@ class MainChannelAreaHeader extends React.Component {
       channelInfo.style.width = '0%';
     } else {
       channelInfo.style.width = '30%';
+    }
+  }
+
+  toggleMenu(e) {
+    this.setState({showMenu: !this.state.showMenu});
+  }
+
+  clickOut(e) {
+    if(this.state.showMenu === true) {
+      this.setState({showMenu: false});
     }
   }
 
@@ -45,14 +61,27 @@ class MainChannelAreaHeader extends React.Component {
       }
     }
 
+    let menu;
+
+    if(this.state.showMenu) {
+      menu = <ClickOutHandler onClickOut={this.clickOut}>
+              <CSSTransitionGroup transitionName="example">
+                <UserMenu currentUser={this.props.currentUser} updateUser={this.props.updateUser} />
+              </CSSTransitionGroup>
+            </ClickOutHandler>;
+    } else {
+      menu = undefined;
+    }
+
     return (
       <section className='main-header'>
         <div className='header-and-user-count-box'>
           {headerTitle}
           {userCount}
         </div>
-        <div className='main-header-right-menubar'><i onClick={this.toggleSideBar} class="fa fa-info-circle" aria-hidden="true"></i></div>
-      </section>
+        {menu}
+        <div className='main-header-right-menubar'><button onClick={this.toggleMenu}>Toggle Menu</button><i onClick={this.toggleSideBar} class="fa fa-info-circle" aria-hidden="true"></i></div>
+    </section>
     );
   }
 }

@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      Subscription.create(user_id: @user.id, channel_id: 1)
+      Subscription.create(user_id: @user.id, user_id: 1)
       render :show
     else
       render json: @user.errors.full_messages, status: 401
@@ -21,7 +21,13 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
 
+    if @user.update_attributes(params.require(:user).permit(:image_url))
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 401
+    end
   end
 
   private
