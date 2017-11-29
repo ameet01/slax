@@ -5,6 +5,7 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import ClickOutHandler from 'react-onclickout';
 import {receiveMessage, updateMessage, fetchMessages, updateMessageWithEmoticon} from '../../../../../actions/message_actions';
 import {linkEmoticonToMessage} from '../../../../../util/emoticon_api_util';
+import uniqBy from 'lodash/uniqBy';
 
 class MessageListItem extends React.Component {
   constructor(props) {
@@ -39,7 +40,6 @@ class MessageListItem extends React.Component {
   }
 
   addEmoji(e) {
-    console.log(e);
     let obj = {user_id: this.props.currentUser.id, message_id: this.props.message.id, icon: JSON.stringify(e)};
 
 
@@ -71,13 +71,25 @@ class MessageListItem extends React.Component {
       }
     }
 
+    let emos = uniqBy(this.props.emoticons, function(e) {
+      return e.icon;
+    });
+
     if(this.props.user === 'no user') {
       image = undefined;
       timeStamp = undefined;
       classname = 'message-list-item-nested';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-nested'>
-          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>)}
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => {
+            let e;
+            if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
+              e = <div className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+            } else {
+              e = <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+            }
+            return e;
+          })}
         </div>;
       } else {
         emoji = undefined;
@@ -94,7 +106,15 @@ class MessageListItem extends React.Component {
       classname = 'message-list-item';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-main'>
-          {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => {
+            let e;
+            if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
+              e = <div className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+            } else {
+              e = <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+            }
+            return e;
+          })}
         </div>;
       } else {
         emoji = undefined;
