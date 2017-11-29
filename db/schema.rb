@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123185626) do
+ActiveRecord::Schema.define(version: 20171129031433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20171123185626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_dm", default: false, null: false
+  end
+
+  create_table "emoticons", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "message_id", null: false
+    t.string "icon", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_emoticons_on_message_id"
+    t.index ["user_id"], name: "index_emoticons_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|

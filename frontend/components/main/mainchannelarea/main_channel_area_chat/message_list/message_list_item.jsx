@@ -1,9 +1,26 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Picker } from 'emoji-mart';
 
 class MessageListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {showEmoji: false};
+    this.showEmoji = this.showEmoji.bind(this);
+    this.addEmoji = this.addEmoji.bind(this);
+  }
+
+
+  showEmoji(e) {
+    if(this.state.showEmoji) {
+      this.setState({showEmoji: false});
+    } else {
+      this.setState({showEmoji: true});
+    }
+  }
+
+  addEmoji(e) {
+    console.log(e);
   }
 
   render() {
@@ -31,9 +48,14 @@ class MessageListItem extends React.Component {
         body = <div className='message-body'>{this.props.message.body}</div>;
       }
     }
+    let picker;
+    if(this.state.showEmoji) {
+      picker = <Picker onClick={this.addEmoji} sheetSize='32' set='emojione'/>;
+    }
 
     return (
       <div>
+        {picker}
         <section className={classname}>
           {image}
           <div className='message-content-header'>
@@ -42,6 +64,7 @@ class MessageListItem extends React.Component {
             </div>
             {body}
           </div>
+          <button className='emoji-button' onClick={this.showEmoji}></button>
         </section>
       </div>
 
