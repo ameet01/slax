@@ -95,7 +95,7 @@ class MessageListItem extends React.Component {
         emoji = undefined;
       }
 
-      if(this.props.message.body.includes('giphy')) {
+      if(this.props.message.body.includes('giphy') && this.props.message.body.includes('http') && this.props.message.body.includes('embed')) {
         body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'><iframe src={this.props.message.body} width="430" height="270" frameBorder="0" className="giphy-embed"></iframe></div></div>;
       } else {
         body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'>{this.props.message.body}</div></div>;
