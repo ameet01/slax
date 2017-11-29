@@ -6,7 +6,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: [], search: ""};
+    this.state = {modalClosed: "", name: "", is_dm: false, userList: [], browseClosed: "", channelSelect: [], search: "", userLoading: false};
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
@@ -107,13 +107,14 @@ class ChannelList extends React.Component {
 
   openDMModal() {
     this.setState({modalClosed: 'open', is_dm: true});
-    this.props.fetchUsers();
+    this.props.fetchUsers().then(this.setState({userLoading: false}));
   }
 
   render() {
     if(this.props.channel === {}) {
       return null;
     }
+
     let modal, modalTitle, modalButton, input, userList, selectedUsers, goButton, preview;
 
     if(this.state.is_dm === true) {

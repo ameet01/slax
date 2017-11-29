@@ -13,8 +13,22 @@ class MessageListItem extends React.Component {
     this.showEmoji = this.showEmoji.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
     this.clickOut = this.clickOut.bind(this);
+    this.keydownHandler = this.keydownHandler.bind(this);
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.keydownHandler);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.keydownHandler);
+  }
+
+  keydownHandler(e) {
+    if(e.keyCode === 27 && this.state.showEmoji === true) {
+      this.setState({showEmoji: false});
+    }
+  }
 
   showEmoji(e) {
     if(this.state.showEmoji) {
@@ -56,7 +70,6 @@ class MessageListItem extends React.Component {
         emojiCount[this.props.emoticons[i].icon]++;
       }
     }
-    console.log(emojiCount);
 
     if(this.props.user === 'no user') {
       image = undefined;

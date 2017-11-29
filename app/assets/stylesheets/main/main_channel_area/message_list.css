@@ -354,6 +354,7 @@
   font-size: 0;
   height: 17px;
   width: 17px;
+  padding-right: 3px;
 }
 
 .emoji-mart-no-results {
@@ -531,8 +532,10 @@
   border: 1px solid rgba(0,0,0,.15);
   border-radius: .375rem;
   font-family: Lato;
-  font-size: 12px;
+  font-size: 11px;
   color: #959595;
   margin-right: 6px;
   padding: 1px 4px;
+  display: flex;
+  align-items: center;
 }
