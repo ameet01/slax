@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Picker, Emoji } from 'emoji-mart';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import ClickOutHandler from 'react-onclickout';
+import { receiveMessage, updateMessage, fetchMessages } from '../../../../../actions/message_actions';
 import {linkEmoticonToMessage} from '../../../../../util/emoticon_api_util';
 
 class MessageListItem extends React.Component {
@@ -9,7 +12,7 @@ class MessageListItem extends React.Component {
     this.state = {showEmoji: false};
     this.showEmoji = this.showEmoji.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
-    console.log(this.props.emoticons);
+    this.clickOut = this.clickOut.bind(this);
   }
 
 
@@ -25,12 +28,21 @@ class MessageListItem extends React.Component {
     console.log(e);
     let obj = {user_id: this.props.currentUser.id, message_id: this.props.message.id, icon: JSON.stringify(e)};
 
+
     linkEmoticonToMessage(obj);
+    this.showEmoji();
+    // .then(fetchMessages(this.props.match.params.channelId));
     // .then(resp => this.props.updateMessage(JSON.parse(resp.message)));
   }
 
+  clickOut(e) {
+    if(this.state.showEmoji === true && e.target.className !== 'emoji-button') {
+      this.setState({showEmoji: false});
+    }
+  }
+
   render() {
-    if(!this.props.user) {
+    if(!this.props.user || !this.props.message || !this.props.emoticons) {
       return null;
     }
     let image, timeStamp, body, classname, emoji;
@@ -56,7 +68,12 @@ class MessageListItem extends React.Component {
     }
     let picker;
     if(this.state.showEmoji) {
-      picker = <Picker onClick={this.addEmoji} sheetSize='32' set='emojione'/>;
+      picker =
+      <ClickOutHandler onClickOut={this.clickOut}>
+        <CSSTransitionGroup transitionName="example">
+          <Picker onClick={this.addEmoji} sheetSize='32' set='emojione'/>
+        </CSSTransitionGroup>
+      </ClickOutHandler>;
     }
 
     return (
@@ -73,7 +90,7 @@ class MessageListItem extends React.Component {
               {this.props.emoticons.map(emoticon => <Emoji key={emoticon.id} emoji={JSON.parse(emoticon.icon)} />)}
             </div>
           </div>
-          <button className='emoji-button' onClick={this.showEmoji}>Emojis</button>
+          <button className='emoji-button' onClick={this.showEmoji}><i class="fa fa-smile-o" aria-hidden="true"></i></button>
         </section>
       </div>
 
