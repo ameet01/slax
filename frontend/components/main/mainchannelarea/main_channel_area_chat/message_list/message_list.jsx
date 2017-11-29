@@ -15,10 +15,10 @@ class MessageList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    document.getElementById('message-list').lastChild.scrollIntoView(false);
+
     if (this.props.match.params.channelId !== newProps.match.params.channelId) {
       this.setState({ loading: true });
-      this.props.fetchMessages(newProps.match.params.channelId).then(() => this.setState({loading: false}));
+      this.props.fetchMessages(newProps.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
 
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
 
