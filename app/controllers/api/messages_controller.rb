@@ -8,7 +8,7 @@ class Api::MessagesController < ApplicationController
 
   def index
     @messages = Message.includes(:emoticons, :user).where(channel_id: params[:channelId])
-    channel = Channel.find_by(id: params[:channelId])
+    channel = Channel.includes(:users).find_by(id: params[:channelId])
     @users = channel.users
     render '/api/messages/index'
   end

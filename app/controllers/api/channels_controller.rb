@@ -2,14 +2,14 @@ class Api::ChannelsController < ApplicationController
   before_action :require_logged_in
 
   def show
-    @channel = Channel.includes(:users, :messages).find(params[:id])
+    @channel = Channel.includes(:users).find(params[:id])
     @userCount = @channel.users.count
     @users = @channel.users
   end
 
   def index
     @channels = current_user.channels.includes(:users)
-    @allChannels = Channel.all.includes(:users) - current_user.channels.includes(:users)
+    @allChannels = Channel.all.includes(:users) - @channels
   end
 
   def create

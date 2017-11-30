@@ -1,6 +1,6 @@
 class Api::EmoticonsController < ApplicationController
   def create
-    @emoticon = Emoticon.new(emoticon_params)
+    @emoticon = Emoticon.new(emoticon_params).includes(:message)
 
     if @emoticon.valid?
       @emoticon.save
