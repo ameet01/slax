@@ -115,7 +115,7 @@ class MessageForm extends React.Component {
         </ClickOutHandler>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
           <div className='giphy-button' onClick={this.showGif}>Gif</div>
-          <input autocomplete="off" id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
+          <input autoComplete="off" id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
         </form>
       </section>
     );

@@ -99,7 +99,7 @@ class SessionForm extends React.Component {
 
                 <section className='session-mid'>
                   <section className='session-mid-form-box'>
-                    <ul className='session-errors'>{this.props.errors.map(error => <li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   {error}</li>)}</ul>
+                    <ul className='session-errors'>{this.props.errors.map(error => <li><i className="fa fa-exclamation-triangle" aria-hidden="true"></i>   {error}</li>)}</ul>
                     <section className='session-mid-form'>
                       <h2 className='session-mid-form-header'>{header}</h2>
                       {enterDetails}

@@ -81,12 +81,12 @@ class MessageListItem extends React.Component {
       classname = 'message-list-item-nested';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-nested'>
-          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => {
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map((emoticon, idx) => {
             let e;
             if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
-              e = <div className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             } else {
-              e = <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             }
             return e;
           })}
@@ -106,12 +106,12 @@ class MessageListItem extends React.Component {
       classname = 'message-list-item';
       if(this.props.emoticons.length !== 0) {
         emoji = <div className='emoji-container-main'>
-          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map(emoticon => {
+          {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map((emoticon, idx) => {
             let e;
             if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
-              e = <div className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             } else {
-              e = <div className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             }
             return e;
           })}
@@ -121,7 +121,7 @@ class MessageListItem extends React.Component {
       }
 
       if(this.props.message.body.includes('giphy')) {
-        body = body = <div className='message-body'><iframe src={this.props.message.body} width="480" height="320" frameBorder="0" class="giphy-embed"></iframe></div>;
+        body = body = <div className='message-body'><iframe src={this.props.message.body} width="480" height="320" frameBorder="0" className="giphy-embed"></iframe></div>;
       } else {
         body = <div className='message-body'>{this.props.message.body}</div>;
       }
@@ -148,7 +148,7 @@ class MessageListItem extends React.Component {
             {body}
             {emoji}
           </div>
-          <button className='emoji-button' onClick={this.showEmoji}><i class="fa fa-smile-o" aria-hidden="true"></i></button>
+          <button className='emoji-button' onClick={this.showEmoji}><i className="fa fa-smile-o" aria-hidden="true"></i></button>
         </section>
       </div>
 

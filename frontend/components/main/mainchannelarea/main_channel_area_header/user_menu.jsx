@@ -50,8 +50,8 @@ class UserMenu extends React.Component {
 
   handleOnlineChange(e) {
     e.preventDefault();
+    this.setState({online_url: e.target.value });
     this.setState({imagePreviewUrl: "", file: ""});
-    this.setState({online_url: e.target.value});
   }
 
   render() {
@@ -83,7 +83,7 @@ class UserMenu extends React.Component {
                   onChange={this._handleImageChange} />
 
                 <label><h3>Or Insert Image URL:</h3>
-                  <input className='fileInputText' type='text' onChange={this.handleOnlineChange} value={this.state.online_url} />
+                  <input className='fileInputText' type='text' onChange={this.handleOnlineChange} onInput={this.handleOnlineChange} value={this.state.online_url} />
                 </label>
               </label>
               <div className="imgPreview">
