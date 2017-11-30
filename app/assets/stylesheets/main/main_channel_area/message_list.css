@@ -317,14 +317,14 @@
   flex-wrap: wrap;
   padding: 4px 0;
   padding-left: 74px;
-  padding-bottom: 3px;
+  padding-bottom: 1px;
 }
 
 .emoji-container-main {
   display: flex;
   flex-wrap: wrap;
   padding: 4px 0;
-  padding-bottom: 3px;
+  padding-bottom: 1px;
 }
 
 .emoji-mart-category .emoji-mart-emoji:hover:before {
