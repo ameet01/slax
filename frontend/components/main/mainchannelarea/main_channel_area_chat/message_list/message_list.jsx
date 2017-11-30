@@ -15,15 +15,12 @@ class MessageList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-
     if (this.props.match.params.channelId !== newProps.match.params.channelId) {
       this.setState({ loading: true });
       this.props.fetchMessages(newProps.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
 
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
-
       var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
-
       channel.bind('create-message', (message) => {
         this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
       });
@@ -118,9 +115,9 @@ class MessageList extends React.Component {
         let obj;
         if(typeof message === 'object') {
           if(array[idx-1].user_id === array[idx].user_id) {
-            obj = <MessageListItem fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={'no user'} key={message.id}/>;
+            obj = <MessageListItem users={this.props.users} fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={'no user'} key={message.id}/>;
           } else {
-            obj = <MessageListItem fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={this.props.users[message.user_id]} key={message.id}/>;
+            obj = <MessageListItem users={this.props.users} fetchMessages={this.props.fetchMessages} currentUser={this.props.currentUser} updateMessage={this.props.updateMessage} message={message} emoticons={message.emoticons} user={this.props.users[message.user_id]} key={message.id}/>;
           }
         } else if(typeof message === 'string') {
           obj = <MessageListDivider message={message} key={message.id} />;

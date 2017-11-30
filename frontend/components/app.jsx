@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import SessionFormContainer from './session/session_form_container';
@@ -13,7 +13,7 @@ const App = () => {
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <ProtectedRoute path='/channels/:channelId' component={MainContainer} />
       <ProtectedRoute path='/channels/:channelId/preview' component={MainContainer} />
-  </div>
+    </div>
   );
 };
 

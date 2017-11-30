@@ -12,7 +12,7 @@ class SplashPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='splash'>
         <section className='splash-header'>
           <Link className='logo-and-thumb'to="/">
             <img className='splash-header-thumb' src='https://cdn.worldvectorlogo.com/logos/slack-1.svg' width='30px'/>
@@ -26,7 +26,7 @@ class SplashPage extends React.Component {
         </section>
 
         <section className='splash-mid'>
-          <img className='splash-mid-picture' src ='https://a.slack-edge.com/52353/marketing/img/home/home_illo@2x.png' />
+          <img className='splash-mid-picture' src ='https://cdn-images-1.medium.com/max/2000/1*N48fpqutpCqswRistXpymw.jpeg' />
           <section className='splash-mid-box'>
             <div className="dom-content-loaded">
               <section className="register">
