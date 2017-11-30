@@ -15,6 +15,15 @@ class MessageListItem extends React.Component {
     this.addEmoji = this.addEmoji.bind(this);
     this.clickOut = this.clickOut.bind(this);
     this.keydownHandler = this.keydownHandler.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
+  }
+
+  toggleClass(e) {
+    if(e.currentTarget.className === 'emoji-box') {
+      e.currentTarget.className = 'emoji-box-recent';
+    } else {
+      e.currentTarget.className = 'emoji-box';
+    }
   }
 
   componentDidMount() {
@@ -84,9 +93,9 @@ class MessageListItem extends React.Component {
           {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map((emoticon, idx) => {
             let e;
             if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
-              e = <div key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             } else {
-              e = <div key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             }
             return e;
           })}
@@ -109,9 +118,9 @@ class MessageListItem extends React.Component {
           {Object.keys(emojiCount).sort((a,b) => emojiCount[b] - emojiCount[a]).map((emoticon, idx) => {
             let e;
             if(Date.now() - new Date(this.props.emoticons.find(emo => emo.icon === emoticon).created_at).getTime() < 180000) {
-              e = <div key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             } else {
-              e = <div key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji emoji={JSON.parse(emoticon)} /> <span>{emojiCount[emoticon]}</span></div>;
             }
             return e;
           })}

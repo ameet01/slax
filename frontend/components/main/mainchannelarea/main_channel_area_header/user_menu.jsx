@@ -9,14 +9,27 @@ class UserMenu extends React.Component {
     this.handleOnlineChange = this.handleOnlineChange.bind(this);
     this.imageExists = this.imageExists.bind(this);
     this._handleImageChange = this._handleImageChange.bind(this);
+    this.eventFire = this.eventFire.bind(this);
   }
 
   _handleSubmit(e) {
     e.preventDefault();
     if(this.imageExists(this.state.online_url)) {
-      this.props.updateUser({id: this.props.currentUser.id, image_url: this.state.online_url });
+      this.props.updateUser({id: this.props.currentUser.id, image_url: this.state.online_url }).then(
+      this.eventFire(document.getElementById('cog'), 'click'));
     } else if(this.imageExists(this.state.imagePreviewUrl)) {
-      this.props.updateUser({id: this.props.currentUser.id, image_url: this.state.imagePreviewUrl });
+      this.props.updateUser({id: this.props.currentUser.id, image_url: this.state.imagePreviewUrl }).then(
+      this.eventFire(document.getElementById('cog'), 'click'));
+    }
+  }
+
+  eventFire(el, etype){
+    if (el.fireEvent) {
+      el.fireEvent('on' + etype);
+    } else {
+      var evObj = document.createEvent('Events');
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
     }
   }
 

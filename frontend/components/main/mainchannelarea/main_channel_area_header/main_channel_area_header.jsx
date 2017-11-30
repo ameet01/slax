@@ -80,7 +80,7 @@ class MainChannelAreaHeader extends React.Component {
           {userCount}
         </div>
         {menu}
-        <div className='main-header-right-menubar'><i onClick={this.toggleMenu} className="fa fa-cog" aria-hidden="true"></i><i onClick={this.toggleSideBar} className="fa fa-info-circle" aria-hidden="true"></i></div>
+        <div className='main-header-right-menubar'><i onClick={this.toggleMenu} id='cog' className="fa fa-cog" aria-hidden="true"></i><i onClick={this.toggleSideBar} className="fa fa-info-circle" aria-hidden="true"></i></div>
     </section>
     );
   }
