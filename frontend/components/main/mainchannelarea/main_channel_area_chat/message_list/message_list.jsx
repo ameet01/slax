@@ -91,8 +91,8 @@ class MessageList extends React.Component {
       }
       if(this.props.channel.is_dm) {
         if(users.length > 4) {
-          title = users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 4}`).concat(' others');
-          paragraph = <p className='message-list-header-paragraph'>This is the very beginning of your direct message history with {users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 4}`).concat(' others.')}</p>
+          title = users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 3}`).concat(' others');
+          paragraph = <p className='message-list-header-paragraph'>This is the very beginning of your direct message history with {users.slice(0,3).filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ').concat(' and ').concat(`${users.length - 3}`).concat(' others.')}</p>
         } else {
           title = users.filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ');
           paragraph = <p className='message-list-header-paragraph'>This is the very beginning of your direct message history with {users.filter(user => user.id !== this.props.currentUser.id).map(user => user.username).join(', ')}</p>

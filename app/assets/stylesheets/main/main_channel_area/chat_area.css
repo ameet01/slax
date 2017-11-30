@@ -40,7 +40,7 @@
   flex-shrink: 0;
   border-bottom: 1px solid #e8e8e8;
   padding: 25px 0;
-  padding-left: 12px;
+  padding-left: 14px;
   padding-bottom: 2px;
 }
 
@@ -116,6 +116,7 @@
   height: 40px;
   min-width: 500px;
   justify-content: flex-end;
+  -webkit-transition: all .3s ease;
 }
 
 .message-form:focus-within {
@@ -222,6 +223,7 @@ html, body {
   font-weight: 400;
   padding-top: 3px;
   cursor: pointer;
+  -webkit-transition: all .3s ease;
 }
 
 .giphy-button:hover {
