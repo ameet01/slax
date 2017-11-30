@@ -88,4 +88,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.serve_static_assets = true
+  config.assets.compress = true
+  config.assets.compile = true
+  config.assets.digest = true
 end
