@@ -34,16 +34,33 @@ class MainChannelAreaChat extends React.Component {
         <button onClick={this.joinChannel} className='preview-join-channel-button'>Join Channel</button>
       </div>;
     } else {
-      bottomArea = <MessageForm channel={this.props.channel} receiveMessage={this.props.receiveMessage} createMessage={this.props.createMessage} currentUser={this.props.currentUser} />;
+      bottomArea =
+        <MessageForm
+          channel={this.props.channel}
+          receiveMessage={this.props.receiveMessage}
+          createMessage={this.props.createMessage}
+          currentUser={this.props.currentUser} />;
     }
     return (
       <section className='main-area'>
         <div id='main-area-left'>
-          <MessageList fetchChannel={this.props.fetchChannel} channel={this.props.channel} receiveMessage={this.props.receiveMessage} fetchMessages={this.props.fetchMessages} messages={this.props.messages} users={this.props.users} currentUser={this.props.currentUser}/>
+          <MessageList
+            fetchChannel={this.props.fetchChannel}
+            channel={this.props.channel}
+            receiveMessage={this.props.receiveMessage}
+            fetchMessages={this.props.fetchMessages}
+            messages={this.props.messages}
+            users={this.props.users}
+            currentUser={this.props.currentUser}/>
           {bottomArea}
         </div>
 
-        <ChannelInfo fetchChannel={this.props.fetchChannel} channel={this.props.channel} messages={this.props.messages} users={this.props.users} currentUser={this.props.currentUser}/>
+        <ChannelInfo
+          fetchChannel={this.props.fetchChannel}
+          channel={this.props.channel}
+          messages={this.props.messages}
+          users={this.props.users}
+          currentUser={this.props.currentUser}/>
       </section>
     );
   }

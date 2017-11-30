@@ -16,5 +16,5 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
-  has_many :emoticons
+  has_many :emoticons, dependent: :destroy
 end
