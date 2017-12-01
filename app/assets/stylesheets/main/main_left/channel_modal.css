@@ -111,6 +111,15 @@
   color: #a0a0a2;
 }
 
+.channel-modal-form .fa-hashtag {
+  position: relative;
+  top: 31px;
+  left: 10px;
+  font-size: 18px;
+  font-weight: 200;
+  color: #a0a0a2;
+}
+
 .close-channel-modal {
   font-size: 30px;
   font-weight: 400;

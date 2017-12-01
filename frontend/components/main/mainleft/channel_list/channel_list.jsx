@@ -115,7 +115,7 @@ class ChannelList extends React.Component {
       return null;
     }
 
-    let modal, modalTitle, modalButton, input, userList, selectedUsers, goButton, preview;
+    let modal, modalTitle, modalButton, input, userList, selectedUsers, goButton, preview, icon;
 
     if(this.state.is_dm === true) {
       if(!(this.state.userList.length > 0)) {
@@ -123,6 +123,7 @@ class ChannelList extends React.Component {
         } else {
           goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
           }
+          icon = <span className="fa fa-search"></span>;
           input = <input type='text' value={this.state.search} placeholder={`Find or start a conversation`} onChange={this.update('search')}></input>;
           modalTitle = <h2 className='modal-title'>Direct Messages</h2>;
             userList = <ul className='dm-user-list'>
@@ -137,6 +138,7 @@ class ChannelList extends React.Component {
               } else {
                 goButton = <button className='go-button green' onClick={this.handleSubmit}>Go</button>;
                 }
+                icon = <i class="fa fa-hashtag" ></i>;
                 input = <input ref={i => i && i.focus()} type='text' placeholder="Name" value={this.state.name} onChange={this.update('name')}></input>;
                   modalTitle = <h2 className='modal-title'>Create a new channel!</h2>;
                     modalButton = <button type='submit' className='modal-button'>Create New Channel</button>;
@@ -150,7 +152,7 @@ class ChannelList extends React.Component {
                         <ul className='channels-errors'>{this.props.errors.map(error => <li>{error}</li>)}</ul>
                         <div className='channel-modal-form'>
                           <div className='title-and-button-dm-form'>{modalTitle}{goButton}</div>
-                          <span className="fa fa-search"></span>
+                          {icon}
                           {input}
                           {selectedUsers}
                           <div className='channel-modal-form-innerdiv'>
