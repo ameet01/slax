@@ -19,7 +19,7 @@ The purpose of this project was to build a full stack application with the funct
 
 Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
 
-* When our MessageList component mounts, we subscribe an open connection to Pusher. We unsubscribe when it will unmount.
+* When our MessageList component mounts, we subscribe an open connection to Pusher. We then make sure to unsubscribe it when the component will unmount.
 
 ```javascript
 componentWillUnmount() {
@@ -95,9 +95,13 @@ Implemented external react tools such as react-giphy-search and emoji-mart to al
 
 <img src='https://github.com/ameet01/slax/blob/master/docs/giphys.gif' width='600px'/>
 
-### Channels & Direct Messages(Single and Group)
+### Direct Messages(Single and Group)
 
-* Users are able to create their own channels, preview others ones, and then join them.
+* Users are able to select users from a modal, and deselect them. Upon clicking enter they are immediately taken to a newly created channel with all the specified users.
+
+<img src='https://github.com/ameet01/slax/blob/master/docs/DirectMessages.gif' />
+
+
 
 ## Future Plans
 
