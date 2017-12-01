@@ -105,9 +105,19 @@ class MessageListItem extends React.Component {
       }
 
       if(this.props.message.body.includes('giphy') && this.props.message.body.includes('http') && this.props.message.body.includes('embed')) {
-        body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'><iframe src={this.props.message.body} width="430" height="270" frameBorder="0" className="giphy-embed"></iframe></div></div>;
+        body =
+        <div className='message-body-nested'>
+          <span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span>
+          <div className='nested-message-body'>
+            <iframe src={this.props.message.body} width="430" height="270" frameBorder="0" className="giphy-embed"></iframe>
+          </div>
+        </div>;
       } else {
-        body = <div className='message-body-nested'><span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span><div className='nested-message-body'>{this.props.message.body}</div></div>;
+        body =
+        <div className='message-body-nested'>
+          <span className='message-content-header-nested-timestamp'>{this.props.message.created_at}</span>
+          <div className='nested-message-body'>{this.props.message.body}</div>
+        </div>;
       }
     } else {
       image = <img src ={this.props.user.image_url} className='user-message-picture'></img>;
@@ -119,9 +129,17 @@ class MessageListItem extends React.Component {
             let e;
             let icon = JSON.parse(emoticon.icon);
             if(this.props.currentUser.id === emoticon.user_id || Date.now() - new Date(icon.created_at).getTime() < 180000) {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e =
+              <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'>
+                <Emoji set='emojione' emoji={icon} />
+                <span>{emojiCount[emoticon.icon]}</span>
+              </div>;
             } else {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e =
+              <div onClick={this.toggleClass} key={idx} className='emoji-box'>
+                <Emoji set='emojione' emoji={icon} />
+                <span>{emojiCount[emoticon.icon]}</span>
+              </div>;
             }
             return e;
           })}
@@ -131,7 +149,7 @@ class MessageListItem extends React.Component {
       }
 
       if(this.props.message.body.includes('giphy')) {
-        body = body = <div className='message-body'><iframe src={this.props.message.body} width="480" height="320" frameBorder="0" className="giphy-embed"></iframe></div>;
+        body = <div className='message-body'><iframe src={this.props.message.body} width="480" height="320" frameBorder="0" className="giphy-embed"></iframe></div>;
       } else {
         body = <div className='message-body'>{this.props.message.body}</div>;
       }
