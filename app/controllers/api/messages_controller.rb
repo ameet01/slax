@@ -29,7 +29,7 @@ class Api::MessagesController < ApplicationController
           date: @message.created_at.localtime.strftime("%A, %B %d")
         }
       )
-      
+
       render 'api/messages/show'
     else
       render json: @message.errors.full_messages, status: 401

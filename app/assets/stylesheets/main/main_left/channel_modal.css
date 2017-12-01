@@ -40,12 +40,12 @@
   background-color: #e1e1e1;
   -webkit-box-shadow: 0 0 1px 3px white;
 }*/
-.message-list ul::-webkit-scrollbar {
+.message-list::-webkit-scrollbar {
   background-color: #f6f4f4;
   border-radius: 8px;
   width: 7px;
 }
-.message-list ul::-webkit-scrollbar-thumb {
+.message-list::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: #e1e1e1;
   -webkit-box-shadow: 0 0 1px 3px white;
