@@ -1,21 +1,19 @@
 ![Header](https://i.imgur.com/w9bqPgp.png)
 
-
 ### Check out the live [Application](http://slax.us)!
 
+# Slax
 
-## Slax
+# Notable Features
 
-## Notable Features
+## Instant Image Updates
 
-# Instant Image Updates
+## Giphys?
 
-# Giphys?
+## Emoticons
 
-# Emoticons
+## Direct Messages(Single and Group)
 
-# Direct Messages(Single and Group)
-
-# Live Chat
+## Live Chat
 
 ## Future Plans
