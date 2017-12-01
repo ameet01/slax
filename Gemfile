@@ -38,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'rails_real_favicon'
 
 gem 'heroku-deflater', :group => :production
 
@@ -47,7 +48,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rails_real_favicon'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
