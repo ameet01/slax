@@ -14,7 +14,9 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
+
     @message = Message.new(message_params)
+
     if @message.save
       Pusher.trigger(
         "channel-#{@message.channel_id}", 'create-message',
@@ -27,6 +29,7 @@ class Api::MessagesController < ApplicationController
           date: @message.created_at.localtime.strftime("%A, %B %d")
         }
       )
+      
       render 'api/messages/show'
     else
       render json: @message.errors.full_messages, status: 401
