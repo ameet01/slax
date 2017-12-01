@@ -59,7 +59,7 @@ channel3 = Channel.create(name: 'Vacations!')
 channel4 = Channel.create(name: 'Harry Potter')
 channel5 = Channel.create(name: 'Programming is fun')
 channel6 = Channel.create(name: 'Coffee Addicts')
-channel7 = Channel.create(name: 'Sports')
+channel7 = Channel.create(name: 'Video Games')
 channel8 = Channel.create(name: 'Pokemon Fan Club')
 channel9 = Channel.create(name: 'Foodies')
 
@@ -167,7 +167,7 @@ Subscription.create(user_id: 20, channel_id: 2)
 Subscription.create(user_id: 21, channel_id: 4)
 Subscription.create(user_id: 21, channel_id: 3)
 Subscription.create(user_id: 21, channel_id: 5)
-Subscription.create(user_id: 21, channel_id: 2)
+Subscription.create(user_id: 21, channel_id: 6)
 
 Subscription.create(user_id: 22, channel_id: 4)
 Subscription.create(user_id: 22, channel_id: 5)
@@ -256,20 +256,41 @@ Message.create(body: 'Oh hey, how\'s it going everyone?', user_id: 16, channel_i
 Message.create(body: 'WOOF WOOF!', user_id: 34, channel_id: 1)
 Message.create(body: 'Calm down ghost.', user_id: 20, channel_id: 1)
 Message.create(body: 'You know nothing Jon Snow', user_id: 24, channel_id: 1)
-#
+
 #channel2
+Message.create(body: 'Who wants to watch some football this sunday??', user_id: 37, channel_id: 2)
+Message.create(body: 'I\'m down, let\'s kick it!', user_id: 26, channel_id: 2)
+Message.create(body: 'https://giphy.com/embed/ofM4yiAivjgUo', user_id: 16, channel_id: 2)
 
 #channel3
+Message.create(body: 'I really want to go to Hawaii, who else is down?', user_id: 34, channel_id: 3)
+Message.create(body: 'Nah let\'s go to Winterfell instead!', user_id: 17, channel_id: 3)
 
 #channel4
+Message.create(body: 'What is everyone\'s favorite book?', user_id: 27, channel_id: 4)
+Message.create(body: 'Chamber of Secrets for sure.', user_id: 37, channel_id: 4)
+Message.create(body: 'I LOVE HARRY!', user_id: 24, channel_id: 4)
+Message.create(body: 'AND DUMBLEDORE!', user_id: 24, channel_id: 4)
+Message.create(body: 'https://giphy.com/embed/BnKICv80t5s9W', user_id: 21, channel_id: 4)
 
 #channel5
+Message.create(body: 'Isn\'t javascript just the best language ever?', user_id: 31, channel_id: 5)
+Message.create(body: 'Nah dude, it\'s all about Ruby! Beautiful language!', user_id: 35, channel_id: 5)
 
 #channel6
+Message.create(body: 'Starbucks or Petes?', user_id: 17, channel_id: 6)
+Message.create(body: 'Neither, it\'s all about Philz coffee!', user_id: 25, channel_id: 6)
+Message.create(body: 'I like mine black', user_id: 21, channel_id: 6)
 
 #channel7
+Message.create(body: 'I can\'t wait for the new Mario game to come out!', user_id: 29, channel_id: 7)
+Message.create(body: 'Who wants to play Halo tonight?', user_id: 19, channel_id: 7)
 
 #channel8
+Message.create(body: 'What\'s everyone\'s favorite pokemon?', user_id: 30, channel_id: 8)
+Message.create(body: 'Slowpoke!', user_id: 36, channel_id: 8)
+Message.create(body: 'https://giphy.com/embed/12YlcIDRmrdMNq', user_id: 36, channel_id: 8)
+Message.create(body: 'I want to be a pokemon master', user_id: 23, channel_id: 8)
 
 
 
