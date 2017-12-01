@@ -141,7 +141,7 @@ class MessageListItem extends React.Component {
     if(this.state.showEmoji) {
       picker =
       <ClickOutHandler onClickOut={this.clickOut}>
-        <CSSTransitionGroup transitionName="example">
+        <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
           <Picker onClick={this.addEmoji} sheetSize='32' set='emojione'/>
         </CSSTransitionGroup>
       </ClickOutHandler>;

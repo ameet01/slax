@@ -111,7 +111,7 @@ class MessageForm extends React.Component {
     return (
       <section className='message-form'>
         <ClickOutHandler onClickOut={this.clickOut}>
-          <CSSTransitionGroup transitionName="example">
+          <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
             {giphy}
           </CSSTransitionGroup>
         </ClickOutHandler>

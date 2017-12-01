@@ -65,7 +65,7 @@ class MainChannelAreaHeader extends React.Component {
 
     if(this.state.showMenu) {
       menu = <ClickOutHandler onClickOut={this.clickOut}>
-              <CSSTransitionGroup transitionName="example">
+              <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
                 <UserMenu currentUser={this.props.currentUser} updateUser={this.props.updateUser} />
               </CSSTransitionGroup>
             </ClickOutHandler>;

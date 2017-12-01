@@ -54,7 +54,7 @@ class Header extends React.Component {
         </div>
 
         <ClickOutHandler onClickOut={this.clickOut}>
-          <CSSTransitionGroup transitionName="example">
+          <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
             {dropdown}
           </CSSTransitionGroup>
         </ClickOutHandler>

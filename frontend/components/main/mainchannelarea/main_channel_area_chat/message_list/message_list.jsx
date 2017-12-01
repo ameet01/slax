@@ -107,7 +107,7 @@ class MessageList extends React.Component {
 
     let fullMessages = <ul>
       {spinner}
-      <CSSTransitionGroup transitionName="example">
+      <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
         {header}
       </CSSTransitionGroup>
 

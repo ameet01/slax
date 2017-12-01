@@ -203,10 +203,10 @@ class ChannelList extends React.Component {
 
                           return (
                             <section className='main-left-channel-list'>
-                              <CSSTransitionGroup transitionName="example">
+                              <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
                                 {modal}
                               </CSSTransitionGroup>
-                              <CSSTransitionGroup transitionName="example">
+                              <CSSTransitionGroup transitionName="example" transitionEnterTimeout={0} transitionLeaveTimeout={0}>
                                 {browseModal}
                               </CSSTransitionGroup>
                               <div>
