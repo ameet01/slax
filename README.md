@@ -19,8 +19,9 @@ The purpose of this project was to build a full stack application with the funct
 
 ### Live Chat
 
-Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
 <img src='https://github.com/ameet01/slax/blob/master/docs/livechat.gif' />
+
+Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
 
 * When our MessageList component mounts, we subscribe an open connection to Pusher. We unsubscribe when it will unmount.
 
