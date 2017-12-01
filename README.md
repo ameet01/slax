@@ -4,7 +4,7 @@
 
 # Slax
 
-![Main Page](https://i.imgur.com/zFvxvgw.jpg)
+![Main Page](https://i.imgur.com/AqIcIkU.jpg)
 
 # Notable Features
 
