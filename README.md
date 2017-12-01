@@ -4,16 +4,18 @@
 
 # Slax
 
+![Main Page](https://i.imgur.com/r2AInZI.jpg)
+
 # Notable Features
 
-## Instant Image Updates
+### Instant Image Updates
 
-## Giphys?
+### Giphys?
 
-## Emoticons
+### Emoticons
 
-## Direct Messages(Single and Group)
+### Direct Messages(Single and Group)
 
-## Live Chat
+### Live Chat
 
 ## Future Plans
