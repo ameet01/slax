@@ -97,7 +97,7 @@ Implemented external react tools such as react-giphy-search and emoji-mart to al
 
 ### Direct Messages(Single and Group)
 
-* Users are able to select users from a modal, and deselect them. Upon clicking enter they are immediately taken to a newly created channel with all the specified users.
+* Users are able to select users from a full-screen modal to start a new direct message. They are also able to deselect the users so they will go back into the list. This is done by keeping an array of selected users in my component's state, and filtering the displayed users by those id's of users in the state. Upon submitting, they are immediately taken to a newly created channel with all the specified users in it. Users are also unable to submit unless there is at least one user selected, as shown by the GO button changing colors on the top right.
 
 <img src='https://github.com/ameet01/slax/blob/master/docs/DirectMessages.gif' />
 
