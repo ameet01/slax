@@ -32,7 +32,7 @@ class ChannelInfo extends React.Component {
         <section className='channel-info-user-list'>
           <h1><i className="fa fa-user-o"></i>{Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).length} Members </h1>
           <ul>
-            {Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).map(user => <li key={user.id} className='channel-info-user-li'><img className='channel-info-pics' src={`${user.image_url}`}></img><span>{user.username} </span></li>)}
+            {Object.values(this.props.users).filter(user => !user.username.startsWith('demo') || user.username === this.props.currentUser.username).map(user => <li key={user.id} className='channel-info-user-li'><img className='channel-info-pics' src={`${user.image_url}`}></img><span>{this.props.currentUser.username === user.username ? user.username.concat(' (You)') : user.username} </span></li>)}
           </ul>
         </section>
       </div>
