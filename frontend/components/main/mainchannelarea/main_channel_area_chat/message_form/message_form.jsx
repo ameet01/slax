@@ -95,7 +95,9 @@ class MessageForm extends React.Component {
             'borderRadius': '5px',
             'display': 'flex',
             'flexWrap': 'wrap',
-            'paddingLeft': '7px'
+            'paddingLeft': '7px',
+            'overflow-y': 'auto',
+            'overflow-x': 'hidden'
           },
           gifListItem: {
           },
