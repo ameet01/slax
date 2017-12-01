@@ -23,8 +23,8 @@ class Api::MessagesController < ApplicationController
           body: @message.body,
           user_id: @message.user_id,
           channel_id: @message.channel_id,
-          created_at: @message.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%l:%M %p"),
-          date: @message.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%A, %B %d")
+          created_at: @message.created_at.localtime.strftime("%l:%M %p"),
+          date: @message.created_at.localtime.strftime("%A, %B %d")
         }
       )
       render 'api/messages/show'
