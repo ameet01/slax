@@ -51,7 +51,6 @@ class MessageListItem extends React.Component {
   addEmoji(e) {
     let obj = {user_id: this.props.currentUser.id, message_id: this.props.message.id, icon: JSON.stringify(e)};
 
-
     linkEmoticonToMessage(obj).then(() => this.props.fetchMessages(this.props.match.params.channelId));
     //updateMessageWithEmoticon(obj);
     this.showEmoji();
