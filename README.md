@@ -10,7 +10,7 @@
 
 ### Live Chat
 
-![Live Chat](https://i.imgur.com/poHlUJ0.mp4)
+![Live Chat](https://github.com/ameet01/slax/blob/master/docs/Live%20Chat%20-%20Production%20Readme.gif)
 
 ### Instant Image Updates
 
