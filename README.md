@@ -8,7 +8,7 @@
 
 # Technologies
 
-* Ruby on rails
+* Ruby on Rails
 * React
 * Redux
 * Websockets (Pusher)
@@ -32,10 +32,10 @@ Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time
 
 Using react allowed me to incorporate real time updating based on user input. The onChange react method updates the user input in the state of our component, which is always checked to see if it is a valid image or not. If it isn't, "Loading..." will be displayed, if it is, the image is shown.
 
-<img src='https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif' width='290px'/>
+<img src='https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif' width='270px'/>
 
 
-### Giphys?
+### Giphys
 
 ### Emoticons
 

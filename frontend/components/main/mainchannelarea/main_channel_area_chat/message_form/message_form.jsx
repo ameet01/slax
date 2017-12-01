@@ -100,6 +100,7 @@ class MessageForm extends React.Component {
             'overflow-x': 'hidden'
           },
           gifListItem: {
+            'width': '98%',
           },
         }}
       />;
