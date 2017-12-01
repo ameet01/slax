@@ -1,4 +1,3 @@
-![header-picture][logo]
-[logo]: https://imgur.com/afvbJcN "Logo"
+![Header](https://i.imgur.com/afvbJcN.png)
 
-Check out the live [Application](http://slax.us)!
+### Check out the live [Application](http://slax.us)!
