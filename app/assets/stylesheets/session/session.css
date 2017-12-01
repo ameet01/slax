@@ -30,11 +30,11 @@
 }
 
 .session-header img {
-  -webkit-transform: rotate(250deg);
-  -moz-transform: rotate(250deg);
-  -ms-transform: rotate(250deg);
-  -o-transform: rotate(250deg);
-  transform: rotate(250deg);
+  -webkit-transform: rotate(288deg);
+  -moz-transform: rotate(288deg);
+  -ms-transform: rotate(288deg);
+  -o-transform: rotate(288deg);
+  transform: rotate(288deg);
   flex: 1;
 }
 
