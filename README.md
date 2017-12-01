@@ -21,23 +21,24 @@ The purpose of this project was to build a full stack application with the funct
 
 Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
 <img src='https://github.com/ameet01/slax/blob/master/docs/livechat.gif' />
--When our MessageList component mounts, we subscribe an open connection to Pusher. We unsubscribe when it will unmount.
+
+* When our MessageList component mounts, we subscribe an open connection to Pusher. We unsubscribe when it will unmount.
 
 ```javascript
 componentWillUnmount() {
-    pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
+  pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
 }
 
 componentDidMount() {
-  this.props.fetchMessages(this.props.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+  this.props.fetchMessages(this.props.match.params.channelId)
   var channel = pusher.subscribe(`channel-${this.props.match.params.channelId}`);
 
   channel.bind('create-message', (message) => {
-    this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+    this.props.fetchMessages(this.props.match.params.channelId)
   });
 }
 ```
--When a user submits a message, our rails controller will trigger that open connection and send a json message to it. Pusher will then update the client instantly.
+* When a user submits a message, our rails controller will trigger that open connection and send a json message to it. Pusher will then update the client instantly.
 
 ```javascript
 @message = Message.new(message_params)
@@ -59,6 +60,7 @@ if @message.save
 ### Instant Image Updates
 
 Using react allowed me to incorporate real time updating based on user input. The onChange react method updates the user input in the state of our component, which is always checked to see if it is a valid image or not. This can be done by instantiating an Image object and using the .complete function.
+
 <img src='https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif' width='270px'/>
 ```javascript  
 imageExists (url){
