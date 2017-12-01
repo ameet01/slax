@@ -91,7 +91,7 @@ render() {
 
 ### Giphys & Emoticons
 
-Implemented external react tools such as react-giphy-search and emoji-mart to allow users to have some fun!
+Implemented external react tools such as react-giphy-search and emoji-mart to allow users to have some fun! Both modules used api calls that returned json objects, which I then used in my MessagesController to update or create a message. Immediately after I would then call my fetchMessages() action to update the front end.
 
 <img src='https://github.com/ameet01/slax/blob/master/docs/giphys.gif' width='600px'/>
 
@@ -106,5 +106,6 @@ Implemented external react tools such as react-giphy-search and emoji-mart to al
 ## Future Plans
 
 * Notifications
+* Infinite scroll
 * Editing a channel
 * Reactions increment or decrement by 1 based on the user
