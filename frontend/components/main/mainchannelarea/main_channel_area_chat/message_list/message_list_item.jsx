@@ -93,9 +93,9 @@ class MessageListItem extends React.Component {
             let e;
             let icon = JSON.parse(emoticon.icon);
             if(this.props.currentUser.id === emoticon.user_id || Date.now() - new Date(icon.created_at).getTime() < 180000) {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
             } else {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
             }
             return e;
           })}
@@ -119,9 +119,9 @@ class MessageListItem extends React.Component {
             let e;
             let icon = JSON.parse(emoticon.icon);
             if(this.props.currentUser.id === emoticon.user_id || Date.now() - new Date(icon.created_at).getTime() < 180000) {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box-recent'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
             } else {
-              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
+              e = <div onClick={this.toggleClass} key={idx} className='emoji-box'><Emoji set='emojione' emoji={icon} /> <span>{emojiCount[emoticon.icon]}</span></div>;
             }
             return e;
           })}
