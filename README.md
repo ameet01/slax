@@ -63,6 +63,7 @@ if @message.save
 Using react allowed me to incorporate real time updating based on user input. The onChange react method updates the user input in the state of our component, which is always checked to see if it is a valid image or not. This can be done by instantiating an Image object and using the .complete function.
 
 <img src='https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif' width='270px'/>
+
 ```javascript  
 imageExists (url){
   var image = new Image();
