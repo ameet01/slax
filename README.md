@@ -1,4 +1,4 @@
-![logo](https://imgur.com/afvbJcN)
+![header-picture][logo]
+[logo]: https://imgur.com/afvbJcN "Logo"
 
-
-Check out the live [Application](www.slax.us)!
+Check out the live [Application](http://slax.us)!
