@@ -10,12 +10,12 @@
 
 ### Live Chat
 
-Slax utilizes websockets via [Pusher](http://pusher.com/) to establish live chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
-<img src='https://github.com/ameet01/slax/blob/master/docs/livechat.gif' width='600px' />
+Slax utilizes websockets via [Pusher](http://pusher.com/) to establish real-time chat. When a user submits a new message, our client notifies the server to send a message to others who are already viewing the channel.
+<img src='https://github.com/ameet01/slax/blob/master/docs/livechat.gif' />
 * When our MessageList component mounts, we subscribe an open connection to Pusher. We unsubscribe when it will unmount.
 
   <img src='https://i.imgur.com/aQnw6HT.png' width='350px' />
-* When a user submits a message, our rails controller will trigger that open connection and send a json message to the client. Pusher will then update the front end.
+* When a user submits a message, our rails controller will trigger that open connection and send a json message to it. Pusher will then update the client instantly.
 
   <img src='https://i.imgur.com/3fwytud.png' width='350px' />
 
@@ -23,11 +23,11 @@ Slax utilizes websockets via [Pusher](http://pusher.com/) to establish live chat
 
 ### Instant Image Updates
 
-Using react allowed me to incorporate real time updating based on user input.
+Using react allowed me to incorporate real time updating based on user input. The onChange react method updates the user input in the state of our component, which is always checked to see if it is a valid image or not. If it isn't, "Loading..." will be displayed, if it is, the image is shown.
 
-![Image Update](https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif)
+<img src='https://github.com/ameet01/slax/blob/master/docs/Live%20photo%20update.gif' width='290px'/>
 
-The onChange react method updates the user input in the state of our component, which is always checked to see if it is a valid image or not. If it isn't, "Loading..." will be displayed, if it is, the image is shown.
+
 
 ### Giphys?
 

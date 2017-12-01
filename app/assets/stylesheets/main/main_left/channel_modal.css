@@ -170,11 +170,15 @@
 }
 
 .selected-users li {
-  padding: 4px 8px;
   background: #2d9ee0;
+  padding: 1px 0;
+  padding-left: 1px;
+  padding-right: 8px;
   border-radius: 5px;
   color: white;
+  display: flex;
   font-weight: 900;
+  height: 20px;
   font-size: 14px;
   margin-right: 2px;
   margin-bottom: 2px;
@@ -182,7 +186,6 @@
 }
 
 .selected-users li span {
-  opacity: 0.55;
   font-size: 12px;
   padding-left: 3px;
   -webkit-transition: all .3s ease;
@@ -190,6 +193,25 @@
 
 .selected-users li:hover span {
   opacity: 1;
+}
+
+.selected-users-picture {
+  height: 100%;
+  padding-left: 1px;
+}
+
+.selected-users-username-x {
+  display: flex;
+  align-items: center;
+}
+
+.selected-users-username {
+  width: 100%:
+  color: white;
+}
+
+.x {
+  opacity: 0.55;
 }
 
 .go-button {
