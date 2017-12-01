@@ -22,7 +22,7 @@ class MessageList extends React.Component {
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
       var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
       channel.bind('create-message', (message) => {
-        this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+        this.props.fetchMessages(newProps.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
       });
     }
   }
@@ -43,7 +43,6 @@ class MessageList extends React.Component {
 
   render() {
     let {messages} = this.props;
-
 
     let spinner;
 
