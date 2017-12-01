@@ -62,17 +62,24 @@ channel6 = Channel.create(name: 'Coffee Addicts')
 channel7 = Channel.create(name: 'Video Games')
 channel8 = Channel.create(name: 'Pokemon Fan Club')
 channel9 = Channel.create(name: 'Foodies')
+channel10 = Channel.create(name: 'Ultimate Frisbee League')
+channel11 = Channel.create(name: 'Fantasy Football')
+channel12 = Channel.create(name: 'Game of Thrones')
+channel13 = Channel.create(name: 'Spongebob Squarepants')
+channel14 = Channel.create(name: 'Happy Hour')
 
 
 Subscription.create(user_id: 1, channel_id: 2)
 Subscription.create(user_id: 1, channel_id: 4)
 Subscription.create(user_id: 1, channel_id: 5)
 Subscription.create(user_id: 1, channel_id: 9)
+Subscription.create(user_id: 1, channel_id: 10)
 
 Subscription.create(user_id: 2, channel_id: 3)
 Subscription.create(user_id: 2, channel_id: 4)
 Subscription.create(user_id: 2, channel_id: 7)
 Subscription.create(user_id: 2, channel_id: 8)
+Subscription.create(user_id: 2, channel_id: 11)
 
 Subscription.create(user_id: 3, channel_id: 2)
 Subscription.create(user_id: 3, channel_id: 9)
@@ -83,31 +90,37 @@ Subscription.create(user_id: 4, channel_id: 2)
 Subscription.create(user_id: 4, channel_id: 4)
 Subscription.create(user_id: 4, channel_id: 5)
 Subscription.create(user_id: 4, channel_id: 3)
+Subscription.create(user_id: 4, channel_id: 12)
 
 Subscription.create(user_id: 5, channel_id: 7)
 Subscription.create(user_id: 5, channel_id: 2)
 Subscription.create(user_id: 5, channel_id: 3)
 Subscription.create(user_id: 5, channel_id: 9)
+Subscription.create(user_id: 5, channel_id: 11)
 
 Subscription.create(user_id: 6, channel_id: 3)
 Subscription.create(user_id: 6, channel_id: 4)
 Subscription.create(user_id: 6, channel_id: 5)
 Subscription.create(user_id: 6, channel_id: 8)
+Subscription.create(user_id: 6, channel_id: 11)
 
 Subscription.create(user_id: 7, channel_id: 4)
 Subscription.create(user_id: 7, channel_id: 5)
 Subscription.create(user_id: 7, channel_id: 8)
-Subscription.create(user_id: 7, channel_id: 4)
+Subscription.create(user_id: 7, channel_id: 2)
+Subscription.create(user_id: 8, channel_id: 14)
 
 Subscription.create(user_id: 8, channel_id: 3)
 Subscription.create(user_id: 8, channel_id: 4)
 Subscription.create(user_id: 8, channel_id: 7)
 Subscription.create(user_id: 8, channel_id: 8)
+Subscription.create(user_id: 8, channel_id: 14)
 
 Subscription.create(user_id: 9, channel_id: 7)
 Subscription.create(user_id: 9, channel_id: 4)
 Subscription.create(user_id: 9, channel_id: 2)
 Subscription.create(user_id: 9, channel_id: 9)
+Subscription.create(user_id: 9, channel_id: 13)
 
 Subscription.create(user_id: 10, channel_id: 3)
 Subscription.create(user_id: 10, channel_id: 2)
@@ -118,41 +131,50 @@ Subscription.create(user_id: 11, channel_id: 8)
 Subscription.create(user_id: 11, channel_id: 2)
 Subscription.create(user_id: 11, channel_id: 3)
 Subscription.create(user_id: 11, channel_id: 9)
+Subscription.create(user_id: 11, channel_id: 10)
 
 Subscription.create(user_id: 12, channel_id: 3)
 Subscription.create(user_id: 12, channel_id: 2)
 Subscription.create(user_id: 12, channel_id: 7)
 Subscription.create(user_id: 12, channel_id: 4)
+Subscription.create(user_id: 12, channel_id: 10)
 
 Subscription.create(user_id: 13, channel_id: 9)
 Subscription.create(user_id: 13, channel_id: 8)
 Subscription.create(user_id: 13, channel_id: 7)
 Subscription.create(user_id: 13, channel_id: 6)
+Subscription.create(user_id: 13, channel_id: 13)
 
 Subscription.create(user_id: 14, channel_id: 3)
 Subscription.create(user_id: 14, channel_id: 4)
 Subscription.create(user_id: 14, channel_id: 6)
 Subscription.create(user_id: 14, channel_id: 8)
+Subscription.create(user_id: 14, channel_id: 12)
 
 Subscription.create(user_id: 15, channel_id: 2)
 Subscription.create(user_id: 15, channel_id: 8)
 Subscription.create(user_id: 15, channel_id: 7)
 Subscription.create(user_id: 15, channel_id: 4)
+Subscription.create(user_id: 15, channel_id: 12)
 
 Subscription.create(user_id: 16, channel_id: 2)
 Subscription.create(user_id: 16, channel_id: 8)
 Subscription.create(user_id: 16, channel_id: 7)
 Subscription.create(user_id: 16, channel_id: 4)
+Subscription.create(user_id: 16, channel_id: 9)
+Subscription.create(user_id: 16, channel_id: 11)
 
 Subscription.create(user_id: 17, channel_id: 4)
 Subscription.create(user_id: 17, channel_id: 3)
 Subscription.create(user_id: 17, channel_id: 6)
 Subscription.create(user_id: 17, channel_id: 5)
+Subscription.create(user_id: 17, channel_id: 14)
 
-Subscription.create(user_id: 18, channel_id: 2)
+Subscription.create(user_id: 18, channel_id: 9)
 Subscription.create(user_id: 18, channel_id: 3)
 Subscription.create(user_id: 18, channel_id: 4)
 Subscription.create(user_id: 18, channel_id: 5)
+Subscription.create(user_id: 18, channel_id: 14)
 
 Subscription.create(user_id: 19, channel_id: 6)
 Subscription.create(user_id: 19, channel_id: 7)
@@ -163,56 +185,70 @@ Subscription.create(user_id: 20, channel_id: 4)
 Subscription.create(user_id: 20, channel_id: 6)
 Subscription.create(user_id: 20, channel_id: 8)
 Subscription.create(user_id: 20, channel_id: 2)
+Subscription.create(user_id: 20, channel_id: 11)
 
 Subscription.create(user_id: 21, channel_id: 4)
 Subscription.create(user_id: 21, channel_id: 3)
 Subscription.create(user_id: 21, channel_id: 5)
 Subscription.create(user_id: 21, channel_id: 6)
+Subscription.create(user_id: 21, channel_id: 9)
+Subscription.create(user_id: 21, channel_id: 11)
 
 Subscription.create(user_id: 22, channel_id: 4)
 Subscription.create(user_id: 22, channel_id: 5)
 Subscription.create(user_id: 22, channel_id: 2)
 Subscription.create(user_id: 22, channel_id: 6)
+Subscription.create(user_id: 22, channel_id: 14)
 
 Subscription.create(user_id: 23, channel_id: 8)
 Subscription.create(user_id: 23, channel_id: 5)
 Subscription.create(user_id: 23, channel_id: 3)
 Subscription.create(user_id: 23, channel_id: 2)
+Subscription.create(user_id: 23, channel_id: 11)
+Subscription.create(user_id: 23, channel_id: 9)
 
 Subscription.create(user_id: 24, channel_id: 4)
 Subscription.create(user_id: 24, channel_id: 3)
 Subscription.create(user_id: 24, channel_id: 2)
 Subscription.create(user_id: 24, channel_id: 6)
+Subscription.create(user_id: 24, channel_id: 12)
 
 Subscription.create(user_id: 25, channel_id: 5)
 Subscription.create(user_id: 25, channel_id: 4)
 Subscription.create(user_id: 25, channel_id: 2)
 Subscription.create(user_id: 25, channel_id: 7)
+Subscription.create(user_id: 25, channel_id: 10)
+Subscription.create(user_id: 25, channel_id: 13)
 
 Subscription.create(user_id: 26, channel_id: 7)
 Subscription.create(user_id: 26, channel_id: 8)
 Subscription.create(user_id: 26, channel_id: 2)
 Subscription.create(user_id: 26, channel_id: 3)
+Subscription.create(user_id: 26, channel_id: 12)
 
 Subscription.create(user_id: 27, channel_id: 4)
 Subscription.create(user_id: 27, channel_id: 3)
 Subscription.create(user_id: 27, channel_id: 2)
 Subscription.create(user_id: 27, channel_id: 6)
+Subscription.create(user_id: 27, channel_id: 12)
 
 Subscription.create(user_id: 28, channel_id: 5)
 Subscription.create(user_id: 28, channel_id: 4)
 Subscription.create(user_id: 28, channel_id: 3)
 Subscription.create(user_id: 28, channel_id: 2)
+Subscription.create(user_id: 28, channel_id: 11)
 
 Subscription.create(user_id: 29, channel_id: 2)
 Subscription.create(user_id: 29, channel_id: 6)
 Subscription.create(user_id: 29, channel_id: 7)
 Subscription.create(user_id: 29, channel_id: 8)
+Subscription.create(user_id: 29, channel_id: 10)
 
 Subscription.create(user_id: 30, channel_id: 7)
 Subscription.create(user_id: 30, channel_id: 6)
 Subscription.create(user_id: 30, channel_id: 5)
 Subscription.create(user_id: 30, channel_id: 8)
+Subscription.create(user_id: 30, channel_id: 14)
 
 Subscription.create(user_id: 31, channel_id: 6)
 Subscription.create(user_id: 31, channel_id: 5)
@@ -223,21 +259,26 @@ Subscription.create(user_id: 32, channel_id: 8)
 Subscription.create(user_id: 32, channel_id: 2)
 Subscription.create(user_id: 32, channel_id: 7)
 Subscription.create(user_id: 32, channel_id: 3)
+Subscription.create(user_id: 32, channel_id: 10)
 
 Subscription.create(user_id: 33, channel_id: 4)
 Subscription.create(user_id: 33, channel_id: 3)
 Subscription.create(user_id: 33, channel_id: 2)
-Subscription.create(user_id: 33, channel_id: 2)
+Subscription.create(user_id: 33, channel_id: 9)
+Subscription.create(user_id: 33, channel_id: 13)
 
 Subscription.create(user_id: 34, channel_id: 5)
 Subscription.create(user_id: 34, channel_id: 4)
 Subscription.create(user_id: 34, channel_id: 3)
 Subscription.create(user_id: 34, channel_id: 2)
+Subscription.create(user_id: 34, channel_id: 10)
+Subscription.create(user_id: 34, channel_id: 13)
 
 Subscription.create(user_id: 35, channel_id: 3)
 Subscription.create(user_id: 35, channel_id: 6)
 Subscription.create(user_id: 35, channel_id: 5)
 Subscription.create(user_id: 35, channel_id: 7)
+Subscription.create(user_id: 35, channel_id: 13)
 
 Subscription.create(user_id: 36, channel_id: 8)
 Subscription.create(user_id: 36, channel_id: 7)
@@ -248,6 +289,7 @@ Subscription.create(user_id: 37, channel_id: 2)
 Subscription.create(user_id: 37, channel_id: 3)
 Subscription.create(user_id: 37, channel_id: 4)
 Subscription.create(user_id: 37, channel_id: 7)
+Subscription.create(user_id: 37, channel_id: 10)
 
 #channel1
 Message.create(body: 'Hi everyone!', user_id: 36, channel_id: 1)
@@ -279,7 +321,7 @@ Message.create(body: 'Nah dude, it\'s all about Ruby! Beautiful language!', user
 
 #channel6
 Message.create(body: 'Starbucks or Petes?', user_id: 17, channel_id: 6)
-Message.create(body: 'Neither, it\'s all about Philz coffee!', user_id: 25, channel_id: 6)
+Message.create(body: 'Neither, it\'s all about Philz coffee!', user_id: 27, channel_id: 6)
 Message.create(body: 'I like mine black', user_id: 21, channel_id: 6)
 
 #channel7
@@ -291,6 +333,33 @@ Message.create(body: 'What\'s everyone\'s favorite pokemon?', user_id: 30, chann
 Message.create(body: 'Slowpoke!', user_id: 36, channel_id: 8)
 Message.create(body: 'https://giphy.com/embed/12YlcIDRmrdMNq', user_id: 36, channel_id: 8)
 Message.create(body: 'I want to be a pokemon master', user_id: 23, channel_id: 8)
+
+#channel9
+Message.create(body: 'I\'m hungry', user_id: 18, channel_id: 9)
+Message.create(body: 'https://giphy.com/embed/3ohzdFCn9mYfmuAmEU', user_id: 18, channel_id: 9)
+Message.create(body: 'Me too, let\'s grab Taco Bell!', user_id: 33, channel_id: 9)
+
+#channel10
+Message.create(body: 'You guys in to play ultimate frisbee this saturday?', user_id: 34, channel_id: 10)
+Message.create(body: 'Anyone???', user_id: 34, channel_id: 10)
+Message.create(body: 'Good talk guys.', user_id: 34, channel_id: 10)
+
+#channel11
+Message.create(body: 'Draft is tomorrow guys, remember to bring chips and beer!', user_id: 23, channel_id: 11)
+Message.create(body: 'Sweet, I can\`t wait to pick Aaron Rodgers in the first round', user_id: 28, channel_id: 11)
+
+#channel12
+Message.create(body: 'What is... game of thrones?', user_id: 24, channel_id: 12)
+Message.create(body: 'Who knows, sounds fun though', user_id: 27, channel_id: 12)
+
+#channel13
+Message.create(body: 'SPONGEBOB!!!', user_id: 25, channel_id: 13)
+Message.create(body: 'https://giphy.com/embed/lTQF0ODLLjhza', user_id: 25, channel_id: 13)
+Message.create(body: 'Stop being such a child, that\'s a children\'s show.', user_id: 35, channel_id: 13)
+
+#channel14
+Message.create(body: 'Drinks at Paddy\'s Pub this friday after work??', user_id: 30, channel_id: 14)
+Message.create(body: 'Let\'s do it! It\'s been a crazy week.', user_id: 17, channel_id: 14)
 
 
 

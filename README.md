@@ -2,10 +2,6 @@
 
 ### Check out the live [Application](http://slax.us)!
 
-# Slax
-
-![Main Page](https://i.imgur.com/AqIcIkU.jpg)
-
 ## Technologies
 
 * Ruby on Rails
