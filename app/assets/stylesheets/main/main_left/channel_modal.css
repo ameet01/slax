@@ -21,21 +21,26 @@
 }
 
 .channel-modal-form-innerdiv {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100%;
   margin-top: 15px;
   padding-right: 15px;
 }
 
-.channel-modal-form-innerdiv::-webkit-scrollbar {
-  -webkit-appearance: none;
+
+
+::-webkit-scrollbar {
+  background-color: #f6f4f4;
+  border-radius: 8px;
   width: 7px;
 }
-.channel-modal-form-innerdiv::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: lightgray;
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #e1e1e1;
+  -webkit-box-shadow: 0 0 1px 3px white;
 }
+
 
 .modal-title {
   font-size: 35px;
