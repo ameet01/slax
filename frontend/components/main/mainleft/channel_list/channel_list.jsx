@@ -115,7 +115,7 @@ class ChannelList extends React.Component {
 
   openDMModal() {
     this.setState({modalClosed: 'open', is_dm: true});
-    this.props.fetchUsers().then(this.setState({userLoading: false}));
+    this.props.fetchUsers();
   }
 
   render() {
@@ -223,7 +223,7 @@ class ChannelList extends React.Component {
 
                                 <div className='channels-header-thing'>
                                   <h1 className='channels-header-thing-h1' onClick={() => this.setState({browseClosed: 'open', is_dm: false})}>Channels</h1>
-                                  <div className="channels-tooltip">Browse All Channels</div>
+                                  <div className="channels-tooltip">Create a channel</div>
                                   <div
                                     className='plus-sign-create'
                                     onClick={() => this.setState({modalClosed: 'open', is_dm: false})}>
