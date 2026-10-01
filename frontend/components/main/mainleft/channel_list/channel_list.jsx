@@ -246,14 +246,16 @@ class ChannelList extends React.Component {
                                 </div>
 
                                 <div className='dm-channels'>
-                                  <div className='channels-header-thing' onClick={() => this.openDMModal()}>
-                                    <h1 className='direct-messages-title'>Direct Messages</h1>
-                                  <div
-                                      className='plus-sign-create'>
+                                  <div className='channels-header-thing'>
+                                    <h1 onClick={() => this.openDMModal()} className='direct-messages-title'>Direct Messages</h1>
+                                    <button
+                                      className='plus-sign-create'
+                                      onClick={() => this.openDMModal()}
+                                      aria-label='Open direct message'>
                                       <span>
                                         <i className="fa fa-plus-circle"></i>
                                       </span>
-                                    </div>
+                                    </button>
                                   </div>
 
                                   <ul>
