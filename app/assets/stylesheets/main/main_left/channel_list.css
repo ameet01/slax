@@ -96,6 +96,8 @@
   cursor: pointer;
   -webkit-transition: all .3s ease;
   margin-right: 15px;
+  position: relative;
+  z-index: 10;
 }
 
 .channels-header-thing {
