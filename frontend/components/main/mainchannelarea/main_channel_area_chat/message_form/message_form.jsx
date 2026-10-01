@@ -1,8 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import GiphySearch from 'react-giphy-search';
+import GifPicker from './gif_picker';
 import { CSSTransitionGroup } from 'react-transition-group';
 import ClickOutHandler from 'react-onclickout';
+
+const scrollMessageListToBottom = () => {
+  const list = document.getElementById('message-list');
+  if (list && list.lastChild) list.lastChild.scrollIntoView(false);
+};
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -18,7 +23,7 @@ class MessageForm extends React.Component {
     e.preventDefault();
     let body = this.state.body;
     this.setState({body: ""});
-    this.props.createMessage({body: body, channel_id: this.props.match.params.channelId, user_id: this.props.currentUser.id }).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+    this.props.createMessage({body: body, channel_id: this.props.match.params.channelId, user_id: this.props.currentUser.id }).then(() => scrollMessageListToBottom());
   }
 
   componentWillReceiveProps(nextProps) {
@@ -70,44 +75,15 @@ class MessageForm extends React.Component {
 
     let giphy;
 
-    if(this.state.showGif) {
-      giphy = <GiphySearch
-        onGifSelection={(id) => this.handleGifSelection(id)}
-        styles={{
-          wrapper: {
-            'backgroundColor': '#2ea664',
-            'position': 'absolute',
-            'bottom': '65px',
-            'borderRadius': '8px',
-            'padding': '7px 7px',
-            'zIndex': '400',
-            'border': '1px solid gray',
-            'boxShadow': '0 5px 10px rgba(0,0,0,.12)',
-            'width': '30%',
-            'height': '35%',
-            'maxWidth': '100%',
-          },
-          searchBar: {
-            'borderRadius': '5px',
-            'fontFamily': 'Lato'
-          },
-          gifList: {
-            'borderRadius': '5px',
-            'display': 'flex',
-            'flexWrap': 'wrap',
-            'paddingLeft': '7px',
-            'overflow-y': 'auto',
-            'overflow-x': 'hidden'
-          },
-          gifListItem: {
-            'width': '98%'
-          },
-        }}
-      />;
-  } else {
-    giphy = undefined;
-  }
+    if (this.state.showGif && window.GIPHY_API_KEY) {
+      giphy = <GifPicker onSelect={(id) => this.handleGifSelection(id)} />;
+    } else {
+      giphy = undefined;
+    }
 
+    const gifButton = window.GIPHY_API_KEY
+      ? <div className='giphy-button' onClick={this.showGif}>Gif</div>
+      : null;
 
     return (
       <section className='message-form'>
@@ -117,7 +93,7 @@ class MessageForm extends React.Component {
           </CSSTransitionGroup>
         </ClickOutHandler>
         <form className='message-form-actual' onSubmit={this.handleSubmit}>
-          <div className='giphy-button' onClick={this.showGif}>Gif</div>
+          {gifButton}
           <input autoComplete="off" id='message-form-input' ref={i => i && i.focus()} type='text' value={this.state.body} placeholder={placeholder} onChange={this.update('body')}></input>
         </form>
       </section>

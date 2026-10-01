@@ -25,6 +25,11 @@ default: &default
 development:
   <<: *default
   database: Slack_development
+  # Override with PGHOST/PGPORT/PGUSER when your Postgres isn't on the
+  # default socket (e.g. DATABASE_URL-style setups). Unset = original behavior.
+  host: <%= ENV['PGHOST'] %>
+  port: <%= ENV['PGPORT'] %>
+  username: <%= ENV['PGUSER'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -59,6 +64,9 @@ development:
 test:
   <<: *default
   database: Slack_test
+  host: <%= ENV['PGHOST'] %>
+  port: <%= ENV['PGPORT'] %>
+  username: <%= ENV['PGUSER'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +89,7 @@ test:
 #
 production:
   <<: *default
-  database: Slack_production
-  username: Slack
-  password: <%= ENV['SLACK_DATABASE_PASSWORD'] %>
+  # Production database comes entirely from DATABASE_URL (e.g. Neon, Supabase,
+  # or Render Postgres). Set DATABASE_URL in the hosting dashboard; nothing
+  # secret lives in this file.
+  url: <%= ENV['DATABASE_URL'] %>

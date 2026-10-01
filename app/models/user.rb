@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :subscriptions
+  has_many :emoticons
 
   has_many :channels,
   through: :subscriptions

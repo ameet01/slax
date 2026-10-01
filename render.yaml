@@ -1,0 +1,37 @@
+# Render Blueprint for Slax (Rails 7.1)
+# Deploy: push this repo to GitHub, then in Render Dashboard -> New -> Blueprint,
+# point it at the repo. Fill in the env vars below when prompted.
+services:
+  - type: web
+    name: slax
+    runtime: ruby
+    plan: free
+    buildCommand: >-
+      bundle install &&
+      npm install --legacy-peer-deps &&
+      NODE_ENV=production npx webpack &&
+      bundle exec rails assets:precompile &&
+      bundle exec rails db:migrate
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_SERVE_STATIC_FILES
+        value: true
+      - key: RAILS_LOG_TO_STDOUT
+        value: true
+      - key: DATABASE_URL
+        sync: false # paste your Neon/Supabase/Render Postgres connection string
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: PUSHER_APP_ID
+        sync: false # optional: free Pusher Channels sandbox app
+      - key: PUSHER_KEY
+        sync: false
+      - key: PUSHER_SECRET
+        sync: false
+      - key: PUSHER_CLUSTER
+        value: us2
+      - key: GIPHY_API_KEY
+        sync: false # optional: free key from developers.giphy.com for the Gif button

@@ -56,9 +56,17 @@ class ChannelList extends React.Component {
           return;
         }
       }
-      this.props.createChannel({name: `dm_channel${Math.floor(Math.random() * 100000)}`, is_dm: this.state.is_dm, userList: this.state.userList}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.directmessages[this.props.directmessages.length - 1].id)}`));
+      this.props.createChannel({name: `dm_channel${Math.floor(Math.random() * 100000)}`, is_dm: this.state.is_dm, userList: this.state.userList}).then((action) => {
+        this.closeModal();
+        // Navigate using the created channel from the response, not the
+        // (possibly stale) props list.
+        if (action && action.channel) this.props.history.push(`/channels/${action.channel.id}`);
+      });
     } else {
-      this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then(() => this.closeModal()).then(() => this.props.history.push(`/channels/${parseInt(this.props.channels[this.props.channels.length - 1].id)}`));
+      this.props.createChannel({name: this.state.name, is_dm: this.state.is_dm}).then((action) => {
+        this.closeModal();
+        if (action && action.channel) this.props.history.push(`/channels/${action.channel.id}`);
+      });
     }
   }
 

@@ -13,25 +13,26 @@
 
   <%= render 'application/favicon' %>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110475019-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-110475019-1');
-  </script>
-
-
-  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-
-  <script>
-    var pusher = new Pusher('2368b1d2b3bf3d271a72', {
-      cluster: 'us2',
-      encrypted: true
-    });
-  </script>
+  <% if ENV['PUSHER_KEY'].present? %>
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script>
+      var pusher = new Pusher('<%= ENV['PUSHER_KEY'] %>', {
+        cluster: '<%= ENV.fetch('PUSHER_CLUSTER', 'us2') %>',
+        encrypted: true
+      });
+    </script>
+  <% else %>
+    <!-- No Pusher key configured: realtime updates disabled, everything else works. -->
+    <script>
+      var pusher = {
+        subscribe: function() { return { bind: function() {}, unbind: function() {} }; },
+        unsubscribe: function() {}
+      };
+    </script>
+  <% end %>
+  <% if ENV['GIPHY_API_KEY'].present? %>
+    <script>window.GIPHY_API_KEY = '<%= j ENV['GIPHY_API_KEY'] %>';</script>
+  <% end %>
 </head>
 
 <body>

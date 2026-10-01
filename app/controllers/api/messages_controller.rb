@@ -9,16 +9,15 @@ class Api::MessagesController < ApplicationController
   def index
     @messages = Message.includes(:emoticons, :user).where(channel_id: params[:channelId])
     channel = Channel.includes(:users).find_by(id: params[:channelId])
-    @users = channel.users
+    @users = channel ? channel.users : []
     render '/api/messages/index'
   end
 
   def create
-
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
 
     if @message.save
-      Pusher.trigger(
+      pusher_trigger(
         "channel-#{@message.channel_id}", 'create-message',
         {
           id: @message.id,
@@ -42,7 +41,7 @@ class Api::MessagesController < ApplicationController
   def update
     @message = Message.find(params[:id])
 
-    if @message.update_attributes(message_params)
+    if @message.update(message_params)
       render "api/messages/show"
     else
       render json: @message.errors.full_messages, status: 401
@@ -51,6 +50,8 @@ class Api::MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body, :user_id, :channel_id)
+    # user_id is never taken from the client; messages are always
+    # attributed to the logged-in user.
+    params.require(:message).permit(:body, :channel_id)
   end
 end

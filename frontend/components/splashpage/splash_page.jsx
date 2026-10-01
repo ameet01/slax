@@ -1,13 +1,34 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { defaultChannelId } from '../../util/default_channel';
 
 class SplashPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleGetStarted = this.handleGetStarted.bind(this);
   }
 
   componentDidMount () {
     window.scrollTo(0, 0);
+  }
+
+  handleGetStarted() {
+    // Guest login creates a fresh throwaway account, so it works on any
+    // database (no seeded demo users required).
+    const suffix = Math.floor(Math.random() * 1000000);
+    this.props.signup({ username: `guest-${suffix}`, password: `guest-pass-${suffix}` })
+      .then((action) => {
+        if (action && action.type === RECEIVE_CURRENT_USER) {
+          return this.props.fetchChannels();
+        }
+      })
+      .then((action) => {
+        if (action) {
+          const id = defaultChannelId(action.channels);
+          if (id) this.props.history.push(`/channels/${id}`);
+        }
+      });
   }
 
   render() {
@@ -51,10 +72,7 @@ class SplashPage extends React.Component {
             </p>
             <button
               className='demobutton'
-              onClick={() => this.props.login({
-                username: `demo${Math.floor(Math.random() * (16 - 1) + 1)}`,
-                password: 'password'}).then(() => this.props.history.push('/channels/1'))
-              }>GET STARTED
+              onClick={this.handleGetStarted}>GET STARTED
             </button>
           </section>
 

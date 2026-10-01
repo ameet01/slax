@@ -2,7 +2,7 @@
   json.set! channel.id do
     json.extract! channel, :id, :name, :description, :is_dm
     json.userCount channel.users.count
-    json.users channel.users
+    json.users channel.users, partial: 'api/users/user', as: :user
     json.created_at channel.created_at.strftime("%A, %B %d")
   end
 end

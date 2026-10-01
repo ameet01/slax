@@ -44,7 +44,7 @@ characters = [
 
 
 (1..15).each do |i|
-  user1 = User.create(username: "demo#{i}", password: 'password', image_url: UiFaces.face);
+  user1 = User.create(username: "demo#{i}", password: 'password', image_url: Faker::Avatar.image);
   Subscription.create(user_id: user1.id, channel_id: channel1.id)
 end
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { fetchChannels } from '../../actions/channel_actions';
+import { defaultChannelId } from '../../util/default_channel';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,11 +11,6 @@ class SessionForm extends React.Component {
       username: "",
       password: ""
     };
-
-    var http = require("http");
-    setInterval(function() {
-      http.get("https://slack-fullstack.herokuapp.com/");
-    }, 300000);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
@@ -27,7 +25,17 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state)).then(() => this.props.history.push('/channels/1'));
+    this.props.processForm(Object.assign({}, this.state)).then((action) => {
+      // Only redirect on successful auth; failed attempts stay to show errors.
+      if (action && action.type === RECEIVE_CURRENT_USER) this.redirectToDefaultChannel();
+    });
+  }
+
+  redirectToDefaultChannel() {
+    this.props.fetchChannels().then((action) => {
+      const id = defaultChannelId(action.channels);
+      if (id) this.props.history.push(`/channels/${id}`);
+    });
   }
 
   update(property) {
@@ -43,16 +51,20 @@ class SessionForm extends React.Component {
 
   handleDemo(event) {
     event.preventDefault();
-    this.simType('demo-user', 'username');
-    this.simType('djskwpqiw', 'password');
+    // Guest login creates a fresh throwaway account, so it works on any
+    // database (no seeded demo users required).
+    const suffix = Math.floor(Math.random() * 1000000);
+    this.guestCreds = { username: `guest-${suffix}`, password: `guest-pass-${suffix}` };
+    this.simType(this.guestCreds.username, 'username');
+    this.simType(this.guestCreds.password, 'password');
     this.demoLogin = setTimeout(this.handleDemoLogin, 1800);
   }
 
   handleDemoLogin() {
-    let number = Math.floor(Math.random() * (16 - 1) + 1);
-    this.props.login({
-        username: `demo${number}`,
-        password: 'password'}).then(() => this.props.history.push('/channels/1'));
+    const creds = this.guestCreds || { username: 'demo-user', password: 'password' };
+    this.props.signup(creds).then((action) => {
+      if (action && action.type === RECEIVE_CURRENT_USER) this.redirectToDefaultChannel();
+    });
   }
 
   simType (input, field) {

@@ -1,6 +1,8 @@
 class Api::EmoticonsController < ApplicationController
+  before_action :require_logged_in
+
   def create
-    @emoticon = Emoticon.includes(:message).new(emoticon_params)
+    @emoticon = current_user.emoticons.new(emoticon_params)
 
     if @emoticon.valid?
       @emoticon.save
@@ -11,16 +13,18 @@ class Api::EmoticonsController < ApplicationController
   end
 
   def destroy
-    @emoticon = Emoticon.find_by(id: params[:id])
-    if @emoticon.destroy
+    @emoticon = current_user.emoticons.find_by(id: params[:id])
+    if @emoticon&.destroy
       render json: @emoticon.id
     else
-      render(json: ["Can't find emoticon"],status: 404)
+      render(json: ["Can't find emoticon"], status: 404)
     end
   end
 
   private
   def emoticon_params
-    params.require(:emoticon).permit(:user_id, :message_id, :icon)
+    # user_id is never taken from the client; reactions are always
+    # attributed to the logged-in user.
+    params.require(:emoticon).permit(:message_id, :icon)
   end
 end

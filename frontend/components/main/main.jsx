@@ -10,7 +10,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     var channel = pusher.subscribe('channel');
-    channel.bind('update-channel', function(id) {
+    channel.bind('update-channel', (id) => {
       this.props.fetchChannel(id);
     });
   }

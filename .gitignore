@@ -24,3 +24,8 @@ bundle.js.map
 .byebug_history
 .DS_Store
 npm-debug.log
+public/assets
+
+# local-only artifacts
+vendor/cache/
+hidden_files/

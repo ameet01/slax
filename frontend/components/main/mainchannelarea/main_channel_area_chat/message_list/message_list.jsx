@@ -14,15 +14,22 @@ class MessageList extends React.Component {
     };
   }
 
+  scrollToBottom() {
+    const list = document.getElementById('message-list');
+    if (list && list.lastChild) {
+      list.lastChild.scrollIntoView(false);
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.channelId !== newProps.match.params.channelId) {
       this.setState({ loading: true });
-      this.props.fetchMessages(newProps.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+      this.props.fetchMessages(newProps.match.params.channelId).then(() => this.setState({loading: false})).then(() => this.scrollToBottom());
 
       pusher.unsubscribe(`channel-${this.props.match.params.channelId}`);
       var channel = pusher.subscribe(`channel-${newProps.match.params.channelId}`);
       channel.bind('create-message', (message) => {
-        this.props.fetchMessages(newProps.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+        this.props.fetchMessages(newProps.match.params.channelId).then(() => this.scrollToBottom());
       });
     }
   }
@@ -32,11 +39,11 @@ class MessageList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages(this.props.match.params.channelId).then(() => this.setState({loading: false})).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+    this.props.fetchMessages(this.props.match.params.channelId).then(() => this.setState({loading: false})).then(() => this.scrollToBottom());
     var channel = pusher.subscribe(`channel-${this.props.match.params.channelId}`);
 
     channel.bind('create-message', (message) => {
-      this.props.fetchMessages(this.props.match.params.channelId).then(() => document.getElementById('message-list').lastChild.scrollIntoView(false));
+      this.props.fetchMessages(this.props.match.params.channelId).then(() => this.scrollToBottom());
     });
   }
 

@@ -25,7 +25,7 @@ class Api::ChannelsController < ApplicationController
         Subscription.create(user_id: current_user.id, channel_id: @channel.id)
       end
       render :show
-      Pusher.trigger('channel', 'update-channel', @channel.id)
+      pusher_trigger('channel', 'update-channel', @channel.id)
     else
       render json: @channel.errors.full_messages, status: 401
     end
@@ -44,9 +44,9 @@ class Api::ChannelsController < ApplicationController
   def update
     @channel = Channel.find(params[:id])
 
-    if @channel.update_attributes(channel_params)
+    if @channel.update(channel_params)
       render :show
-      Pusher.trigger('channel', 'update-channel', @channel.id)
+      pusher_trigger('channel', 'update-channel', @channel.id)
     else
       render json: @channel.errors.full_messages, status: 401
     end
