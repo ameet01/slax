@@ -167,7 +167,7 @@ class ChannelList extends React.Component {
                             {userList}
                           </div>
                         </div>
-                        <div onClick={this.closeModal} className='close-channel-modal'>X</div>
+                        <div onClick={() => this.closeModal()} className='close-channel-modal'>X</div>
                       </div>;
                     }
 
@@ -204,7 +204,7 @@ class ChannelList extends React.Component {
                                   </ul>
                                 </div>
                               </div>
-                              <div onClick={this.closeModal} className='close-channel-modal'>X</div>
+                              <div onClick={() => this.closeModal()} className='close-channel-modal'>X</div>
                             </div>;
                           } else {
                             browseModal === undefined;
@@ -247,10 +247,10 @@ class ChannelList extends React.Component {
 
                                 <div className='dm-channels'>
                                   <div className='channels-header-thing'>
-                                    <h1 onClick={this.openDMModal} className='direct-messages-title'>Direct Messages</h1>
+                                    <h1 onClick={() => this.openDMModal()} className='direct-messages-title'>Direct Messages</h1>
                                   <div
                                       className='plus-sign-create'
-                                      onClick={this.openDMModal}>
+                                      onClick={() => this.openDMModal()}>
                                       <span>
                                         <i className="fa fa-plus-circle"></i>
                                       </span>
