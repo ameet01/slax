@@ -167,7 +167,7 @@ class ChannelList extends React.Component {
                             {userList}
                           </div>
                         </div>
-                        <div onClick={() => this.closeModal()} className='close-channel-modal'>X</div>
+                        <button onClick={() => this.closeModal()} className='close-channel-modal' aria-label='Close'>X</button>
                       </div>;
                     }
 
@@ -204,7 +204,7 @@ class ChannelList extends React.Component {
                                   </ul>
                                 </div>
                               </div>
-                              <div onClick={() => this.closeModal()} className='close-channel-modal'>X</div>
+                              <button onClick={() => this.closeModal()} className='close-channel-modal' aria-label='Close'>X</button>
                             </div>;
                           } else {
                             browseModal === undefined;
