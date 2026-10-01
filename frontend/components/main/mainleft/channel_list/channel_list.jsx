@@ -37,6 +37,7 @@ class ChannelList extends React.Component {
   }
 
   closeModal(e) {
+    this.props.clearErrors();
     this.setState({browseClosed: "", modalClosed: "", name: "", userList: [], is_dm: false, channelSelect: [], search: ""});
     // this.props.fetchMessages(this.props.match.params.channelId);
   }
